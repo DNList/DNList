@@ -57,17 +57,17 @@ export async function fetchLeaderboard() {
             return;
         }
 
-        // FirstVictor - FIXED: Renamed variable to avoid shadowing
-        const firstVictorUsername = Object.keys(scoreMap).find(
+        // FirstVictor
+        const firstvictor = Object.keys(scoreMap).find(
             (u) => u.toLowerCase() === level.firstvictor.toLowerCase(),
         ) || level.firstvictor;
-        scoreMap[firstVictorUsername] ??= {
+        scoreMap[firstvictor] ??= {
             firstvictor: [],
             completed: [],
             progressed: [],
         };
-        // FIXED: Access the array directly without destructuring
-        scoreMap[firstVictorUsername].firstvictor.push({
+        const { firstvictor } = scoreMap[firstvictor];
+        firstvictor.push({
             rank: rank + 1,
             level: level.name,
             score: score(rank + 1, 100, level.percentToQualify),
@@ -80,7 +80,7 @@ export async function fetchLeaderboard() {
                 (u) => u.toLowerCase() === record.user.toLowerCase(),
             ) || record.user;
             scoreMap[user] ??= {
-                firstvictor: [],  // FIXED: Changed from "verified"
+                verified: [],
                 completed: [],
                 progressed: [],
             };
@@ -107,8 +107,8 @@ export async function fetchLeaderboard() {
 
     // Wrap in extra Object containing the user and total score
     const res = Object.entries(scoreMap).map(([user, scores]) => {
-        const { firstvictor, completed, progressed } = scores;  // FIXED: Changed from "verified"
-        const total = [firstvictor, completed, progressed]  // FIXED: Changed from "verified"
+        const { firstvictor, completed, progressed } = scores;
+        const total = [firstvictor, completed, progressed]
             .flat()
             .reduce((prev, cur) => prev + cur.score, 0);
 
