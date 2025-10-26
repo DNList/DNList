@@ -5,7 +5,7 @@ export default {
             required: true,
         },
         status: {
-            type: Array,
+            type: string,
             required: true,
         },
         firstvictor: {
@@ -19,16 +19,6 @@ export default {
                 <div class="type-title-sm">Creator & Verifier</div>
                 <p class="type-body">
                     <span>{{ author }}</span>
-                </p>
-            </template>
-            <template v-else-if="creators.length === 0">
-                <div class="type-title-sm">Creator</div>
-                <p class="type-body">
-                    <span>{{ author }}</span>
-                </p>
-                <div class="type-title-sm">First Victor</div>
-                <p class="type-body">
-                    <span>{{ firstvictor }}</span>
                 </p>
             </template>
             <template v-else>
@@ -50,7 +40,7 @@ export default {
 
     computed: {
         selfVerified() {
-            return this.status === this.firstvictor && this.creators.length === 0;
+            return this.status === this.firstvictor;
         },
     },
 };
