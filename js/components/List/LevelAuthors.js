@@ -4,11 +4,11 @@ export default {
             type: String,
             required: true,
         },
-        creators: {
+        status: {
             type: Array,
             required: true,
         },
-        verifier: {
+        firstvictor: {
             type: String,
             required: true,
         },
@@ -26,22 +26,19 @@ export default {
                 <p class="type-body">
                     <span>{{ author }}</span>
                 </p>
-                <div class="type-title-sm">Verifier</div>
+                <div class="type-title-sm">First Victor</div>
                 <p class="type-body">
-                    <span>{{ verifier }}</span>
+                    <span>{{ firstvictor }}</span>
                 </p>
             </template>
             <template v-else>
-                <div class="type-title-sm">Creators</div>
+                <div class="type-title-sm">Status</div>
                 <p class="type-body">
-                    <template v-for="(creator, index) in creators" :key="\`creator-\$\{creator\}\`">
-                        <span >{{ creator }}</span
-                        ><span v-if="index < creators.length - 1">, </span>
-                    </template>
+                    <span>{{ status }}</span>
                 </p>
                 <div class="type-title-sm">Verifier</div>
                 <p class="type-body">
-                    <span>{{ verifier }}</span>
+                    <span>{{ firstvictor }}</span>
                 </p>
             </template>
             <div class="type-title-sm">Publisher</div>
@@ -53,7 +50,7 @@ export default {
 
     computed: {
         selfVerified() {
-            return this.author === this.verifier && this.creators.length === 0;
+            return this.status === this.firstvictor && this.creators.length === 0;
         },
     },
 };
