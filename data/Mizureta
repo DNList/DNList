@@ -1,0 +1,18 @@
+{
+    "id": 95764848,
+    "name": "Mizureta",
+    "author": "Dutchiee",
+    "status": ["BEATEN"],
+    "verifier": "Ninjedu",
+    "verification": "https://youtu.be/oLXFunC-oGA?si=SR8uKy-JBVtNqLmP",
+    "percentToQualify": "65",
+    "password": "-",
+    "records": [
+        {
+            "user": "Ninjedu",
+            "link": "No video",
+            "percent": 100,
+            "hz": 240
+        }
+    ]
+}
