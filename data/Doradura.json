@@ -1,24 +1,24 @@
 {
     "id": 77114615,
     "name": "Doradura",
-    "author": "Different Publisher",
+    "author": "IvashaUA",
     "creators": ["Solo_Creator"],
-    "verifier": "Solo_Creator",
-    "verification": "https://www.youtube.com/watch?v=ISTl28wKSXc",
+    "verifier": "Lolencio04",
+    "verification": "https://youtu.be/oLXFunC-oGA?si=SR8uKy-JBVtNqLmP",
     "percentToQualify": "100",
     "password": "46290",
     "records": [
         {
-            "user": "Sample_Victor_1",
-            "link": "https://www.youtube.com/watch?v=MgJeijBGKHU",
+            "user": "Lolencio04",
+            "link": "https://youtu.be/oLXFunC-oGA?si=SR8uKy-JBVtNqLmP",
             "percent": 100,
-            "hz": 360
+            "hz": 240
         },
         {
             "user": "Sample_Victor_2",
             "link": "https://www.youtube.com/watch?v=MgJeijBGKHU",
-            "percent": 100,
-            "hz": 120
+            "percent": 50,
+            "hz": 144
         }
     ]
 }
