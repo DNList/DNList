@@ -1,0 +1,18 @@
+{
+    "id": 60660086,
+    "name": "Multition (2P)",
+    "author": "Mulpan",
+    "creators": ["-"],
+    "verifier": "Lolencio04",
+    "verification": "https://youtu.be/Syg3tZctvC0?si=HNSGLRPU3VZ5AKTZ",
+    "percentToQualify": "70",
+    "password": "-",
+    "records":[
+       {
+            "user": "Ninjedu",
+            "link": "No video",
+            "percent": 100,
+            "hz": 360
+        }
+    ]
+}
