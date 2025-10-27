@@ -1,14 +1,15 @@
 .page-changelog-container {
     display: block;
+    max-width: 100rem; /* wider than before for better screen usage */
+    margin: 0 auto;
+    padding: 3rem 4rem; /* more breathing space */
 }
 
 .page-changelog {
     height: 100%;
     display: flex;
     flex-direction: column;
-    max-width: 80rem;
-    margin: 0 auto;
-    padding: 2rem;
+    gap: 2rem;
 }
 
 .page-changelog > div {
@@ -26,14 +27,17 @@
 .page-changelog .changelog-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem; /* extra spacing between entries */
 }
 
 .page-changelog .changelog-entry {
     background-color: var(--color-background);
     color: var(--color-on-background);
-    border-radius: 0.5rem;
-    padding: 1rem;
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 1.15rem; /* slightly larger text */
+    line-height: 1.8;
 }
 
 .page-changelog .changelog-entry:hover {
@@ -41,57 +45,47 @@
     color: var(--color-on-background-hover);
 }
 
-.page-changelog .changelog-entry .date {
-    padding-block: 1rem;
-    text-align: start;
-    word-break: normal;
-    overflow-wrap: anywhere;
-}
-
-.page-changelog .changelog-entry .message {
-    padding: 1rem;
-    text-align: start;
-    word-break: normal;
-    overflow-wrap: anywhere;
-}
-
-/* Optional: Style for highlighted/featured entries */
 .page-changelog .changelog-entry.featured {
     background-color: var(--color-primary);
     color: var(--color-on-primary);
 }
 
-.page-changelog-container {
-    display: block;
-    max-width: 80rem;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.page-changelog .changelog-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-}
-
-.page-changelog .changelog-entry {
-    background-color: var(--color-background);
-    color: var(--color-on-background);
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-}
-
-.page-changelog .changelog-entry.featured {
-    background-color: var(--color-primary);
-    color: var(--color-on-primary);
-}
-
+/* Date styling */
+.page-changelog .changelog-entry .date,
 .page-changelog .changelog-date {
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+    display: block;
+    font-size: 1.4rem; /* larger for visibility */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: start;
+    word-break: normal;
+    overflow-wrap: anywhere;
 }
 
+/* Message styling */
+.page-changelog .changelog-entry .message,
 .page-changelog .changelog-message {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    text-align: start;
+    word-break: normal;
+    overflow-wrap: anywhere;
+    padding-left: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .page-changelog-container {
+        padding: 2rem;
+        max-width: 100%;
+    }
+
+    .page-changelog .changelog-entry {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .page-changelog .changelog-date {
+        font-size: 1.25rem;
+    }
 }
