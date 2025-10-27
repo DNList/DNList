@@ -11,12 +11,12 @@ export default {
         {
           date: "27-10-2025",
           message:
-            "• Added levels to the list: <br>(#6) Future Funk II,<br>(#7) Game Time,<br>(#8) Magma Bound,<br>(#9) Stalemate,<br>(#10) Double Dash,<br>(#11) Multition (2P),<br>(#12) Nine Circles,<br>(#13) Forsaken Neon,<br>(#14) White women,<br>(#15) Future Funk,<br>(#16) Megalovania,<br>(#17) A Pretty Easy Demon,<br>(#18) B,<br>(#19) Deadlocked,<br>(#20) Shapes and Beats to the list.",
+            "• Added levels to the list: <br>(#6) Future Funk II<br>(#7) Game Time<br>(#8) Magma Bound<br>(#9) Stalemate<br>(#10) Double Dash<br>(#11) Multition (2P)<br>(#12) Nine Circles<br>(#13) Forsaken Neon<br>(#14) White Women<br>(#15) Future Funk<br>(#16) Megalovania<br>(#17) A Pretty Easy Demon<br>(#18) B<br>(#19) Deadlocked<br>(#20) Shapes And Beats",
           featured: true,
         },
         {
           date: "26-10-2025",
-          message: "• Initial release of DNList v1.0.0.<br>• Added levels to the list:<br>(#1) Doradura,<br>(#2) Mizureta,<br>(#3) Niwa,<br>(#4) Troll level,<br>(#5) Acu to the list.",
+          message: "• Initial release of DNList v1.0.0.<br>• Added levels to the list:<br>(#1) Doradura<br>(#2) Mizureta<br>(#3) Niwa<br>(#4) Troll Level<br>(#5) Acu",
           featured: true
         },
       ],
