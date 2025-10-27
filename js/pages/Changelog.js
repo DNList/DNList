@@ -11,7 +11,7 @@ export default {
         {
           date: "27-10-2025",
           message:
-            "• Added (#6) Future Funk II, (#7) Game Time, (#8) Magma Bound, (#9) Stalemate, (#10) Double Dash, (#11) Multition (2P), (#12) Nine Circles, (#13) Forsaken Neon, (#14) White women, (#15) Future Funk, (#16) Megalovania, (#17) A Pretty Easy Demon, (#18) B, (#19) Deadlocked, (#20) Shapes and Beats to the list.",
+            "• Added (#6) Future Funk II,<br>(#7) Game Time,<br>(#8) Magma Bound,<br>(#9) Stalemate,<br>(#10) Double Dash,<br>(#11) Multition<br>(2P),<br>(#12) Nine Circles,<br>(#13) Forsaken Neon,<br>(#14) White women,<br>(#15) Future Funk,<br>(#16) Megalovania,<br>(#17) A Pretty Easy Demon,<br>(#18) B,<br>(#19) Deadlocked,<br>(#20) Shapes and Beats to the list.",
           featured: true,
         },
         {
