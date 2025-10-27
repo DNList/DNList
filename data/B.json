@@ -1,0 +1,30 @@
+{
+    "id": 34085027,
+    "name": "B",
+    "author": "Motleyorc",
+    "creators": ["-"],
+    "verifier": "Ninjedu",
+    "verification": "https://youtu.be/ohKPqGxotao?si=s4_EVbV_-HBJd5dX",
+    "percentToQualify": "75",
+    "password": "-",
+    "records": [
+        {
+            "user": "Lolencio",
+            "link": "No video",
+            "percent": 100,
+            "hz": 360
+        }
+        {
+            "user": "Juliponcio",
+            "link": "No video",
+            "percent": 100,
+            "hz": 144
+        }
+       {
+            "user": "PapafritaVixtor",
+            "link": "No video",
+            "percent": 100,
+            "hz": 360
+        }
+    ]
+}
