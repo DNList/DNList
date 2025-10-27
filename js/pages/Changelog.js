@@ -14,12 +14,12 @@ export default {
           message: "• Added new level 'Spectrum'.",
         },
         {
-          date: "2025-10-15",
+          date: "",
           message: "• Fixed leaderboard loading issue.",
         },
         {
-          date: "2025-10-10",
-          message: "• Initial release of DNList v1.0.0.",
+          date: "26-10-2025",
+          message: "• Initial release of DNList v1.0.0.<br>• Added (#1) Doradura.",
         },
       ],
     };
