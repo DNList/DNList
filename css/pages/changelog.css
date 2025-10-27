@@ -60,3 +60,38 @@
     background-color: var(--color-primary);
     color: var(--color-on-primary);
 }
+
+.page-changelog-container {
+    display: block;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-changelog .changelog-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.page-changelog .changelog-entry {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+}
+
+.page-changelog .changelog-entry.featured {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+}
+
+.page-changelog .changelog-date {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.page-changelog .changelog-message {
+    font-size: 1rem;
+    line-height: 1.6;
+}
