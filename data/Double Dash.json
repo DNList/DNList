@@ -1,0 +1,24 @@
+{
+    "id": 59315849,
+    "name": "Double Dash",
+    "author": "zoroa",
+    "creators": ["-"],
+    "verifier": "Lolencio04",
+    "verification": "https://youtu.be/_B5DYtVOHHw?si=NLll9hlKHGCPv4O1",
+    "percentToQualify": "70",
+    "password": "-",
+    "records": [
+        {
+            "user": "Ninjedu",
+            "link": "No video",
+            "percent": 81,
+            "hz": 60
+        }
+        {
+            "user": "Juliponcio",
+            "link": "No video",
+            "percent": 88,
+            "hz": 60
+        }
+    ]
+}
