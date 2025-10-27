@@ -1,0 +1,24 @@
+{
+    "id": 4284013,
+    "name": "Nine Circles",
+    "author": "Zobros",
+    "creators": ["-"],
+    "verifier": "Ninjedu",
+    "verification": "https://youtu.be/dOdPoU1ncOc?si=Hyw0xZt5UGY6My4_",
+    "percentToQualify": "70",
+    "password": "-",
+    "records": [
+        {
+            "user": "Lolencio04",
+            "link": "No video",
+            "percent": 83,
+            "hz": 240
+        }
+        {
+            "user": "Scalextrikx",
+            "link": "No video",
+            "percent": 52,
+            "hz": 360
+        }
+    ]
+}
