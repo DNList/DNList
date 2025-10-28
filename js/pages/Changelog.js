@@ -5,7 +5,7 @@ export default {
       changelog: [
         {
           date: "28-10-2025",
-          message: "• DNList's domain has been property verified.<br>• All list level's qualifying percent have been tweaked. Now the required progress should be more accesible and rewarding for list points.<br>• Shapes And Beats has been raised from #20 to #19, below B and above Deadlocked.<br>• One space has been added to the bottom of the list (#21), below Deadlocked.",
+          message: "• DNList's domain has been property verified.<br>• All list level's qualifying percent have been tweaked. Now the required progress should be more accesible and rewarding for list points.<br>•Added levels to the list:<br>(#17) Ultra Violence<br>(#18) One Space<br>(#19) Sakupen egg<br>(#20) Verity<br>(#21) Celestia<br>(#25) Swift Horizon<br>(#26) Printer Noises<br>(#27) Hell and Heaven<br>(#28) Hello fitzgerald<br> This moves the A Pretty Easy Demon-Shapes and Beats block down to #21-24<br>• Shapes And Beats has been raised from #24 to #23, below B and above Deadlocked."
           featured: true,
         },
         {
