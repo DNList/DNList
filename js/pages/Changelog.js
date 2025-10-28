@@ -6,6 +6,13 @@ export default {
         {
           date: "28-10-2025",
           message: `
+            • Release of the DNList v1.1.1. Added the "No progress" section in the leaderboard.
+          `,
+          featured: true,
+        },
+        {
+          date: "28-10-2025",
+          message: `
             • Added levels to the list:<br>
             (#17) Ultra Violence<br>
             (#18) One Space<br>
