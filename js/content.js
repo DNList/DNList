@@ -119,6 +119,14 @@ export async function fetchLeaderboard() {
         };
     });
 
-    // Sort by total score
-    return [res.sort((a, b) => b.total - a.total), errs];
-}
+
+const allLevels = list
+    .filter(([level]) => level)
+    .map(([level], rank) => ({
+        level: level.name,
+        rank: rank + 1,
+        link: level.verification || '#',
+        score: 0,
+    }));
+
+return [res.sort((a, b) => b.total - a.total), errs, allLevels];
