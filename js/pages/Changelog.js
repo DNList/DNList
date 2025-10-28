@@ -4,6 +4,11 @@ export default {
     return {
       changelog: [
         {
+          date: "28-10-2025",
+          message: "• DNList's domain has been property verified.<br>• Shapes And Beats has been raised from #20 to #19, below B and above Deadlocked.<br>• One space has been added to the bottom of the list (#21), below Deadlocked.",
+          featured: true,
+        },
+        {
           date: "27-10-2025",
           message: "• Release of the DNList v1.1.0. Added the changelog page.<br>• Future Funk has been raised from #15 to #11, below Double Dash and above Multition (2P).",
           featured: true,
