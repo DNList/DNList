@@ -87,15 +87,45 @@ export default {
                                 </td>
                             </tr>
                         </table>
+                        <h2 v-if="noProgress.length > 0">No Progress ({{ noProgress.length }})</h2>
+                        <table class="table" v-if="noProgress.length > 0">
+                            <tr v-for="score in noProgress">
+                                <td class="rank">
+                                    <p>#{{ score.rank }}</p>
+                                </td>
+                                <td class="level">
+                                    <a class="type-label-lg" target="_blank" :href="score.link">{{ score.level }}</a>
+                                </td>
+                                <td class="score">
+                                    <p>+{{ localize(score.score) }}</p>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
         </main>
     `,
     computed: {
-        entry() {
-            return this.leaderboard[this.selected];
+        computed: {
+    entry() {
+        return this.leaderboard[this.selected];
+    },
+    noProgress() {
+        if (!this.entry || !this.entry.allLevels) return [];
+
+        // Collect all levels the player has interacted with
+        const attempted = new Set([
+            ...this.entry.verified.map(l => l.level),
+            ...this.entry.completed.map(l => l.level),
+            ...this.entry.progressed.map(l => l.level),
+        ]);
+
+        // Return all levels the player hasn't attempted
+        return this.entry.allLevels.filter(l => !attempted.has(l.level));
         },
+    },
+
     },
     async mounted() {
         const [leaderboard, err] = await fetchLeaderboard();
