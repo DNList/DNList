@@ -6,7 +6,9 @@ export default {
         {
           date: "28-10-2025",
           message: `
-            • Release of the DNList v1.1.1. Added the "No progress" section in the leaderboard.
+            • Release of the DNList v1.1.1.
+            • Added the "No progress" section in the leaderboard.
+            • After pressing the "Submit Record" button, it now redirects into sending an email to the list.
           `,
           featured: true,
         },
