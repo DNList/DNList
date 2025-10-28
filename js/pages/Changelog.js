@@ -5,7 +5,7 @@ export default {
       changelog: [
         {
           date: "28-10-2025",
-          message: "• DNList's domain has been property verified.<br>• Shapes And Beats has been raised from #20 to #19, below B and above Deadlocked.<br>• One space has been added to the bottom of the list (#21), below Deadlocked.",
+          message: "• DNList's domain has been property verified.<br>• All list level's qualifying percent have been tweaked. Now the required progress should be more accesible and rewarding for list points.<br>• Shapes And Beats has been raised from #20 to #19, below B and above Deadlocked.<br>• One space has been added to the bottom of the list (#21), below Deadlocked.",
           featured: true,
         },
         {
