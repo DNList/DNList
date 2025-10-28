@@ -11,15 +11,15 @@ export default {
             • Added levels to the list:<br>
             (#17) Ultra Violence<br>
             (#18) One Space<br>
-            (#19) Sakupen egg<br>
+            (#19) Sakupen Egg<br>
             (#20) Verity<br>
             (#21) Celestia<br>
             (#26) Swift Horizon<br>
             (#27) Printer Noises<br>
-            (#28) Hell and Heaven<br>
-            (#29) Hello fitzgerald<br>
+            (#28) Hell And Heaven<br>
+            (#29) Hello Fitzgerald<br>
             This moves A Pretty Easy Demon, B, Deadlocked, and Shapes And Beats down to #22–25.<br>
-            • Shapes And Beats has been swapped with Deadlocked, leaving SAB at #24 and Deadlocked #25.
+            • Shapes And Beats has been swapped with Deadlocked, leaving SAB at #24 and Deadlocked at #25.
           `,
           featured: true,
         },
