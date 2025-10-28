@@ -111,30 +111,44 @@ export default {
             return this.allLevels.filter(l => !attempted.has(l.level));
         },
     },
-    async mounted() {
+    
+     async mounted() {
         const [leaderboard, err] = await fetchLeaderboard();
         this.leaderboard = leaderboard;
         this.err = err;
 
-        // 👇 Build the full level list dynamically from all known data
-        const allSet = new Map();
-        leaderboard.forEach(player => {
-            [...player.verified, ...player.completed, ...player.progressed].forEach(level => {
-                if (!allSet.has(level.level)) {
-                    allSet.set(level.level, {
-                        level: level.level,
-                        rank: level.rank,
-                        link: level.link,
-                        score: level.score,
-                    });
+        // ✅ Fetch all levels so No Progress works
+        try {
+            const listResponse = await fetch('/data/_list.json');
+            const listPaths = await listResponse.json();
+
+            const levelPromises = listPaths.map(async (path, rank) => {
+                const res = await fetch(`/data/${path}.json`);
+                try {
+                    const level = await res.json();
+                    return {
+                        level: level.name,
+                        rank: rank + 1,
+                        link: level.verification || '#',
+                        score: 0,
+                    };
+                } catch {
+                    console.warn(`Could not load ${path}.json`);
+                    return null;
                 }
             });
-        });
-        this.allLevels = Array.from(allSet.values()).sort((a, b) => a.rank - b.rank);
 
-        // Hide loading spinner
+            const resolvedLevels = await Promise.all(levelPromises);
+            this.allLevels = resolvedLevels.filter(Boolean).sort((a, b) => a.rank - b.rank);
+        } catch (e) {
+            console.error('Failed to load _list.json:', e);
+            this.allLevels = [];
+        }
+
         this.loading = false;
     },
+
+    // 👇 Keep this part as is
     methods: {
         localize,
     },
