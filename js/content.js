@@ -119,14 +119,15 @@ export async function fetchLeaderboard() {
         };
     });
 
+    // Collect all level names
+    const allLevels = list
+        .filter(([level]) => level)
+        .map(([level], rank) => ({
+            level: level.name,
+            rank: rank + 1,
+            link: level.verification || '#',
+            score: 0,
+        }));
 
-const allLevels = list
-    .filter(([level]) => level)
-    .map(([level], rank) => ({
-        level: level.name,
-        rank: rank + 1,
-        link: level.verification || '#',
-        score: 0,
-    }));
-
-return [res.sort((a, b) => b.total - a.total), errs, allLevels];
+    return [res.sort((a, b) => b.total - a.total), errs, allLevels];
+}
