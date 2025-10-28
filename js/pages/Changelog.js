@@ -6,20 +6,28 @@ export default {
         {
           date: "28-10-2025",
           message: `
-            • DNList's domain has been properly verified.<br>
-            • All list level's qualifying percent have been tweaked. Now the required progress should be more accessible and rewarding for list points.<br>
             • Added levels to the list:<br>
             (#17) Ultra Violence<br>
             (#18) One Space<br>
             (#19) Sakupen Egg<br>
             (#20) Verity<br>
             (#21) Celestia<br>
-            (#26) Swift Horizon<br>
-            (#27) Printer Noises<br>
-            (#28) Hell And Heaven<br>
-            (#29) Hello Fitzgerald<br>
+            (#26) Theory Of Everything 2<br>
+            (#27) Swift Horizon<br>
+            (#28) Printer Noises<br>
+            (#29) Hell And Heaven<br>
+            (#30) Hello Fitzgerald<br>
+            (#31) Clubstep<br>
             This moves A Pretty Easy Demon, B, Deadlocked, and Shapes And Beats down to #22–25.<br>
             • Shapes And Beats has been swapped with Deadlocked, leaving SAB at #24 and Deadlocked at #25.
+          `,
+          featured: true,
+        },
+        {
+          date: "28-10-2025",
+          message: `
+            • DNList's domain has been properly verified.<br>
+            • All list level's qualifying percent have been tweaked. Now the required progress should be more accessible and rewarding for list points.<br>
           `,
           featured: true,
         },

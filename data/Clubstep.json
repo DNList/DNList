@@ -1,0 +1,24 @@
+{
+    "id": "-",
+    "name": "Clubstep",
+    "author": "Robtop",
+    "creators": ["-"],
+    "verifier": "Ninjedu",
+    "verification": "https://youtu.be/VInQkeec188?si=1x1_O7TK9jRf5aXt",
+    "percentToQualify": "79",
+    "password": "-",
+    "records":[
+       {
+            "user": "Lolencio04",
+            "link": "No video",
+            "percent": 100,
+            "hz": 360
+        },
+        {
+            "user": "alex77onlineeeYT",
+            "link": "No video",
+            "percent": 100,
+            "hz": 60
+        }
+    ]
+}
