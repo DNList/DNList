@@ -42,8 +42,7 @@ export default {
                     <LevelAuthors
                         :author="level.author"
                         :creators="level.creators"
-                        :verifier="level.progresser"
-                        label-verifier="Progresser"
+                        :verifier="level.verifier"
                     ></LevelAuthors>
 
                     <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
