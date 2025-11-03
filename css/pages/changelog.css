@@ -1,8 +1,17 @@
+.page-changelog {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    min-height: 100vh;
+    width: 100%;
+    padding: 2rem 0;
+}
+
 .page-changelog-container {
     display: block;
-    max-width: 100rem; /* wider than before for better screen usage */
+    max-width: 100rem;
     margin: 0 auto;
-    padding: 3rem 4rem; /* more breathing space */
+    padding: 3rem 4rem;
+    background-color: var(--color-background);
 }
 
 .page-changelog {

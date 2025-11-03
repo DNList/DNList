@@ -7,6 +7,7 @@ export default {
           date: "3-11-2025",
           message: `
             • Release of the DNList v1.2.0.<br>
+            • Removed the "Creators" and "Password" field from levels.<br>
             • Added the "Runs" page, which will show an alternate list that only includes non beaten levels with considerable progress in it. It will also show the expected placement on the list if it were verified.<br>
             • Added runs to the list:<br>
             (#1) Moment<br>
