@@ -4,6 +4,18 @@ export default {
     return {
       changelog: [
         {
+          date: "3-11-2025",
+          message: `
+            • Release of the DNList v1.2.0.<br>
+            • Added the "Runs" page, which will show an alternate list that only includes non beaten levels with considerable progress in it. It will also show the expected placement on the list if it were verified.<br>
+            • Added runs to the list:<br>
+            (#1) Moment<br>
+            (#2) Bloodbath<br>
+            (#3) Redeemer<br>
+          `,
+          featured: true,
+        },
+        {
           date: "28-10-2025",
           message: `
             • Release of the DNList v1.1.1.<br>
