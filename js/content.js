@@ -34,12 +34,12 @@ export async function fetchList() {
 }
 
 export async function fetchRuns() {
-    const runsResult = await fetch(`${dir}/_runs.json`);
+    const runsResult = await fetch(`${dir}/runs/_runs.json`);
     try {
         const runs = await runsResult.json();
         return await Promise.all(
             runs.map(async (path, rank) => {
-                const runResult = await fetch(`${dir}/${path}.json`);
+                const runResult = await fetch(`${dir}/runs/${path}.json`);
                 try {
                     const run = await runResult.json();
                     return [
