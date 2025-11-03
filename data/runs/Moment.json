@@ -1,18 +1,18 @@
 {
-    "id": 10565740,
-    "name": "Bloodbath 50%",
-    "author": "Riot",
+    "id": 68848817,
+    "name": "Moment 37-100%",
+    "author": "Lexycat",
     "creators": ["-"],
     "expectedplacement": "Top 1",
-    "verifier": "Lolencio04",
-    "verification": "https://youtu.be/Xzb7apPvDos?si=B2BI_ZM-03AixvOM",
+    "verifier": "Ninjedu",
+    "verification": "https://youtu.be/OcnjfzdMVgM?si=czV0OkUZxmC1Ddlj",
     "percentToQualify": "0",
     "password": "-",
     "records": [
         {
             "user": "Ninjedu",
             "link": "No video",
-            "percent": 30,
+            "percent": 61,
             "hz": 240
         }
     ]
