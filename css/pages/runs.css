@@ -73,11 +73,8 @@
     gap: 1rem;
 }
 .page-runs .level-container .level .records {
-    table-layout: auto;
-    width: 100%;
-    border-collapse: collapse;
+    table-layout: fixed;
 }
-
 .page-runs .level-container .level .records tr td:not(:last-child) {
     padding-right: 1rem;
 }
