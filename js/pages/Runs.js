@@ -59,6 +59,13 @@ export default {
 
                     <h2>Records</h2>
                     <table class="records">
+                        <colgroup>
+                            <col style="width:7rem;">   <!-- percent column -->
+                            <col>                       <!-- user column (auto expands) -->
+                            <col style="width:3.5rem;"> <!-- mobile icon -->
+                            <col style="width:5rem;">   <!-- hz column -->
+                        </colgroup>
+
                         <tr v-for="record in level.records" class="record">
                             <td class="percent">
                                 <p>{{ record.percent }}%</p>
