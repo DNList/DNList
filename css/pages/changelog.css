@@ -1,14 +1,20 @@
 .page-changelog {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    max-width: 100rem;
-    margin: 0 auto;
-    padding: 3rem 4rem;
     background-color: var(--color-background);
     color: var(--color-on-background);
     min-height: 100vh;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 0;
+}
+
+.page-changelog-container {
+    width: 100%;
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 3rem 4rem;
+    background-color: transparent; /* transparent so the full background color shows */
 }
 
 .page-changelog > div {
@@ -26,7 +32,7 @@
 .page-changelog .changelog-container {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 3rem; /* extra spacing between entries */
 }
 
 .page-changelog .changelog-entry {
@@ -74,7 +80,7 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .page-changelog {
+    .page-changelog-container {
         padding: 2rem;
         max-width: 100%;
     }
