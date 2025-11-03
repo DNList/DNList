@@ -1,6 +1,6 @@
 {
     "id": 24301797,
-    "name": "Falling Up 50%",
+    "name": "Falling Up 38%",
     "author": "Krmal",
     "creators": ["-"],
     "expectedplacement": "Top 1",
@@ -9,5 +9,11 @@
     "percentToQualify": "0",
     "password": "-",
     "records": [
+        {
+            "user": "Lolencio04",
+            "link": "No video",
+            "percent": "60-91",
+            "hz": 360
+        }
     ]
 }
