@@ -49,6 +49,10 @@ export default {
 
                     <ul class="stats">
                         <li>
+                            <div class="type-title-sm">Expected Placement</div>
+                            <p>{{ level.expectedplacement || 'N/A' }}</p>
+                        </li>
+                        <li>
                             <div class="type-title-sm">ID</div>
                             <p>{{ level.id }}</p>
                         </li>

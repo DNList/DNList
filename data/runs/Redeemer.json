@@ -1,11 +1,12 @@
 {
     "id": 43945511,
     "name": "Redeemer 25%",
-    "author": "SimilarAmz",
+    "author": "",
     "creators": ["-"],
+    "expectedplacement": "Top 1",
     "verifier": "Ninjedu",
     "verification": "https://youtu.be/MREvq3EXn8A?si=PVdhZE08EobcZLiY",
-    "percentToQualify": "25",
+    "percentToQualify": "0",
     "password": "-",
     "records": [
     ]
