@@ -1,20 +1,17 @@
-.page-changelog {
-    background-color: var(--color-background);
-    color: var(--color-on-background);
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3rem 0;
+.page-changelog-container {
+    display: block;
+    max-width: 100rem; /* wider than before for better screen usage */
+    margin: 0 auto;
+    padding: 3rem 4rem; /* more breathing space */
+    background-color: var(--color-surface); /* Add background to fill gaps */
+    min-height: 100vh; /* Ensure it covers full height */
 }
 
-.page-changelog-container {
-    width: 100%;
-    max-width: 100rem;
-    margin: 0 auto;
-    padding: 3rem 4rem;
-    background-color: transparent; /* transparent so the full background color shows */
+.page-changelog {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .page-changelog > div {
@@ -41,7 +38,7 @@
     border-radius: 1rem;
     padding: 2rem;
     transition: background-color 0.2s, color 0.2s;
-    font-size: 1.15rem;
+    font-size: 1.15rem; /* slightly larger text */
     line-height: 1.8;
 }
 
@@ -59,7 +56,7 @@
 .page-changelog .changelog-entry .date,
 .page-changelog .changelog-date {
     display: block;
-    font-size: 1.4rem;
+    font-size: 1.4rem; /* larger for visibility */
     font-weight: 700;
     margin-bottom: 1rem;
     text-align: start;
