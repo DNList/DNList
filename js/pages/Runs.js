@@ -41,6 +41,7 @@ export default {
                     <h1>{{ level.name }}</h1>
                     <LevelAuthors
                         :author="level.author"
+                        :creators="[]"
                         :verifier="level.verifier"
                     ></LevelAuthors>
 
