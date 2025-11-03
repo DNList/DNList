@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 3rem 4rem; /* moved padding here */
+    padding: 3rem 4rem;
+    max-width: 100rem; /* constrain width */
+    margin: 0 auto; /* center it */
 }
 
 .page-changelog .error-container .error {
@@ -66,6 +68,7 @@
 @media (max-width: 768px) {
     .page-changelog {
         padding: 2rem;
+        max-width: 100%;
     }
 
     .page-changelog .changelog-entry {
