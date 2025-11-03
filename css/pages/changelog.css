@@ -1,10 +1,19 @@
+.page-changelog-container {
+    display: block;
+    max-width: 100rem; /* wider than before for better screen usage */
+    margin: 0 auto;
+    padding: 3rem 4rem; /* more breathing space */
+}
+
 .page-changelog {
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 3rem 4rem;
-    max-width: 100rem; /* constrain width */
-    margin: 0 auto; /* center it */
+}
+
+.page-changelog > div {
+    overflow-y: auto;
 }
 
 .page-changelog .error-container .error {
@@ -66,7 +75,7 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .page-changelog {
+    .page-changelog-container {
         padding: 2rem;
         max-width: 100%;
     }
