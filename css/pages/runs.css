@@ -81,7 +81,7 @@
 .page-runs .level-container .level .records .percent,
 .page-runs .level-container .level .records .user,
 .page-runs .level-container .level .records .hz {
-    padding-block: 2rem;
+    padding-block: 1rem;
 }
 .page-runs .level-container .level .records .user {
     width: 100%;
