@@ -14,8 +14,9 @@ export default {
         <main v-else class="page-tag-detail-container">
             <div class="page-tag-detail" :style="{ backgroundColor: tag?.color || 'var(--color-primary)' }">
                 <button @click="goBack" class="back-button">&larr; Back</button>
-                <h1 class="tag-title">{{ tag?.name }}</h1>
+                <h1 class="tag-title"> Tag: {{ tag?.name }}</h1>
                 <p class="tag-desc">{{ tag?.description }}</p>
+                <p class="tag-scoreValue">Score:{{ tag?.scoreValue }}</p>
 
                 <section class="levels-container">
                     <h2>Levels with this tag</h2>
