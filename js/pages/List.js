@@ -162,6 +162,14 @@ export default {
         }
 
         this.loading = false;
+
+        if (store.selectedLevelId) {
+            const index = this.list.findIndex(([level]) => level.id === store.selectedLevelId);
+            if (index !== -1) {
+                this.selected = index;
+            }
+            store.selectedLevelId = null; // reset after use
+        }
     },
     methods: {
         embed,

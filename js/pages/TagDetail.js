@@ -24,7 +24,7 @@ export default {
                 </div>
 
                 <section class="levels-container">
-                    <h2>• Levels with this tag;</h2>
+                    <h2>• Levels with this tag:</h2>
                     <table class="list tag-detail-list">
                         <tbody>
                             <tr v-for="level in levelsWithTag" :key="level.id">
@@ -70,13 +70,13 @@ export default {
 
         this.loading = false;
     },
-
     methods: {
         goBack() {
             this.$router.push("/tags");
         },
         selectLevel(level) {
-            this.$router.push(`/#${level.id}`);
+            store.selectedLevelId = level.id; // 👈 store which level was clicked
+            this.$router.push("/"); // go to list page
         }
     }
 };
