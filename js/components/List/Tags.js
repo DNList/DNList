@@ -28,11 +28,11 @@ export default [
     "scoreValue": 0
   },
   {
-    "id": "collaboration",
-    "name": "Collaboration",
-    "color": "#8f41e9ff",
-    "description": "A level created by multiple people working together.",
-    "scoreValue": 0
+    "id": "robtop",
+    "name": "Robtop",
+    "color": "#c7c3c9ff",
+    "description": "Hit it Rob",
+    "scoreValue": 50
   },
   {
     "id": "layout",
@@ -47,6 +47,13 @@ export default [
     "color": "#ea00ff73",
     "description": "Levels that follow Wasureta style gameplay and deco, but significantly easier",
     "scoreValue": 200
+  },
+  {
+    "id": "newgen_trilogy",
+    "name": "Newgen Trilogy",
+    "color": "#5087ff73",
+    "description": "Most original progression ever",
+    "scoreValue": 100
   },
   {
     "id": "99%",
