@@ -1,4 +1,4 @@
-v/* ===== Tags Overview ===== */
+/* ===== Tags Overview ===== */
 .page-tags {
   padding: 2rem 4rem;
 }
@@ -73,13 +73,22 @@ v/* ===== Tags Overview ===== */
   background-color: rgba(255, 255, 255, 0.4);
 }
 
+/* UPDATED: Made tag name bigger */
 .page-tag-detail .tag-title {
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.5rem; /* Changed from 2rem */
   font-weight: 700;
   color: white;
 }
+
 .page-tag-detail .tag-desc {
+  margin: 0;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* NEW: Added score styling to match description */
+.page-tag-detail .tag-score {
   margin: 0;
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.9);

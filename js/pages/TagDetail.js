@@ -1,3 +1,6 @@
+// ============================================
+// TAGDETAIL.JS
+// ============================================
 import { store } from "../main.js";
 import { fetchList } from "../content.js";
 import tags from "../components/List/Tags.js";
@@ -14,9 +17,15 @@ export default {
         <main v-else class="page-tag-detail-container">
             <div class="page-tag-detail" :style="{ backgroundColor: tag?.color || 'var(--color-primary)' }">
                 <button @click="goBack" class="back-button">&larr; Back</button>
-                <h1 class="tag-title"> Tag: {{ tag?.name }}</h1>
+                
+                <!-- Tag name is now wrapped in h1 with class "tag-title" -->
+                <h1 class="tag-title">{{ tag?.name }}</h1>
+                
+                <!-- Description has class "tag-desc" -->
                 <p class="tag-desc">{{ tag?.description }}</p>
-                <p class="tag-scoreValue">Score:{{ tag?.scoreValue }}</p>
+                
+                <!-- Score now has class "tag-score" (similar to tag-desc) -->
+                <p class="tag-score">Score: {{ tag?.scoreValue }}</p>
 
                 <section class="levels-container">
                     <h2>Levels with this tag</h2>
@@ -45,14 +54,12 @@ export default {
         const tagId = this.$route.params.tagId;
         this.list = await fetchList();
 
-        // find tag by id OR name (case-insensitive)
         this.tag = tags.find(t =>
             t.id.toLowerCase() === String(tagId).toLowerCase() ||
             t.name.toLowerCase() === String(tagId).toLowerCase()
         );
 
         if (this.tag && this.list) {
-            // Accept levels that list either the tag id or the tag name
             this.levelsWithTag = this.list
                 .map(([level]) => level)
                 .filter(level =>
