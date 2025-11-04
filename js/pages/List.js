@@ -44,14 +44,15 @@ export default {
                     <LevelAuthors :author="level.author" :verifier="level.verifier"></LevelAuthors>
 
                     <div class="tags" v-if="level.tags && level.tags.length">
-                        <span
+                        <button
                             v-for="tagName in level.tags"
                             :key="tagName"
-                            class="tag"
+                            class="tag clickable"
                             :style="tagStyle(tagName)"
+                            @click="goToTag(tagName)"
                         >
                             {{ getTagDisplayName(tagName) }}
-                        </span>
+                        </button>
                     </div>
 
                     <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
@@ -192,5 +193,13 @@ export default {
             const tag = this.getTag(tagName);
             return tag ? tag.name : tagName;
         },
+        goToTag(tagName) {
+            const tag = this.getTag(tagName);
+            if (tag) {
+                this.$router.push(`/tags/${tag.id}`);
+            } else {
+                console.warn(`Tag not found: ${tagName}`);
+            }
+        }
     },
 };
