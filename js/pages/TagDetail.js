@@ -25,6 +25,7 @@ export default {
                                 <td class="level">
                                     <button @click="selectLevel(level)" class="list-level-btn">
                                         {{ level.name }}
+                                         " by "
                                         {{ level.author }}
                                     </button>
                                 </td>
