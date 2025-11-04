@@ -10,7 +10,6 @@ export default {
             <Spinner />
         </main>
         <main v-else class="page-tags">
-            <h1>All Tags</h1>
             <div class="tags-overview">
                 <div 
                     v-for="tag in tags" 
