@@ -1,0 +1,37 @@
+[
+  {
+    "id": "extreme_demon",
+    "name": "Extreme Demon",
+    "color": "#ff4c4c",
+    "description": "The hardest difficulty tier, requiring top-tier skill and consistency.",
+    "scoreValue": 50
+  },
+  {
+    "id": "insane_demon",
+    "name": "Insane Demon",
+    "color": "#ff7f00",
+    "description": "A highly challenging difficulty tier just below Extreme Demon.",
+    "scoreValue": 30
+  },
+  {
+    "id": "hard_demon",
+    "name": "Hard Demon",
+    "color": "#ffca28",
+    "description": "A challenging difficulty tier for experienced players.",
+    "scoreValue": 20
+  },
+  {
+    "id": "collaboration",
+    "name": "Collaboration",
+    "color": "#00bcd4",
+    "description": "A level created by multiple people working together.",
+    "scoreValue": 10
+  },
+  {
+    "id": "layout",
+    "name": "Layout",
+    "color": "#9e9e9e",
+    "description": "A level in layout form, showcasing gameplay without decoration.",
+    "scoreValue": 5
+  }
+]

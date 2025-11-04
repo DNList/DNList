@@ -131,30 +131,29 @@
 .page-list .level-container .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
 }
 
 .page-list .level-container .tag {
-    padding: 0.55rem 1.15rem;
-    border-radius: 0.75rem;
+    font-size: 1.05rem;
     font-weight: 600;
-    font-size: 1.15rem;
-    letter-spacing: 0.6px;
-    color: var(--color-on-primary);
+    padding: 0.45rem 1rem;
+    border-radius: 0.6rem;
+    color: white;
     background-color: var(--color-primary);
-    transition: 0.2s ease background-color;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.705);
-}
-
-.page-list .level-container .tag[data-tag="Extreme Demon"] {
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    user-select: none;
+    letter-spacing: 0.4px;
+    transition: transform 0.1s ease, filter 0.15s ease;
 }
 
 main.dark .page-list .level-container .tag {
-    color: var(--color-on-primary);
+    color: white;
 }
 
-/* Optional hover effect */
 .page-list .level-container .tag:hover {
+    transform: scale(1.1);
     filter: brightness(1.4);
 }
