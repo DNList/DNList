@@ -126,3 +126,32 @@
 .page-list .meta .editors li a:hover {
     text-decoration: underline;
 }
+
+/* ===== TAGS ===== */
+.page-list .level-container .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: -1rem; /* pulls it a bit closer to the title */
+}
+
+.page-list .level-container .tag {
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--color-on-primary);
+    background-color: var(--color-primary);
+    transition: 0.2s ease background-color;
+}
+
+main.dark .page-list .level-container .tag {
+    color: var(--color-on-primary);
+}
+
+/* Optional hover effect */
+.page-list .level-container .tag:hover {
+    filter: brightness(1.2);
+}

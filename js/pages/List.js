@@ -14,6 +14,16 @@ const roleIconMap = {
     trial: "user-lock",
 };
 
+const TAG_COLORS = {
+  "Extreme Demon": "#c0392b",
+  "Insane Demon": "#e74c3c",
+  "Hard Demon": "#ff9634ff",
+  "Medium Demon": "#ff2df4ff",
+  "Nine Circles": "#ff0000ff",
+  "99%": "#2e2c29ff"
+};
+
+
 export default {
     components: { Spinner, LevelAuthors },
     template: `
@@ -39,6 +49,16 @@ export default {
             <div class="level-container">
                 <div class="level" v-if="level">
                     <h1>{{ level.name }}</h1>
+                    <div class="tags" v-if="level.tags">
+                    <span
+                        v-for="tag in level.tags"
+                        :key="tag"
+                        class="tag"
+                        :style="{ backgroundColor: TAG_COLORS[tag] || '#888' }"
+                    >
+                        {{ tag }}
+                    </span>
+                    </div>
                     <LevelAuthors :author="level.author" :verifier="level.verifier"></LevelAuthors>
                     <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
                     <ul class="stats">
@@ -130,6 +150,7 @@ export default {
         selected: 0,
         errors: [],
         roleIconMap,
+        TAG_COLORS,
         store
     }),
     computed: {
