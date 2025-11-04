@@ -6,10 +6,10 @@ import Spinner from "../components/Spinner.js";
 export default {
     components: { Spinner },
     template: `
-        <main v-if="loading">
+        <main v-if="loading" class="page-tags">
             <Spinner />
         </main>
-        <main v-else class="page-list">
+        <main v-else class="page-tags">
             <h1>All Tags</h1>
             <div class="tags-overview">
                 <div 

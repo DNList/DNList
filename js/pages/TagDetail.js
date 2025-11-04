@@ -7,10 +7,10 @@ import LevelAuthors from "../components/List/LevelAuthors.js";
 export default {
     components: { Spinner, LevelAuthors },
     template: `
-        <main v-if="loading">
+        <main v-if="loading" class="page-tag-detail">
             <Spinner />
         </main>
-        <main v-else class="page-list">
+        <main v-else class="page-tag-detail">
             <button @click="goBack" class="back-button">&larr; Back to Tags</button>
             <h1>{{ tag.name }}</h1>
             <p>{{ tag.description }}</p>

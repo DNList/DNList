@@ -1,4 +1,4 @@
-/* ===== Tags Page ===== */
+/* ===== Tags Overview Page ===== */
 .page-tags .tags-overview {
     display: flex;
     flex-wrap: wrap;
@@ -32,7 +32,7 @@
 }
 
 /* ===== Tag Detail Page ===== */
-.page-tags .back-button {
+.page-tag-detail .back-button {
     margin-bottom: 1rem;
     padding: 0.5rem 1rem;
     border: none;
@@ -44,16 +44,41 @@
     transition: filter 0.2s ease, transform 0.1s ease;
 }
 
-.page-tags .back-button:hover {
+.page-tag-detail .back-button:hover {
     filter: brightness(1.2);
     transform: scale(1.05);
 }
 
-/* Optional dark mode adjustments */
-main.dark .page-tags .tag-card {
-    color: white;
+.page-tag-detail .list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
 }
 
-main.dark .page-tags .back-button {
-    color: var(--color-on-primary);
+.page-tag-detail .list tr td {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.page-tag-detail .list tr td.level button {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: start;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.page-tag-detail .list tr td.level button:hover {
+    background-color: var(--color-background-hover);
+    color: var(--color-on-background-hover);
+}
+
+/* Optional dark mode */
+main.dark .page-tags .tag-card,
+main.dark .page-tag-detail .back-button {
+    color: white;
 }
