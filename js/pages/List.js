@@ -48,8 +48,8 @@ export default {
             </div>
             <div class="level-container">
                 <div class="level" v-if="level">
-                    <LevelAuthors :author="level.author" :verifier="level.verifier"></LevelAuthors>
                     <h1>{{ level.name }}</h1>
+                    <LevelAuthors :author="level.author" :verifier="level.verifier"></LevelAuthors>
                     <div class="tags" v-if="level.tags">
                     <span
                         v-for="tag in level.tags"
