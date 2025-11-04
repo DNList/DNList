@@ -95,6 +95,7 @@
   margin: 0;
   padding: 1rem 1.5rem;
   font-size: 1.15rem;
+  line-height: 1.6;
   color: var(--color-on-background);
   background-color: var(--color-background);
   border-radius: 0.75rem;
