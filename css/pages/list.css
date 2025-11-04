@@ -137,6 +137,7 @@
 .page-list .level-container .tag {
     font-size: 1.05rem;
     font-weight: 600;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
     padding: 0.45rem 1rem;
     border-radius: 0.6rem;
     color: white;
@@ -152,6 +153,6 @@ main.dark .page-list .level-container .tag {
 }
 
 .page-list .level-container .tag:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     filter: brightness(1.4);
 }
