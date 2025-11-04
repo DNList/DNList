@@ -4,34 +4,63 @@ export default [
     "name": "Extreme Demon",
     "color": "#ff4c4c",
     "description": "The hardest difficulty tier, requiring top-tier skill and consistency.",
-    "scoreValue": 50
+    "scoreValue": 0
   },
   {
     "id": "insane_demon",
     "name": "Insane Demon",
     "color": "#ff7f00",
     "description": "A highly challenging difficulty tier just below Extreme Demon.",
-    "scoreValue": 30
+    "scoreValue": 0
   },
   {
     "id": "hard_demon",
     "name": "Hard Demon",
-    "color": "#ffca28",
-    "description": "A challenging difficulty tier for experienced players.",
-    "scoreValue": 20
+    "color": "#ffbb28ff",
+    "description": "This is where things start to get a little more challenging.",
+    "scoreValue": 0
+  },
+  {
+    "id": "medium_demon",
+    "name": "Medium demon",
+    "color": "#cd28ffff",
+    "description": "The easiest difficulty tier that you will see on the list.",
+    "scoreValue": 0
   },
   {
     "id": "collaboration",
     "name": "Collaboration",
-    "color": "#00bcd4",
+    "color": "#8f41e9ff",
     "description": "A level created by multiple people working together.",
-    "scoreValue": 10
+    "scoreValue": 0
   },
   {
     "id": "layout",
     "name": "Layout",
     "color": "#9e9e9e",
-    "description": "A level in layout form, showcasing gameplay without decoration.",
-    "scoreValue": 5
-  }
+    "description": "A level in layout form, showcasing gameplay with little to no decoration.",
+    "scoreValue": 0
+  },
+  {
+    "id": "wasureta_easy",
+    "name": "Wasureta Easy",
+    "color": "#ea00ff73",
+    "description": "Levels that follow Wasureta style gameplay and deco, but significantly easier",
+    "scoreValue": 200
+  },
+  {
+    "id": "99%",
+    "name": "99%",
+    "color": "#0b1464ff",
+    "description": "Ouch. 99% chokepoint can't be good, right?",
+    "scoreValue": 0
+  },
+  {
+    "id": "Worst level ever",
+    "name": "99%",
+    "color": "#000000ff",
+    "description": "Get this off the servers rn please",
+    "scoreValue": 0
+  },
+  
 ];
