@@ -46,7 +46,7 @@
   border-radius: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* Changed from 1.5rem to match card spacing */
+  gap: 1.5rem;
   box-sizing: border-box;
 }
 
@@ -82,10 +82,17 @@
   color: white;
 }
 
-/* Description with its own background card */
+/* NEW: Info cards container for description and score */
+.page-tag-detail .tag-info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-left: 1rem; /* Aligns with levels container */
+}
+
+/* NEW: Description with its own background card */
 .page-tag-detail .tag-desc {
   margin: 0;
-  margin-left: 1rem; /* Aligns with levels container */
   padding: 1.25rem 1.5rem;
   font-size: 1.15rem;
   line-height: 1.6;
@@ -95,10 +102,9 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Score with its own background card */
+/* NEW: Score with its own background card */
 .page-tag-detail .tag-score {
   margin: 0;
-  margin-left: 1rem; /* Aligns with levels container */
   padding: 1rem 1.5rem;
   font-size: 1.15rem;
   font-weight: 600;
@@ -112,7 +118,6 @@
 }
 
 .page-tag-detail .tag-score::before {
-  content: "📊";
   font-size: 1.3rem;
 }
 
