@@ -24,9 +24,7 @@ export default {
                             <tr v-for="level in levelsWithTag" :key="level.id">
                                 <td class="level">
                                     <button @click="selectLevel(level)" class="list-level-btn">
-                                        {{ level.name }}
-                                         " by "
-                                        {{ level.author }}
+                                        {{ level.name }} by {{ level.author }}
                                     </button>
                                 </td>
                             </tr>
