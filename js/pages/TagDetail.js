@@ -7,28 +7,40 @@ import LevelAuthors from "../components/List/LevelAuthors.js";
 export default {
     components: { Spinner, LevelAuthors },
     template: `
-        <main v-if="loading" class="page-tags-detail">
-            <Spinner />
+        <main v-if="loading" class="page-tag-detail">
+        <Spinner />
         </main>
-        <main v-else class="page-tags-detail">
-            <button @click="goBack" class="back-button">&larr; Back to Tags</button>
-            <h1>{{ tag.name }}</h1>
-            <p>{{ tag.description }}</p>
 
-            <h2>Levels with this tag</h2>
-            <table class="list">
-                <tr v-for="level in levelsWithTag" :key="level.id">
-                    <td class="level">
-                        <button @click="selectLevel(level)">
-                            {{ level.name }}
-                        </button>
-                    </td>
-                    <td class="author">
-                        {{ level.author }}
-                    </td>
-                </tr>
-            </table>
-        </main>
+        <main v-else class="page-tag-detail">
+        <div class="tag-detail-header">
+            <div class="tag-meta">
+            <button @click="goBack" class="back-button">&larr; Back</button>
+            <h1 class="tag-title">{{ tag?.name || '' }}</h1>
+            <p class="tag-desc">{{ tag?.description || '' }}</p>
+            </div>
+            <div class="tag-stats">
+            <div class="tag-color" :style="{ backgroundColor: tag?.color || '#888' }"></div>
+            <div class="tag-count">{{ levelsWithTag.length }} levels</div>
+            </div>
+        </div>
+
+        <h2 class="list-heading">Levels with this tag</h2>
+
+        <table class="list tag-detail-list">
+            <tbody>
+            <tr v-for="level in levelsWithTag" :key="level.id">
+                <td class="level">
+                <button @click="selectLevel(level)" class="list-level-btn">
+                    {{ level.name }}
+                </button>
+                </td>
+                <td class="author">
+                {{ level.author }}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
     `,
     data: () => ({
         loading: true,
@@ -37,19 +49,32 @@ export default {
         tag: null,
     }),
     async mounted() {
-        const tagId = this.$route.params.tagId; // use Vue Router param
-        this.list = await fetchList();
+    const tagId = this.$route.params.tagId; // router param
+    this.list = await fetchList();
 
-        this.tag = tags.find(t => t.id === tagId);
+    // find tag by id OR name (case-insensitive)
+    this.tag = tags.find(t =>
+        t.id.toLowerCase() === String(tagId).toLowerCase() ||
+        t.name.toLowerCase() === String(tagId).toLowerCase()
+    );
 
-        if (this.tag) {
-            this.levelsWithTag = this.list
-                .filter(([level]) => level?.tags?.includes(this.tag.name))
-                .map(([level]) => level);
-        }
+    if (this.tag && this.list) {
+        // Accept levels that list either the tag id or the tag name
+        this.levelsWithTag = this.list
+            .map(([level]) => level)
+            .filter(level =>
+                Array.isArray(level.tags) && level.tags.some(t =>
+                    String(t).toLowerCase() === this.tag.id.toLowerCase() ||
+                    String(t).toLowerCase() === this.tag.name.toLowerCase()
+                )
+            );
+    } else {
+        this.levelsWithTag = [];
+    }
 
-        this.loading = false;
+    this.loading = false;
     },
+
     methods: {
         goBack() {
             this.$router.push("/tags"); // SPA-friendly back
