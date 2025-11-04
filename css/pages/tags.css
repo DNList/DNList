@@ -37,8 +37,7 @@
 }
 
 .page-tags .tag-card:hover {
-    transform: scale(1.05);
-    filter: brightness(1.2);
+    filter: brightness(1.4);
 }
 
 /* ===== Tag Detail Page ===== */
@@ -92,3 +91,4 @@ main.dark .page-tags .tag-card,
 main.dark .page-tag-detail .back-button {
     color: white;
 }
+
