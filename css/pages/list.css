@@ -145,7 +145,7 @@
     color: var(--color-on-primary);
     background-color: var(--color-primary);
     transition: 0.2s ease background-color;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.705);
 }
 
 main.dark .page-list .level-container .tag {
