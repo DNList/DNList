@@ -56,6 +56,13 @@ export default [
     "scoreValue": 0
   },
   {
+    "id": "memory",
+    "name": "Memory",
+    "color": "#28b0ffff",
+    "description": "ITS BLUE ITS BLUE",
+    "scoreValue": 0
+  },
+  {
     "id": "Worst level ever",
     "name": "99%",
     "color": "#000000ff",
