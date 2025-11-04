@@ -22,10 +22,10 @@ export default {
                 <h1 class="tag-title">{{ tag?.name }}</h1>
                 
                 <!-- Description has class "tag-desc" -->
-                <p class="tag-desc">{{ tag?.description }}</p>
+                <p class="tag-desc">• {{ tag?.description }}</p>
                 
                 <!-- Score now has class "tag-score" (similar to tag-desc) -->
-                <p class="tag-score">Score: {{ tag?.scoreValue }}</p>
+                <p class="tag-score">• Score: {{ tag?.scoreValue }}</p>
 
                 <section class="levels-container">
                     <h2>Levels with this tag</h2>
