@@ -76,7 +76,7 @@ export default {
             this.$router.push("/tags");
         },
         selectLevel(level) {
-            this.$router.push(`/list#${level.id}`);
+            this.$router.push(`/#${level.id}`);
         }
     }
 };
