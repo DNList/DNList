@@ -132,7 +132,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: -1rem; /* pulls it a bit closer to the title */
 }
 
 .page-list .level-container .tag {
