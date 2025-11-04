@@ -93,20 +93,21 @@
 /* NEW: Description with its own background card */
 .page-tag-detail .tag-desc {
   margin: 0;
-  padding: 1.25rem 1.5rem;
-  font-size: 1.15rem;
+  padding: 1rem 1.5rem;
+  font-size: 1.3rem;
   line-height: 1.6;
   color: var(--color-on-background);
   background-color: var(--color-background);
   border-radius: 0.75rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  gap: 0.5rem;
 }
 
 /* NEW: Score with its own background card */
 .page-tag-detail .tag-score {
   margin: 0;
   padding: 1rem 1.5rem;
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: var(--color-on-background);
   background-color: var(--color-background);
@@ -115,10 +116,6 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-.page-tag-detail .tag-score::before {
-  font-size: 1.3rem;
 }
 
 /* Levels list container */
