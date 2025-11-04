@@ -1,6 +1,6 @@
 import { store } from "../main.js";
 import { fetchList } from "../content.js";
-import tags from "../data/tags.js";
+import tags from "../components/List/Tags.js";
 import Spinner from "../components/Spinner.js";
 import LevelAuthors from "../components/List/LevelAuthors.js";
 
