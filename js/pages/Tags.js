@@ -11,7 +11,7 @@ export default {
         </main>
         <main v-else class="page-tags">
             <div class="tags-header">
-                <h1>Level packs / Tags</h1>
+                <h1>All Tags</h1>
             </div>
             <div class="tags-overview">
                 <div 
@@ -38,8 +38,9 @@ export default {
     },
     methods: {
         selectTag(tagId) {
-            // Go to the detail view of the tag
-            window.location.href = `/tags/${tagId}`;
+            // Use Vue Router instead of window.location
+            this.$router.push(`/tags/${tagId}`);
         }
     }
 };
+

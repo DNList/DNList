@@ -13,5 +13,5 @@ export default [
     { path: '/roulette', component: Roulette },
     { path: '/changelog', component: Changelog },
     { path: '/tags', component: Tags },
-    { path: '/tagdetail', component: TagDetail },
+    { path: '/tags/:tagId', component: TagDetail },
 ];

@@ -7,10 +7,10 @@ import LevelAuthors from "../components/List/LevelAuthors.js";
 export default {
     components: { Spinner, LevelAuthors },
     template: `
-        <main v-if="loading" class="page-tag-detail">
+        <main v-if="loading" class="page-tags-detail">
             <Spinner />
         </main>
-        <main v-else class="page-tag-detail">
+        <main v-else class="page-tags-detail">
             <button @click="goBack" class="back-button">&larr; Back to Tags</button>
             <h1>{{ tag.name }}</h1>
             <p>{{ tag.description }}</p>
@@ -37,9 +37,7 @@ export default {
         tag: null,
     }),
     async mounted() {
-        const pathParts = window.location.pathname.split('/');
-        const tagId = pathParts[pathParts.length - 1];
-
+        const tagId = this.$route.params.tagId; // use Vue Router param
         this.list = await fetchList();
 
         this.tag = tags.find(t => t.id === tagId);
@@ -54,10 +52,10 @@ export default {
     },
     methods: {
         goBack() {
-            window.location.href = "/tags";
+            this.$router.push("/tags"); // SPA-friendly back
         },
         selectLevel(level) {
-            window.location.href = `/list#${level.id}`;
+            this.$router.push(`/list#${level.id}`);
         }
     }
 };
