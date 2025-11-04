@@ -1,6 +1,3 @@
-// ============================================
-// TAGDETAIL.JS
-// ============================================
 import { store } from "../main.js";
 import { fetchList } from "../content.js";
 import tags from "../components/List/Tags.js";
@@ -18,14 +15,13 @@ export default {
             <div class="page-tag-detail" :style="{ backgroundColor: tag?.color || 'var(--color-primary)' }">
                 <button @click="goBack" class="back-button">&larr; Back</button>
                 
-                <!-- Tag name is now wrapped in h1 with class "tag-title" -->
                 <h1 class="tag-title">{{ tag?.name }}</h1>
                 
-                <!-- Description has class "tag-desc" -->
-                <p class="tag-desc">• {{ tag?.description }}</p>
-                
-                <!-- Score now has class "tag-score" (similar to tag-desc) -->
-                <p class="tag-score">• Score: {{ tag?.scoreValue }}</p>
+                <!-- NEW: Wrapper div for description and score cards -->
+                <div class="tag-info-cards">
+                    <p class="tag-desc">• {{ tag?.description }}</p>
+                    <p class="tag-score">• Score: {{ tag?.scoreValue }}</p>
+                </div>
 
                 <section class="levels-container">
                     <h2>Levels with this tag</h2>

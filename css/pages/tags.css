@@ -46,7 +46,7 @@
   border-radius: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   box-sizing: border-box;
 }
 
@@ -68,30 +68,57 @@
   cursor: pointer;
   font-weight: 600;
   transition: background-color 0.2s ease;
+  margin-bottom: 0.5rem;
 }
 .page-tag-detail .back-button:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-/* UPDATED: Made tag name bigger */
+/* Tag name - bigger and bold */
 .page-tag-detail .tag-title {
-  margin: 0;
-  font-size: 2.5rem; /* Changed from 2rem */
+  margin: 0 0 1rem 0;
+  font-size: 2.5rem;
   font-weight: 700;
   color: white;
 }
 
-.page-tag-detail .tag-desc {
-  margin: 0;
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
+/* NEW: Info cards container for description and score */
+.page-tag-detail .tag-info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-/* NEW: Added score styling to match description */
+/* NEW: Description with its own background card */
+.page-tag-detail .tag-desc {
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--color-on-background);
+  background-color: var(--color-background);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* NEW: Score with its own background card */
 .page-tag-detail .tag-score {
   margin: 0;
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
+  padding: 1rem 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-on-background);
+  background-color: var(--color-background);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.page-tag-detail .tag-score::before {
+  content: "📊";
+  font-size: 1.3rem;
 }
 
 /* Levels list container */
@@ -177,6 +204,16 @@
   .page-tag-detail {
     padding: 2rem;
     border-radius: 0;
+  }
+
+  .page-tag-detail .tag-title {
+    font-size: 2rem;
+  }
+
+  .page-tag-detail .tag-desc,
+  .page-tag-detail .tag-score {
+    font-size: 1rem;
+    padding: 1rem;
   }
 
   .page-tag-detail .levels-container {
