@@ -55,6 +55,7 @@ export default {
                         v-for="tag in level.tags"
                         :key="tag"
                         class="tag"
+                        :data-tag="tag"
                         :style="{ backgroundColor: TAG_COLORS[tag] || '#888' }"
                     >
                         {{ tag }}

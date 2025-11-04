@@ -135,7 +135,6 @@
 }
 
 .page-list .level-container .tag {
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
     padding: 0.55rem 1.15rem;
     border-radius: 0.75rem;
     font-weight: 600;
@@ -145,6 +144,10 @@
     background-color: var(--color-primary);
     transition: 0.2s ease background-color;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.705);
+}
+
+.page-list .level-container .tag[data-tag="Challenge"] {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 main.dark .page-list .level-container .tag {
