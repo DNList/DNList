@@ -13,14 +13,10 @@ export default {
 
         <main v-else class="page-tag-detail-container">
         <div class="page-tag-detail" :style="{ '--tag-color': tag?.color || 'var(--color-primary)' }">
-            <!-- Header colored section -->
-            <section class="tag-color-container">
             <button @click="goBack" class="back-button">&larr; Back</button>
             <h1 class="tag-title">{{ tag?.name }}</h1>
             <p class="tag-desc">{{ tag?.description }}</p>
-            </section>
 
-            <!-- Levels container -->
             <section class="levels-container">
             <h2>Levels with this tag</h2>
             <table class="list tag-detail-list">
@@ -40,6 +36,7 @@ export default {
             </section>
         </div>
     </main>
+
     `,
     data: () => ({
         loading: true,
