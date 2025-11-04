@@ -48,6 +48,7 @@ export default {
             </div>
             <div class="level-container">
                 <div class="level" v-if="level">
+                    <LevelAuthors :author="level.author" :verifier="level.verifier"></LevelAuthors>
                     <h1>{{ level.name }}</h1>
                     <div class="tags" v-if="level.tags">
                     <span
@@ -59,7 +60,6 @@ export default {
                         {{ tag }}
                     </span>
                     </div>
-                    <LevelAuthors :author="level.author" :verifier="level.verifier"></LevelAuthors>
                     <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
                     <ul class="stats">
                         <li>
