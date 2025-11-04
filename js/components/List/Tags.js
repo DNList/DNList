@@ -1,4 +1,4 @@
-[
+export default [
   {
     "id": "extreme_demon",
     "name": "Extreme Demon",
@@ -34,4 +34,4 @@
     "description": "A level in layout form, showcasing gameplay without decoration.",
     "scoreValue": 5
   }
-]
+];
