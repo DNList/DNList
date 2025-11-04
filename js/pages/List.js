@@ -43,6 +43,17 @@ export default {
                     <h1>{{ level.name }}</h1>
                     <LevelAuthors :author="level.author" :verifier="level.verifier"></LevelAuthors>
 
+                    <div class="tags" v-if="level.tags && level.tags.length">
+                        <span
+                            v-for="tagName in level.tags"
+                            :key="tagName"
+                            class="tag"
+                            :style="tagStyle(tagName)"
+                        >
+                            {{ getTagDisplayName(tagName) }}
+                        </span>
+                    </div>
+
                     <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
 
                     <ul class="stats">
