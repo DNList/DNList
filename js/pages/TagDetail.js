@@ -25,10 +25,8 @@ export default {
                                 <td class="level">
                                     <button @click="selectLevel(level)" class="list-level-btn">
                                         {{ level.name }}
+                                        {{ level.author }}
                                     </button>
-                                </td>
-                                <td class="author">
-                                    {{ level.author }}
                                 </td>
                             </tr>
                         </tbody>
