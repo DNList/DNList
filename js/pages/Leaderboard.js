@@ -147,7 +147,7 @@ export default {
                         return sum + lvlScore;
                     }, 0);
 
-                    const averageLevelScore = totalLevelScore / (levelsWithTag.length * 3);
+                    const averageLevelScore = totalLevelScore / (levelsWithTag.length * 2);
                     const bonus = Math.round(averageLevelScore);
 
                     const completedLevels = new Set([

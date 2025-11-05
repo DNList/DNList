@@ -28,13 +28,6 @@ export default [
     "bonusEnabled": false
   },
   {
-    "id": "robtop",
-    "name": "Robtop",
-    "color": "#c7c3c9ff",
-    "description": "Hit it Rob",
-    "bonusEnabled": true
-  },
-  {
     "id": "layout",
     "name": "Layout",
     "color": "#9e9e9e",
@@ -42,18 +35,11 @@ export default [
     "bonusEnabled": false
   },
   {
-    "id": "wasureta_easy",
-    "name": "Wasureta Easy",
-    "color": "#ea00ff73",
-    "description": "Levels that follow Wasureta style gameplay and deco, but significantly easier",
-    "bonusEnabled": true
-  },
-  {
-    "id": "newgen_trilogy",
-    "name": "Newgen Trilogy",
-    "color": "#5087ff73",
-    "description": "Most original progression ever",
-    "bonusEnabled": true
+    "id": "2_player",
+    "name": "2 Player",
+    "color": "#70ffb8ff",
+    "description": "Levels (supposedly) made for two players.",
+    "bonusEnabled": false
   },
   {
     "id": "99%",
@@ -66,15 +52,49 @@ export default [
     "id": "memory",
     "name": "Memory",
     "color": "#28b0ffff",
-    "description": "ITS BLUE ITS BLUE",
+    "description": "ITS BLUE ITS BLUE.",
     "bonusEnabled": false
   },
   {
     "id": "worst_level_ever",
     "name": "Worst Level Ever",
     "color": "#000000ff",
-    "description": "Get this off the servers rn please",
+    "description": "Get this off the servers rn please.",
     "bonusEnabled": false
   },
-  
+  {
+    "id": "wasureta_easy",
+    "name": "Wasureta Easy Pack",
+    "color": "#ea00ff73",
+    "description": "Levels that follow Wasureta style gameplay and deco, but significantly easier.",
+    "bonusEnabled": true
+  },
+  {
+    "id": "videogame",
+    "name": "Videogame Pack",
+    "color": "#4c2ff373",
+    "description": "Levels that follow videogames style and/or gameplay.",
+    "bonusEnabled": true
+  },
+  {
+    "id": "newgen_trilogy",
+    "name": "Newgen Trilogy Pack",
+    "color": "#5087ff73",
+    "description": "Most original progression ever.",
+    "bonusEnabled": true
+  },
+  {
+    "id": "robtop",
+    "name": "Robtop Pack",
+    "color": "#c7c3c9ff",
+    "description": "Hit it Rob.",
+    "bonusEnabled": true
+  },
+  {
+    "id": "nine_circles",
+    "name": "Nine Circles Pack",
+    "color": "#9c0e0eff",
+    "description": "The level that changed everything.",
+    "bonusEnabled": true
+  },
 ];
