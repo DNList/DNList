@@ -131,11 +131,10 @@
 .page-list .level-container .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
 }
 
 .page-list .level-container .tag {
-    margin-left:1rem ;
+    margin-left: 0.5rem;
     font-size: 1.1rem;
     font-weight: 600;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
