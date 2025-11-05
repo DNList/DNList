@@ -70,8 +70,8 @@ export default [
     "scoreValue": 0
   },
   {
-    "id": "Worst level ever",
-    "name": "99%",
+    "id": "worst_level_ever",
+    "name": "Worst Level Ever",
     "color": "#000000ff",
     "description": "Get this off the servers rn please",
     "scoreValue": 0
