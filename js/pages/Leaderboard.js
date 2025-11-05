@@ -117,13 +117,10 @@ export default {
         applyTagBonuses() {
             console.log("Applying tag bonuses...");
             this.leaderboard.forEach(entry => {
-                // Combine verified + completed levels
                 const completedLevels = new Set([
                     ...entry.completed.map(l => l.level),
                     ...entry.verified.map(l => l.level),
                 ]);
-
-                console.log(`Player ${entry.user} completed levels:`, Array.from(completedLevels));
 
                 entry.tagBonuses = [];
                 let totalBonus = 0;
@@ -141,19 +138,14 @@ export default {
 
                     if (levelsWithTag.length === 0) return;
 
-                    // ✅ Compute dynamic bonus
                     const totalLevelScore = levelsWithTag.reduce((sum, level) => {
                         const lvlScore = score(level.rank, 100, level.percentToQualify || 50);
                         return sum + lvlScore;
                     }, 0);
 
                     const averageLevelScore = totalLevelScore / (levelsWithTag.length * 2);
-                    const bonus = Math.round(averageLevelScore);
-
-                    const completedLevels = new Set([
-                        ...entry.completed.map(l => l.level),
-                        ...entry.verified.map(l => l.level),
-                    ]);
+                    
+                    const bonus = Math.round(averageLevelScore * 1000) / 1000;
 
                     const completedAll = levelsWithTag.every(l => completedLevels.has(l.level));
 
@@ -163,10 +155,9 @@ export default {
                         console.log(`✅ Player ${entry.user} earned ${bonus} bonus points for "${tag.name}"`);
                     }
                 });
-                
+
                 entry.total += totalBonus;
             });
         }
     },
 };
-
