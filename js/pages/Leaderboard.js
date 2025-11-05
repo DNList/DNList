@@ -1,6 +1,8 @@
 import { fetchLeaderboard } from '../content.js';
 import { localize } from '../util.js';
 import Spinner from '../components/Spinner.js';
+import tags from "../components/List/Tags.js";
+
 
 export default {
     components: { Spinner },
@@ -56,6 +58,14 @@ export default {
                             </tr>
                         </table>
 
+                        <h2 v-if="entry.tagBonuses && entry.tagBonuses.length > 0">Tag Bonuses</h2>
+                        <table class="table" v-if="entry.tagBonuses && entry.tagBonuses.length > 0">
+                            <tr v-for="bonus in entry.tagBonuses" :key="bonus.name">
+                                <td class="level"><p>{{ bonus.name }}</p></td>
+                                <td class="score"><p>+{{ localize(bonus.bonus) }}</p></td>
+                            </tr>
+                        </table>
+                        
                         <h2 v-if="entry.progressed.length > 0">Progressed ({{ entry.progressed.length }})</h2>
                         <table class="table">
                             <tr v-for="score in entry.progressed">
@@ -97,8 +107,48 @@ export default {
         this.leaderboard = leaderboard;
         this.err = err;
         this.allLevels = allLevels;
+        this.applyTagBonuses();
         this.loading = false;
     },
-    methods: { localize },
+    methods: {
+        localize,
+
+        applyTagBonuses() {
+            this.leaderboard.forEach(entry => {
+                let totalBonus = 0;
+                const completedLevels = new Set([
+                    ...entry.completed.map(l => l.level),
+                    ...entry.verified.map(l => l.level),
+                ]);
+
+                entry.tagBonuses = [];
+
+                // For each tag in your Tags.js
+                tags.forEach(tag => {
+                    // Find all levels that have this tag
+                    const levelsWithTag = this.allLevels
+                        .filter(l => Array.isArray(l.tags) && l.tags.includes(tag.name))
+                        .map(l => l.level);
+
+                    // Skip tags that don't exist on any level
+                    if (levelsWithTag.length === 0) return;
+
+                    // Check if player completed all levels for this tag
+                    const completedAll = levelsWithTag.every(levelName =>
+                        completedLevels.has(levelName)
+                    );
+
+                    if (completedAll) {
+                        const bonus = Number(tag.scoreValue) || 0;
+                        totalBonus += bonus;
+                        entry.tagBonuses.push({ name: tag.name, bonus });
+                    }
+                });
+
+                // Add to total
+                entry.total += totalBonus;
+            });
+        },
+    },
 };
 
