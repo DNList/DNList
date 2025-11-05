@@ -163,6 +163,8 @@ export default {
                         console.log(`✅ Player ${entry.user} earned ${bonus} bonus points for "${tag.name}"`);
                     }
                 });
+                
+                entry.total += totalBonus;
             });
         }
     },
