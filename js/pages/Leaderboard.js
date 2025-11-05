@@ -59,7 +59,7 @@ export default {
                             </tr>
                         </table>
 
-                        <h2 v-if="entry.tagBonuses && entry.tagBonuses.length > 0">Tag Points</h2>
+                        <h2 v-if="entry.tagBonuses && entry.tagBonuses.length > 0">Packs Bonus Points ({{ entry.tagBonuses.length }})</h2>
                         <table class="table" v-if="entry.tagBonuses && entry.tagBonuses.length > 0">
                             <tr v-for="bonus in entry.tagBonuses" :key="bonus.name">
                                 <td class="level"><p>{{ bonus.name }}</p></td>
@@ -144,7 +144,7 @@ export default {
                     }, 0);
 
                     const averageLevelScore = totalLevelScore / (levelsWithTag.length * 2);
-                    
+
                     const bonus = Math.round(averageLevelScore * 1000) / 1000;
 
                     const completedAll = levelsWithTag.every(l => completedLevels.has(l.level));
