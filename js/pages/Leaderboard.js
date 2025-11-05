@@ -120,6 +120,8 @@ export default {
                     ...entry.completed.map(l => l.level),
                     ...entry.verified.map(l => l.level),
                 ]);
+                console.log(`Player ${entry.user} completed levels:`, [...completedLevels]);
+
 
                 entry.tagBonuses = [];
 
@@ -130,6 +132,8 @@ export default {
                         .map(l => l.level);
 
                     if (levelsWithTag.length === 0) return;
+                    console.log(`Tag: ${tag.id}`, "Levels with tag:", levelsWithTag);
+
 
                     // Check if all levels under this tag are completed
                     const completedAll = levelsWithTag.every(levelName =>
