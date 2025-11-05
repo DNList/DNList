@@ -23,7 +23,7 @@ export default {
                 >
                     <h3>{{ tag.name }}</h3>
                     <p>{{ tag.description }}</p>
-                    <p v-if="tag.bonusEnabled && bonusScore > 0" class="tag-bonus">🏅</p>
+                    <p v-if="tag.bonusEnabled" class="tag-bonus">🏅</p>
                 </div>
             </div>
         </main>
