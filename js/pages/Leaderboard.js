@@ -127,37 +127,38 @@ export default {
                 entry.tagBonuses = [];
                 let totalBonus = 0;
 
-                tags.forEach(tag => {
-                    // ✅ Match by tag.id or tag.name, case-insensitive
-                    const levelsWithTag = this.allLevels.filter(l =>
-                        Array.isArray(l.tags) &&
-                        l.tags.some(t =>
-                            String(t).toLowerCase() === tag.id.toLowerCase() ||
-                            String(t).toLowerCase() === tag.name.toLowerCase()
-                        )
-                    );
+                // ✅ Only consider tags that actually have a nonzero bonus
+                tags
+                    .filter(tag => Number(tag.scoreValue) > 0)
+                    .forEach(tag => {
+                        // Match by tag.id or tag.name (case-insensitive)
+                        const levelsWithTag = this.allLevels.filter(l =>
+                            Array.isArray(l.tags) &&
+                            l.tags.some(t =>
+                                String(t).toLowerCase() === tag.id.toLowerCase() ||
+                                String(t).toLowerCase() === tag.name.toLowerCase()
+                            )
+                        );
 
-                    // Only log if this tag applies to some levels
-                    if (levelsWithTag.length > 0) {
-                        console.log(`Tag "${tag.name}" applies to levels:`, levelsWithTag.map(l => l.level));
-                    }
+                        if (levelsWithTag.length > 0) {
+                            console.log(`Tag "${tag.name}" applies to levels:`, levelsWithTag.map(l => l.level));
+                        }
 
-                    // Check if player completed ALL levels with this tag
-                    const completedAll = levelsWithTag.length > 0 &&
-                        levelsWithTag.every(l => completedLevels.has(l.level));
+                        // ✅ Only apply bonus if player beat or verified *all* levels in that tag
+                        const completedAll =
+                            levelsWithTag.length > 0 &&
+                            levelsWithTag.every(l => completedLevels.has(l.level));
 
-                    if (completedAll) {
-                        const bonus = Number(tag.scoreValue) || 0;
-                        entry.tagBonuses.push({ name: tag.name, bonus });
-                        totalBonus += bonus;
-                        console.log(`✅ Player ${entry.user} earned bonus for tag "${tag.name}" (+${bonus})`);
-                    }
-                });
+                        if (completedAll) {
+                            const bonus = Number(tag.scoreValue);
+                            entry.tagBonuses.push({ name: tag.name, bonus });
+                            totalBonus += bonus;
+                            console.log(`✅ Player ${entry.user} earned bonus for tag "${tag.name}" (+${bonus})`);
+                        }
+                    });
 
                 entry.total += totalBonus;
             });
-
-            console.log("Tag bonuses applied:", this.leaderboard.map(e => e.tagBonuses));
         }
     },
 };
