@@ -20,7 +20,6 @@ export default {
                 <!-- NEW: Wrapper div for description and score cards -->
                 <div class="tag-info-cards">
                     <p class="tag-desc">• {{ tag?.description }}</p>
-                    <p class="tag-score">• Score: {{ tag?.scoreValue }}</p>
                 </div>
 
                 <section class="levels-container">
