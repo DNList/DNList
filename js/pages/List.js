@@ -148,22 +148,32 @@ export default {
         },
     },
     async mounted() {
+        const tagId = this.$route.params.tagId;
         this.list = await fetchList();
-        this.editors = await fetchEditors();
 
-        if (!this.list) {
-            this.errors = ["Failed to load list. Retry in a few minutes or notify list staff."];
+        // Find tag
+        this.tag = tags.find(t =>
+            t.id.toLowerCase() === String(tagId).toLowerCase() ||
+            t.name.toLowerCase() === String(tagId).toLowerCase()
+        );
+
+        if (this.tag && this.list) {
+            // Map all levels that include this tag + attach rank
+            this.levelsWithTag = this.list
+                .map(([level], index) => ({ ...level, rank: index + 1 }))
+                .filter(level =>
+                    Array.isArray(level.tags) &&
+                    level.tags.some(t =>
+                        String(t).toLowerCase() === this.tag.id.toLowerCase() ||
+                        String(t).toLowerCase() === this.tag.name.toLowerCase()
+                    )
+                );
         } else {
-            this.errors.push(
-                ...this.list
-                    .filter(([_, err]) => err)
-                    .map(([_, err]) => `Failed to load level. (${err}.json)`)
-            );
-            if (!this.editors) this.errors.push("Failed to load list editors.");
+            this.levelsWithTag = [];
         }
 
         this.loading = false;
-
+        
         if (store.selectedLevelId) {
             const index = this.list.findIndex(([level]) => level.id === store.selectedLevelId);
             if (index !== -1) {
