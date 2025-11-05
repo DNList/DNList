@@ -123,17 +123,15 @@ export default {
 
                 entry.tagBonuses = [];
 
-                // For each tag in your Tags.js
+                // Loop through tags and apply bonuses
                 tags.forEach(tag => {
-                    // Find all levels that have this tag
                     const levelsWithTag = this.allLevels
-                        .filter(l => Array.isArray(l.tags) && (l.tags.includes(tag.id) || l.tags.includes(tag.name)))
+                        .filter(l => Array.isArray(l.tags) && l.tags.includes(tag.id))
                         .map(l => l.level);
-                        
-                    // Skip tags that don't exist on any level
+
                     if (levelsWithTag.length === 0) return;
 
-                    // Check if player completed all levels for this tag
+                    // Check if all levels under this tag are completed
                     const completedAll = levelsWithTag.every(levelName =>
                         completedLevels.has(levelName)
                     );
@@ -145,9 +143,11 @@ export default {
                     }
                 });
 
-                // Add to total
-                entry.total += totalBonus;
+                // Add total bonus points to player total
+                entry.total = Number(entry.total || 0) + totalBonus;
             });
+
+            console.log("Tag bonuses applied:", this.leaderboard.map(e => e.tagBonuses));
         },
     },
 };
