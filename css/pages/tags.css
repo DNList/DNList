@@ -1,6 +1,6 @@
 /* ===== Tags Overview ===== */
 .page-tags {
-  padding: 2rem 4rem;
+  padding: 10rem 4rem;
 }
 
 .page-tags .tags-overview {
@@ -249,7 +249,6 @@
 .page-tags .tags-header {
   position: relative;
   z-index: 2;
-  margin-bottom: 4rem;
   text-align: center;
 }
 
