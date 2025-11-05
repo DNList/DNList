@@ -157,6 +157,7 @@ export default {
                 });
 
                 entry.total += totalBonus;
+                entry.total = Math.round(entry.total * 1000) / 1000;
             });
         }
     },
