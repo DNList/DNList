@@ -148,6 +148,7 @@ export async function fetchLeaderboard() {
             level: level.name,
             rank: rank + 1,
             link: level.verification || '#',
+            tags: level.tags || [],
             score: 0,
         }));
 
