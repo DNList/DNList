@@ -3,6 +3,7 @@ import { fetchList } from "../content.js";
 import tags from "../components/List/Tags.js";
 import Spinner from "../components/Spinner.js";
 import LevelAuthors from "../components/List/LevelAuthors.js";
+import { score } from "../score.js";
 
 export default {
     components: { Spinner, LevelAuthors },
@@ -17,9 +18,12 @@ export default {
                 
                 <h1 class="tag-title">{{ tag?.name }}</h1>
                 
-                <!-- NEW: Wrapper div for description and score cards -->
                 <div class="tag-info-cards">
                     <p class="tag-desc">• {{ tag?.description }}</p>
+                    <p v-if="tag.bonusEnabled && bonusScore > 0" class="tag-bonus">
+                        🏅 Bonus reward for completing all levels with this tag: 
+                        <strong>+{{ bonusScore.toFixed(3) }}</strong> points
+                    </p>
                 </div>
 
                 <section class="levels-container">
@@ -44,6 +48,7 @@ export default {
         list: [],
         levelsWithTag: [],
         tag: null,
+        bonusScore: 0,
     }),
     async mounted() {
         const tagId = this.$route.params.tagId;
@@ -56,13 +61,25 @@ export default {
 
         if (this.tag && this.list) {
             this.levelsWithTag = this.list
-                .map(([level]) => level)
+                .map(([level], rank) => ({
+                    ...level,
+                    rank: rank + 1,
+                }))
                 .filter(level =>
                     Array.isArray(level.tags) && level.tags.some(t =>
                         String(t).toLowerCase() === this.tag.id.toLowerCase() ||
                         String(t).toLowerCase() === this.tag.name.toLowerCase()
                     )
                 );
+
+            if (this.tag.bonusEnabled && this.levelsWithTag.length > 0) {
+                const totalLevelScore = this.levelsWithTag.reduce((sum, level) => {
+                    return sum + score(level.rank, 100, level.percentToQualify || 50);
+                }, 0);
+
+                const averageLevelScore = totalLevelScore / (this.levelsWithTag.length * 2);
+                this.bonusScore = Math.round(averageLevelScore * 1000) / 1000;
+            }
         } else {
             this.levelsWithTag = [];
         }
@@ -74,8 +91,8 @@ export default {
             this.$router.push("/tags");
         },
         selectLevel(level) {
-            store.selectedLevelId = level.id; // 👈 store which level was clicked
-            this.$router.push("/"); // go to list page
+            store.selectedLevelId = level.id;
+            this.$router.push("/");
         }
     }
 };
