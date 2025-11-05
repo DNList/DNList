@@ -245,3 +245,24 @@
     font-size: 0.9rem;
   }
 }
+
+.page-tags .tags-header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.page-tags .tags-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-on-background, #fff);
+}
+
+.page-tags .tags-overview {
+  position: relative;
+  z-index: 1;
+  margin-top: 0; /* remove the previous 2rem top margin to avoid double spacing */
+}
+
