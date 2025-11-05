@@ -114,45 +114,51 @@ export default {
         localize,
 
         applyTagBonuses() {
+            console.log("Applying tag bonuses...");
             this.leaderboard.forEach(entry => {
-                let totalBonus = 0;
+                // Combine verified + completed levels
                 const completedLevels = new Set([
                     ...entry.completed.map(l => l.level),
                     ...entry.verified.map(l => l.level),
                 ]);
-                console.log(`Player ${entry.user} completed levels:`, [...completedLevels]);
 
+                console.log(`Player ${entry.user} completed levels:`, Array.from(completedLevels));
 
                 entry.tagBonuses = [];
+                let totalBonus = 0;
 
-                // Loop through tags and apply bonuses
                 tags.forEach(tag => {
-                    const levelsWithTag = this.allLevels
-                        .filter(l => Array.isArray(l.tags) && l.tags.includes(tag.id))
-                        .map(l => l.level);
-
-                    if (levelsWithTag.length === 0) return;
-                    console.log(`Tag: ${tag.id}`, "Levels with tag:", levelsWithTag);
-
-
-                    // Check if all levels under this tag are completed
-                    const completedAll = levelsWithTag.every(levelName =>
-                        completedLevels.has(levelName)
+                    // ✅ Match by tag.id or tag.name, case-insensitive
+                    const levelsWithTag = this.allLevels.filter(l =>
+                        Array.isArray(l.tags) &&
+                        l.tags.some(t =>
+                            String(t).toLowerCase() === tag.id.toLowerCase() ||
+                            String(t).toLowerCase() === tag.name.toLowerCase()
+                        )
                     );
+
+                    // Only log if this tag applies to some levels
+                    if (levelsWithTag.length > 0) {
+                        console.log(`Tag "${tag.name}" applies to levels:`, levelsWithTag.map(l => l.level));
+                    }
+
+                    // Check if player completed ALL levels with this tag
+                    const completedAll = levelsWithTag.length > 0 &&
+                        levelsWithTag.every(l => completedLevels.has(l.level));
 
                     if (completedAll) {
                         const bonus = Number(tag.scoreValue) || 0;
-                        totalBonus += bonus;
                         entry.tagBonuses.push({ name: tag.name, bonus });
+                        totalBonus += bonus;
+                        console.log(`✅ Player ${entry.user} earned bonus for tag "${tag.name}" (+${bonus})`);
                     }
                 });
 
-                // Add total bonus points to player total
-                entry.total = Number(entry.total || 0) + totalBonus;
+                entry.total += totalBonus;
             });
 
             console.log("Tag bonuses applied:", this.leaderboard.map(e => e.tagBonuses));
-        },
+        }
     },
 };
 
