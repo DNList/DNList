@@ -127,9 +127,9 @@ export default {
                 tags.forEach(tag => {
                     // Find all levels that have this tag
                     const levelsWithTag = this.allLevels
-                        .filter(l => Array.isArray(l.tags) && l.tags.includes(tag.name))
+                        .filter(l => Array.isArray(l.tags) && (l.tags.includes(tag.id) || l.tags.includes(tag.name)))
                         .map(l => l.level);
-
+                        
                     // Skip tags that don't exist on any level
                     if (levelsWithTag.length === 0) return;
 
