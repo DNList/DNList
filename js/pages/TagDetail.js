@@ -19,7 +19,7 @@ export default {
                 <h1 class="tag-title">{{ tag?.name }}</h1>
                 
                 <div class="tag-info-cards">
-                    <p class="tag-desc">• {{ tag?.description }}r3
+                    <p class="tag-desc">• Description: {{ tag?.description }}
                     <p v-if="tag.bonusEnabled && bonusScore > 0" class="tag-bonus">
                         🏅 Bonus reward for completing all levels with this tag: 
                         <strong>+{{ bonusScore.toFixed(3) }}</strong> points
