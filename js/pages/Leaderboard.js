@@ -58,14 +58,14 @@ export default {
                             </tr>
                         </table>
 
-                        <h2 v-if="entry.tagBonuses && entry.tagBonuses.length > 0">Tag Bonuses</h2>
+                        <h2 v-if="entry.tagBonuses && entry.tagBonuses.length > 0">Tag Points</h2>
                         <table class="table" v-if="entry.tagBonuses && entry.tagBonuses.length > 0">
                             <tr v-for="bonus in entry.tagBonuses" :key="bonus.name">
                                 <td class="level"><p>{{ bonus.name }}</p></td>
                                 <td class="score"><p>+{{ localize(bonus.bonus) }}</p></td>
                             </tr>
                         </table>
-                        
+
                         <h2 v-if="entry.progressed.length > 0">Progressed ({{ entry.progressed.length }})</h2>
                         <table class="table">
                             <tr v-for="score in entry.progressed">
