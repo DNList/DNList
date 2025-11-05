@@ -5,17 +5,17 @@
 }
 
 .page-tags .tags-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
   padding-bottom: 1rem;
-  text-align: center;
 }
 
 .page-tags .tags-overview {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 1.5rem;
   margin-top: 0;
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
 
 .page-tags .tag-card {
@@ -85,7 +85,7 @@
 }
 
 .page-tag-detail .tag-title {
-  margin: 0 0 1rem 0;
+  margin: 0 0 2rem 0;
   font-size: 2.5rem;
   font-weight: 700;
   color: white;
