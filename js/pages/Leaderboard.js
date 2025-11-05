@@ -2,6 +2,7 @@ import { fetchLeaderboard } from '../content.js';
 import { localize } from '../util.js';
 import Spinner from '../components/Spinner.js';
 import tags from "../components/List/Tags.js";
+import { score } from '../score.js';
 
 
 export default {
