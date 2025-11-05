@@ -4,6 +4,25 @@ export default {
     return {
       changelog: [
         {
+          date: "5-11-2025",
+          message: `
+            • Release of the DNList v1.3.0.<br>
+            • Added the "Tags" page, which shows all the different tags that are displayed on the list levels. Each tag can be clicked to see a brief description and see all the levels which contain it. This can be accesed through the Tags page or clicking a tag in a level. When clicking a level in an specific tag, it will also take you to the level.<br>
+            • Added the packs, which are specific tags that gives bonus points if a player has completed all levels with that tag. It can be distinguished by the name and the 🏅 emoji.<br>
+            • Added the "Bonus Pack points" section in the leaderboard.<br>
+            • FortnitePixelDash17 has been placed at #20 on the list, between Sakupen Egg and Verity, with a list requirement of 73%.<br>
+          `,
+          featured: true,
+        },
+        {
+          date: "4-11-2025",
+          message: `
+            • Release of the DNList v1.2.1.<br>
+            • Added "Tags" to some levels in the list<br>
+          `,
+          featured: true,
+        },
+        {
           date: "3-11-2025",
           message: `
             • Release of the DNList v1.2.0.<br>

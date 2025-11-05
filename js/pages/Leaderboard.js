@@ -59,7 +59,7 @@ export default {
                             </tr>
                         </table>
 
-                        <h2 v-if="entry.tagBonuses && entry.tagBonuses.length > 0">Packs Bonus Points ({{ entry.tagBonuses.length }})</h2>
+                        <h2 v-if="entry.tagBonuses && entry.tagBonuses.length > 0">Bonus Pack points ({{ entry.tagBonuses.length }})</h2>
                         <table class="table" v-if="entry.tagBonuses && entry.tagBonuses.length > 0">
                             <tr v-for="bonus in entry.tagBonuses" :key="bonus.name">
                                 <td class="level"><p>{{ bonus.name }}</p></td>
