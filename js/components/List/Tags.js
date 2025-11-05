@@ -4,7 +4,7 @@ export default [
     "name": "Extreme Demon",
     "color": "#ff4c4c",
     "description": "The hardest difficulty tier, requiring top-tier skill and consistency.",
-    "scoreValue": 0
+    "scoreValue": 200
   },
   {
     "id": "insane_demon",
