@@ -4,6 +4,14 @@ export default {
     return {
       changelog: [
         {
+          date: "6-11-2025",
+          message: `
+            • Arre Robot (2P) has been placed at #19 on the list, between One Space and Sakupen Egg, with a list requirement of 72%.<br>
+            • Depressure has been placed at #25 on the list, between A Pretty Easy Demon and B, with a list requirement of 74%.<br>
+          `,
+          featured: true,
+        },
+        {
           date: "5-11-2025",
           message: `
             • Release of the DNList v1.3.0.<br>
