@@ -2,6 +2,7 @@ import { store } from "../main.js";
 import { fetchList } from "../content.js";
 import tags from "../components/List/Tags.js";
 import Spinner from "../components/Spinner.js";
+import "/css/pages/tags.css";
 
 export default {
     components: { Spinner },
