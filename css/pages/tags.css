@@ -42,7 +42,7 @@
 .page-tag-detail {
   padding: 3rem 4rem; /* like changelog */
   background-color: var(--tag-color, var(--color-surface));
-  min-height: 100vh;
+  min-height: calc(100vh - 4rem); /* Account for margin */
   width: 100%;
   border-radius: 1.5rem;
   display: flex;
@@ -50,7 +50,7 @@
   gap: 1.5rem;
   box-sizing: border-box;
   grid-column: 1 / -1; /* Span all grid columns */
-  margin: 2rem 2rem 2rem 2rem
+  margin: 2rem; /* Add margin on all sides */
 }
 
 /* Header */
