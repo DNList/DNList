@@ -66,8 +66,7 @@
 }
 
 .page-tag-detail .tag-color-container .back-button {
-  max-width: 1100px;
-  margin: 0 auto;
+  margin: 0.3;
   display: inline-block;
   padding: 0.45rem 0.9rem;
   border-radius: 0.45rem;
@@ -84,13 +83,13 @@
 }
 
 .page-tag-detail .tag-color-container .tag-title {
-  margin: 0.1;
+  margin: 0.3;
   font-size: 2rem;
   font-weight: 700;
 }
 
 .page-tag-detail .tag-color-container .tag-desc {
-  margin: 0.1;
+  margin: 0.3;
   font-size: 1.1rem;
   opacity: 0.9;
 }
