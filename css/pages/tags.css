@@ -43,7 +43,6 @@
   padding: 3rem 4rem; /* like changelog */
   background-color: var(--tag-color, var(--color-surface));
   min-height: calc(100vh - 4rem); /* Account for margin */
-  width: 100%;
   border-radius: 1.5rem;
   display: flex;
   flex-direction: column;
