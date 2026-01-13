@@ -4,6 +4,29 @@ export default {
     return {
       changelog: [
         {
+          date: "10-12-2026",
+          message: `
+            • Release of the DNList v1.3.2.<br>
+            • Fixed the inconsistencies between the tags page and the changelog.<br>
+            • "Layout" tag has been changed to "Unrated".<br>
+          `,
+          featured: true,
+        },
+        {
+          date: "3-12-2026",
+          message: `
+            • Falling Up has been placed at #1, above Doradura with a list requirement of 50%.<br>
+          `,
+          featured: true,
+        },
+        {
+          date: "20-12-2025",
+          message: `
+            • Acropolis has been placed at #6, between Acu and and Future Funk II, with a list requirement of 64%.<br>
+          `,
+          featured: true,
+        },
+        {
           date: "6-11-2025",
           message: `
             • Arre Robot (2P) has been placed at #19 on the list, between One Space and Sakupen Egg, with a list requirement of 72%.<br>
