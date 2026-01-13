@@ -28,10 +28,10 @@ export default [
     "bonusEnabled": false
   },
   {
-    "id": "layout",
-    "name": "Layout",
+    "id": "unrated",
+    "name": "Unrated",
     "color": "#9e9e9e",
-    "description": "A level in layout form, showcasing gameplay with little to no decoration.",
+    "description": "A level which does not have the rate from the big R",
     "bonusEnabled": false
   },
   {
