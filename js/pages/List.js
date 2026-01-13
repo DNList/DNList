@@ -150,6 +150,7 @@ export default {
     async mounted() {
         const tagId = this.$route.params.tagId;
         this.list = await fetchList();
+        this.editors = await fetchEditors();
 
         // Find tag
         this.tag = tags.find(t =>
