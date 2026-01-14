@@ -59,7 +59,7 @@
 .page-list .level-container .level .level-subtitle {
     font-family: inherit;      /* same font as title */
     font-weight: 600;          /* slightly lighter than h1 */
-    font-size: 1.15rem;        /* smaller than title */
+    font-size: 1.3rem;        /* smaller than title */
     font-style: italic;
     font-weight: 500;
     opacity: 0.75;
