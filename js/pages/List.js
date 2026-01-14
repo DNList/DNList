@@ -73,6 +73,44 @@ export default {
                     <p v-else-if="selected +1 <= 150"><strong>100%</strong> or better to qualify</p>
                     <p v-else>This level does not accept new records.</p>
 
+                    <h2 v-if="level.positionHistory && level.positionHistory.length">
+                        Position History
+                    </h2>
+
+                    <table
+                        v-if="level.positionHistory && level.positionHistory.length"
+                        class="position-history"
+                    >
+                        <tr>
+                            <th>Date</th>
+                            <th>Change</th>
+                            <th>New Position</th>
+                            <th>Reason</th>
+                        </tr>
+
+                        <tr v-for="entry in level.positionHistory.slice().reverse()">
+                            <td>{{ entry.date }}</td>
+
+                            <td class="change">
+                                <span v-if="entry.change === null">–</span>
+                                <span v-else-if="entry.change > 0" class="up">
+                                    +{{ entry.change }}
+                                </span>
+                                <span v-else class="down">
+                                    {{ entry.change }}
+                                </span>
+                            </td>
+
+                            <td>
+                                <span v-if="entry.position !== null">
+                                    #{{ entry.position }}
+                                </span>
+                                <span v-else>–</span>
+                            </td>
+
+                            <td>{{ entry.reason }}</td>
+                        </tr>
+                    </table>
                     <table class="records">
                         <tr v-for="record in level.records" class="record">
                             <td class="percent"><p>{{ record.percent }}%</p></td>
