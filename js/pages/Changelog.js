@@ -6,6 +6,15 @@ export default {
         {
           date: "14-01-2026",
           message: `
+            • Release of the DNList v1.4.1.<br>
+            • Added subtitles in all levels, which will be a selected phrase from the verifier.<br>
+            • Added phrases to all records.<br>
+          `,
+          featured: true,
+        },
+        {
+          date: "14-01-2026",
+          message: `
             • Release of the DNList v1.4.0.<br>
             • Added a link to the discord icon.<br>
             • Added the position history to all levels.<br>
