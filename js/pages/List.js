@@ -95,6 +95,16 @@ export default {
                 </h2>
 
                 <div class="position-history-cards" v-if="level.positionHistory && level.positionHistory.length">
+                    
+                    <!-- Column headers -->
+                    <div class="history-card headers">
+                        <div class="history-date">Date</div>
+                        <div class="history-change">Change</div>
+                        <div class="history-position">Position</div>
+                        <div class="history-reason">Reason</div>
+                    </div>
+
+                    <!-- History entries -->
                     <div
                         v-for="entry in level.positionHistory.slice().reverse()"
                         :class="['history-card', {
