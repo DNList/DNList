@@ -256,6 +256,7 @@ main.dark .page-list .level-container .tag {
 }
 .history-reason {
     font-weight: bold;
+    opacity: 0.75;
 }
 
 .section-separator {

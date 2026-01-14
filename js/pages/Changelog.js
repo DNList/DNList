@@ -4,7 +4,7 @@ export default {
     return {
       changelog: [
         {
-          date: "10-12-2026",
+          date: "10-1-2026",
           message: `
             • Release of the DNList v1.3.2.<br>
             • Fixed the inconsistencies between the tags page and the changelog.<br>
@@ -13,7 +13,7 @@ export default {
           featured: true,
         },
         {
-          date: "3-12-2026",
+          date: "3-1-2026",
           message: `
             • Falling Up has been placed at #1, above Doradura with a list requirement of 50%.<br>
           `,

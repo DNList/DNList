@@ -1,3 +1,12 @@
+//  PROCEDIMIENTO
+
+//  cd C:\Users\User\Documents\GitHub\DNList
+//  cp data/_list.json data/_list.previous.json
+//  node updatePositionHistory.js "reason"
+//  git add .
+//  git commit -m "Update list positions"
+//  git push
+
 import fs from "fs";
 import path from "path";
 
@@ -6,8 +15,11 @@ const LIST_FILE = "_list.json";
 const OLD_LIST_FILE = "_list.previous.json";
 const reasonFromCLI = process.argv.slice(2).join(" ") || "Moved";
 
-
-const today = new Date().toISOString().slice(0, 10);
+// Get today's date in DD-MM-YYYY format
+const now = new Date();
+const today = String(now.getDate()).padStart(2, "0") + "-" +
+              String(now.getMonth() + 1).padStart(2, "0") + "-" +
+              now.getFullYear();
 
 // Load lists
 const newList = JSON.parse(

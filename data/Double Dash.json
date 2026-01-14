@@ -11,16 +11,10 @@
     "percentToQualify": "66",
     "positionHistory": [
         {
-            "date": "2026-1-14",
+            "date": "14-01-2026",
             "change": null,
-            "position": 26,
-            "reason": "Added to list"
-        },
-        {
-            "date": "2026-01-14",
-            "change": -1,
-            "position": 12,
-            "reason": "Moved"
+            "position": 11,
+            "reason": "Added the position history"
         }
     ],
     "records": [
