@@ -3,7 +3,10 @@
     "name": "Forsaken Neon",
     "author": "Zobros",
     "verifier": "Ninjedu",
-    "tags": ["hard_demon","worst_level_ever"],
+    "tags": [
+        "hard_demon",
+        "worst_level_ever"
+    ],
     "verification": "https://youtu.be/ARjiOD0udsY?si=nvqz7FiGNDlOtmqT",
     "percentToQualify": "68",
     "positionHistory": [

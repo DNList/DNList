@@ -2,9 +2,14 @@
     "id": 24301797,
     "name": "Falling Up",
     "author": "Krmal",
-    "creators": ["-"],
+    "creators": [
+        "-"
+    ],
     "verifier": "Lolencio04",
-    "tags": ["extreme_demon","worst_level_ever"],
+    "tags": [
+        "extreme_demon",
+        "worst_level_ever"
+    ],
     "verification": "https://youtu.be/hYr_FrlSuog?si=gvXlh-e_R8T-ha0F",
     "percentToQualify": "50",
     "positionHistory": [
@@ -15,6 +20,5 @@
             "reason": "Added to list"
         }
     ],
-    "records": [
-    ]
+    "records": []
 }

@@ -3,7 +3,10 @@
     "name": "B",
     "author": "Motleyorc",
     "verifier": "Ninjedu",
-    "tags": ["medium_demon","newgen_trilogy"],
+    "tags": [
+        "medium_demon",
+        "newgen_trilogy"
+    ],
     "verification": "https://youtu.be/ohKPqGxotao?si=s4_EVbV_-HBJd5dX",
     "percentToQualify": "75",
     "positionHistory": [

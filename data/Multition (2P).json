@@ -3,7 +3,10 @@
     "name": "Multition (2P)",
     "author": "Mulpan",
     "verifier": "Lolencio04",
-    "tags": ["insane_demon","2_player"],
+    "tags": [
+        "insane_demon",
+        "2_player"
+    ],
     "verification": "https://youtu.be/Syg3tZctvC0?si=HNSGLRPU3VZ5AKTZ",
     "percentToQualify": "67",
     "positionHistory": [
@@ -14,8 +17,8 @@
             "reason": "Added to list"
         }
     ],
-    "records":[
-       {
+    "records": [
+        {
             "user": "Ninjedu",
             "link": "No video",
             "percent": 100,

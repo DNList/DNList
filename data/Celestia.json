@@ -3,7 +3,9 @@
     "name": "Celestia",
     "author": "Notxo",
     "verifier": "Ninjedu",
-    "tags": ["medium_demon"],
+    "tags": [
+        "medium_demon"
+    ],
     "verification": "https://youtu.be/HKia8-7ra5s?si=UGIX5KijzTkLdl8w",
     "percentToQualify": "73",
     "positionHistory": [

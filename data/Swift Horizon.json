@@ -3,7 +3,10 @@
     "name": "Swift Horizon",
     "author": "Alpheia",
     "verifier": "Ninjedu",
-    "tags": ["medium_demon","99%"],
+    "tags": [
+        "medium_demon",
+        "99%"
+    ],
     "verification": "https://youtu.be/qs_aojCYwak?si=vGc3RzJvD3eIScbT",
     "percentToQualify": "77",
     "positionHistory": [
@@ -14,6 +17,5 @@
             "reason": "Added to list"
         }
     ],
-    "records": [
-    ]
+    "records": []
 }

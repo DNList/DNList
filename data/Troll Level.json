@@ -3,7 +3,10 @@
     "name": "Troll Level",
     "author": "Lexycat",
     "verifier": "Ninjedu",
-    "tags": ["extreme_demon","memory"],
+    "tags": [
+        "extreme_demon",
+        "memory"
+    ],
     "verification": "https://youtu.be/0sSD7z73mCU?si=GPmZOugYmr6H-kSp",
     "percentToQualify": "59",
     "positionHistory": [
@@ -14,6 +17,5 @@
             "reason": "Added to list"
         }
     ],
-    "records": [
-    ]
+    "records": []
 }

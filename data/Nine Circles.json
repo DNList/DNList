@@ -3,7 +3,10 @@
     "name": "Nine Circles",
     "author": "Zobros",
     "verifier": "Ninjedu",
-    "tags": ["hard_demon","nine_circles"],
+    "tags": [
+        "hard_demon",
+        "nine_circles"
+    ],
     "verification": "https://youtu.be/dOdPoU1ncOc?si=Hyw0xZt5UGY6My4_",
     "percentToQualify": "68",
     "positionHistory": [

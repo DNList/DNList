@@ -3,7 +3,9 @@
     "name": "VeritY",
     "author": "Serponge",
     "verifier": "Ninjedu",
-    "tags": ["medium_demon"],
+    "tags": [
+        "medium_demon"
+    ],
     "verification": "https://youtu.be/p15w9MB2eAc?si=pcans-wgreqjhEEu",
     "percentToQualify": "73",
     "positionHistory": [
@@ -14,6 +16,5 @@
             "reason": "Added to list"
         }
     ],
-    "records": [
-    ]
+    "records": []
 }

@@ -3,7 +3,9 @@
     "name": "Deadlocked",
     "author": "Robtop",
     "verifier": "Ninjedu",
-    "tags": ["robtop"],
+    "tags": [
+        "robtop"
+    ],
     "verification": "https://youtu.be/I3LFTGTIWoI?si=b_8lwdeHhEji7Hnj",
     "percentToQualify": "76",
     "positionHistory": [
@@ -14,8 +16,8 @@
             "reason": "Added to list"
         }
     ],
-    "records":[
-       {
+    "records": [
+        {
             "user": "Lolencio04",
             "link": "No video",
             "percent": 100,

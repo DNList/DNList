@@ -3,7 +3,10 @@
     "name": "Hello Fitzgerald",
     "author": "Vortrox",
     "verifier": "Ninjedu",
-    "tags": ["medium_demon","99%"],
+    "tags": [
+        "medium_demon",
+        "99%"
+    ],
     "verification": "https://youtu.be/R4v0iUp9nYs?si=GYXXCp6K_ii20plG",
     "percentToQualify": "79",
     "positionHistory": [
@@ -14,6 +17,5 @@
             "reason": "Added to list"
         }
     ],
-    "records": [
-    ]
+    "records": []
 }

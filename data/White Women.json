@@ -3,7 +3,10 @@
     "name": "White Women",
     "author": "Heatherhayes",
     "verifier": "Ninjedu",
-    "tags": ["hard_demon","memory"],
+    "tags": [
+        "hard_demon",
+        "memory"
+    ],
     "verification": "https://youtu.be/0kPu55NJNiw?si=Xk97nDiduDvxh6up",
     "percentToQualify": "69",
     "positionHistory": [
@@ -14,6 +17,5 @@
             "reason": "Added to list"
         }
     ],
-    "records": [
-    ]
+    "records": []
 }

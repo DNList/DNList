@@ -3,7 +3,10 @@
     "name": "Arre Robot (2P)",
     "author": "Izhar",
     "verifier": "Ninjedu",
-    "tags": ["medium_demon","2_player"],
+    "tags": [
+        "medium_demon",
+        "2_player"
+    ],
     "verification": "https://youtu.be/k9EDtwxf0Zw?si=PI5D_hhzFwnFCQiw",
     "percentToQualify": "72",
     "positionHistory": [
@@ -14,8 +17,8 @@
             "reason": "Added to list"
         }
     ],
-    "records":[
-       {
+    "records": [
+        {
             "user": "Lolencio04",
             "link": "No video",
             "percent": 100,

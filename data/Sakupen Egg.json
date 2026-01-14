@@ -3,7 +3,9 @@
     "name": "Sakupen Egg",
     "author": "Sivlol",
     "verifier": "Ninjedu",
-    "tags": ["medium_demon"],
+    "tags": [
+        "medium_demon"
+    ],
     "verification": "https://youtu.be/M61Vqi6ryj8?si=k3BdmKnrVFL-4rLw",
     "percentToQualify": "72",
     "positionHistory": [
@@ -14,6 +16,5 @@
             "reason": "Added to list"
         }
     ],
-    "records": [
-    ]
+    "records": []
 }

@@ -3,7 +3,11 @@
     "name": "Future Funk",
     "author": "JonathanGD",
     "verifier": "Ninjedu",
-    "tags": ["hard_demon","99%","newgen_trilogy"],
+    "tags": [
+        "hard_demon",
+        "99%",
+        "newgen_trilogy"
+    ],
     "verification": "https://youtu.be/LUORMA2NvmM?si=bCW2s12_rcKFsELt",
     "percentToQualify": "67",
     "positionHistory": [
@@ -14,14 +18,14 @@
             "reason": "Added to list"
         }
     ],
-    "records":[
-       {
+    "records": [
+        {
             "user": "Lolencio04",
             "link": "No video",
             "percent": 100,
             "hz": 360
         },
-       {
+        {
             "user": "CorteVIII",
             "link": "No video",
             "percent": 50,

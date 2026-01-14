@@ -3,7 +3,9 @@
     "name": "Theory Of Everything 2",
     "author": "Robtop",
     "verifier": "Ninjedu",
-    "tags": ["robtop"],
+    "tags": [
+        "robtop"
+    ],
     "verification": "https://youtu.be/1YI4oUUiV80?si=h1_sDekyZF4i0-AB",
     "percentToQualify": "77",
     "positionHistory": [
@@ -14,8 +16,8 @@
             "reason": "Added to list"
         }
     ],
-    "records":[
-       {
+    "records": [
+        {
             "user": "Lolencio04",
             "link": "No video",
             "percent": 100,

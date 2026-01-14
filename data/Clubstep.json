@@ -3,7 +3,9 @@
     "name": "Clubstep",
     "author": "Robtop",
     "verifier": "Ninjedu",
-    "tags": ["robtop"],
+    "tags": [
+        "robtop"
+    ],
     "verification": "https://youtu.be/VInQkeec188?si=1x1_O7TK9jRf5aXt",
     "percentToQualify": "79",
     "positionHistory": [
@@ -14,8 +16,8 @@
             "reason": "Added to list"
         }
     ],
-    "records":[
-       {
+    "records": [
+        {
             "user": "Lolencio04",
             "link": "No video",
             "percent": 100,

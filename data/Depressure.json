@@ -3,7 +3,10 @@
     "name": "Depressure",
     "author": "Serponge",
     "verifier": "Ninjedu",
-    "tags": ["hard_demon","videogame"],
+    "tags": [
+        "hard_demon",
+        "videogame"
+    ],
     "verification": "https://youtu.be/BmawW6MlVKI?si=ahfT7B2z_ja4qTh8",
     "percentToQualify": "74",
     "positionHistory": [
@@ -14,6 +17,5 @@
             "reason": "Added to list"
         }
     ],
-    "records": [
-    ]
+    "records": []
 }

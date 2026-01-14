@@ -3,7 +3,9 @@
     "name": "Ultra Violence",
     "author": "Xender Game",
     "verifier": "Ninjedu",
-    "tags": ["medium_demon"],
+    "tags": [
+        "medium_demon"
+    ],
     "verification": "https://youtu.be/tL2X3Fy0BUQ?si=EbxwgUX58nbnsFmz",
     "percentToQualify": "71",
     "positionHistory": [
@@ -14,6 +16,5 @@
             "reason": "Added to list"
         }
     ],
-    "records": [
-    ]
+    "records": []
 }

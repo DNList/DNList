@@ -3,7 +3,9 @@
     "name": "Magma Bound",
     "author": "ScorchVx",
     "verifier": "Ninjedu",
-    "tags": ["insane_demon"],
+    "tags": [
+        "insane_demon"
+    ],
     "verification": "https://youtu.be/B3C6XVjpSJ4?si=dUfUWpokk7IVMU1-",
     "percentToQualify": "64",
     "positionHistory": [
@@ -14,6 +16,5 @@
             "reason": "Added to list"
         }
     ],
-    "records": [
-    ]
+    "records": []
 }

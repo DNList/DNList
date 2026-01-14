@@ -3,7 +3,10 @@
     "name": "FortnitePixelDash17",
     "author": "FDATeam",
     "verifier": "Ninjedu",
-    "tags": ["hard_demon","worst_level_ever"],
+    "tags": [
+        "hard_demon",
+        "worst_level_ever"
+    ],
     "verification": "https://youtu.be/VeJ5vcgrkM0",
     "percentToQualify": "73",
     "positionHistory": [
@@ -14,6 +17,5 @@
             "reason": "Added to list"
         }
     ],
-    "records": [
-    ]
+    "records": []
 }

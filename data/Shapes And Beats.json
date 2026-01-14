@@ -3,7 +3,10 @@
     "name": "Shapes And Beats",
     "author": "kang131",
     "verifier": "Ninjedu",
-    "tags": ["hard_demon","videogame"],
+    "tags": [
+        "hard_demon",
+        "videogame"
+    ],
     "verification": "https://youtu.be/FzZk2G5y1_E?si=dTWFDmPD8h3LiD8L",
     "percentToQualify": "75",
     "positionHistory": [
@@ -14,6 +17,5 @@
             "reason": "Added to list"
         }
     ],
-    "records": [
-    ]
+    "records": []
 }
