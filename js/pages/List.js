@@ -96,9 +96,12 @@ export default {
                                 </span>
                             </td>
 
+                            <!-- New Position with arrows -->
                             <td>
                                 <span v-if="entry.position !== null">
-                                    #{{ entry.position }}
+                                    <span v-if="entry.change > 0" class="up-arrow">🔼{{ entry.position }}🔼</span>
+                                    <span v-else-if="entry.change < 0" class="down-arrow">🔽{{ entry.position }}🔽</span>
+                                    <span v-else>#{{ entry.position }}</span>
                                 </span>
                                 <span v-else>–</span>
                             </td>
@@ -106,7 +109,7 @@ export default {
                             <td>{{ entry.reason }}</td>
                         </tr>
                     </table>
-                    
+
                     <h2>Records</h2>
                     <p v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
                     <p v-else-if="selected +1 <= 150"><strong>100%</strong> or better to qualify</p>
