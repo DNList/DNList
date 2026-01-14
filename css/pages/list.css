@@ -51,6 +51,21 @@
     padding-right: 2rem;
     max-width: 48rem;
 }
+
+.page-list .level-container .level .level-title {
+    margin-bottom: 0.25rem;
+}
+
+.page-list .level-container .level .level-subtitle {
+    font-family: inherit;      /* same font as title */
+    font-weight: 600;          /* slightly lighter than h1 */
+    font-size: 1.15rem;        /* smaller than title */
+    font-style: italic;
+    font-weight: 500;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.3;
+}
+
 .page-list .level-container .level .level-authors {
     display: grid;
     grid-template-columns: max-content 1fr;

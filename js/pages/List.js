@@ -40,8 +40,15 @@ export default {
 
             <div class="level-container">
                 <div class="level" v-if="level">
-                    <h1>{{ level.name }}</h1>
+                    <h1 class="level-title">{{ level.name }}</h1>
+                    <p
+                        v-if="level.subtitle"
+                        class="level-subtitle"
+                    >
+                        {{ level.subtitle }}
+                    </p>
                     <LevelAuthors :author="level.author" :verifier="level.verifier"></LevelAuthors>
+
 
                     <div class="tags" v-if="level.tags && level.tags.length">
                         <button
