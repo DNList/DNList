@@ -13,6 +13,12 @@
     "verification": "https://youtu.be/hYr_FrlSuog?si=gvXlh-e_R8T-ha0F",
     "percentToQualify": "50",
     "positionHistory": [
+        {
+            "date": "14-01-2026",
+            "change": null,
+            "position": 1,
+            "reason": "Added to list"
+        }
     ],
     "records": []
 }
