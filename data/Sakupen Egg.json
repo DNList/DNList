@@ -6,6 +6,14 @@
     "tags": ["medium_demon"],
     "verification": "https://youtu.be/M61Vqi6ryj8?si=k3BdmKnrVFL-4rLw",
     "percentToQualify": "72",
+    "positionHistory": [
+        {
+            "date": "2026-1-14",
+            "change": null,
+            "position": 26,
+            "reason": "Added to list"
+        }
+    ],
     "records": [
     ]
 }

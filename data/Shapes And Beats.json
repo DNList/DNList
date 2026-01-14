@@ -6,6 +6,14 @@
     "tags": ["hard_demon","videogame"],
     "verification": "https://youtu.be/FzZk2G5y1_E?si=dTWFDmPD8h3LiD8L",
     "percentToQualify": "75",
+    "positionHistory": [
+        {
+            "date": "2026-1-14",
+            "change": null,
+            "position": 26,
+            "reason": "Added to list"
+        }
+    ],
     "records": [
     ]
 }

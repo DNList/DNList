@@ -6,6 +6,14 @@
     "tags": ["robtop"],
     "verification": "https://youtu.be/I3LFTGTIWoI?si=b_8lwdeHhEji7Hnj",
     "percentToQualify": "76",
+    "positionHistory": [
+        {
+            "date": "2026-1-14",
+            "change": null,
+            "position": 26,
+            "reason": "Added to list"
+        }
+    ],
     "records":[
        {
             "user": "Lolencio04",
