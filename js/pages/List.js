@@ -67,49 +67,7 @@ export default {
                             <p>{{ level.id }}</p>
                         </li>
                     </ul>
-
-                    <h2 v-if="level.positionHistory && level.positionHistory.length">
-                        Position History
-                    </h2>
-
-                    <table
-                        v-if="level.positionHistory && level.positionHistory.length"
-                        class="position-history"
-                    >
-                        <tr>
-                            <th>Date</th>
-                            <th>Change</th>
-                            <th>New Position</th>
-                            <th>Reason</th>
-                        </tr>
-
-                        <tr v-for="entry in level.positionHistory.slice().reverse()">
-                            <td>{{ entry.date }}</td>
-
-                            <td class="change">
-                                <span v-if="entry.change === null">–</span>
-                                <span v-else-if="entry.change > 0" class="up">
-                                    +{{ entry.change }}
-                                </span>
-                                <span v-else class="down">
-                                    {{ entry.change }}
-                                </span>
-                            </td>
-
-                            <!-- New Position with arrows -->
-                            <td>
-                                <span v-if="entry.position !== null">
-                                    <span v-if="entry.change > 0" class="up-arrow">🔼{{ entry.position }}🔼</span>
-                                    <span v-else-if="entry.change < 0" class="down-arrow">🔽{{ entry.position }}🔽</span>
-                                    <span v-else>#{{ entry.position }}</span>
-                                </span>
-                                <span v-else>–</span>
-                            </td>
-
-                            <td>{{ entry.reason }}</td>
-                        </tr>
-                    </table>
-
+                    
                     <h2>Records</h2>
                     <p v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
                     <p v-else-if="selected +1 <= 150"><strong>100%</strong> or better to qualify</p>
@@ -127,6 +85,42 @@ export default {
                         </tr>
                     </table>
                 </div>
+
+                <h2 v-if="level.positionHistory && level.positionHistory.length">
+                    Position History
+                </h2>
+
+                <table
+                    v-if="level.positionHistory && level.positionHistory.length"
+                    class="position-history"
+                >
+                    <tr>
+                        <th>Date</th>
+                        <th>Change</th>
+                        <th>New Position</th>
+                        <th>Reason</th>
+                    </tr>
+
+                    <tr v-for="entry in level.positionHistory.slice().reverse()">
+                        <td>{{ entry.date }}</td>
+
+                        <!-- Change column with arrows -->
+                        <td class="change">
+                            <span v-if="entry.change === null">–</span>
+                            <span v-else-if="entry.change > 0" class="up-arrow">🔼{{ entry.change }}</span>
+                            <span v-else class="down-arrow">🔽{{ Math.abs(entry.change) }}</span>
+                        </td>
+
+                        <!-- New Position column (just number) -->
+                        <td>
+                            <span v-if="entry.position !== null">#{{ entry.position }}</span>
+                            <span v-else>–</span>
+                        </td>
+
+                        <td>{{ entry.reason }}</td>
+                    </tr>
+                </table>
+
 
                 <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
                     <p>(ノಠ益ಠ)ノ彡┻━┻</p>
