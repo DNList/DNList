@@ -90,36 +90,25 @@ export default {
                     Position History
                 </h2>
 
-                <table
-                    v-if="level.positionHistory && level.positionHistory.length"
-                    class="position-history"
-                >
-                    <tr>
-                        <th>Date</th>
-                        <th>Change</th>
-                        <th>New Position</th>
-                        <th>Reason</th>
-                    </tr>
-
-                    <tr v-for="entry in level.positionHistory.slice().reverse()">
-                        <td>{{ entry.date }}</td>
-
-                        <!-- Change column with arrows -->
-                        <td class="change">
+                <div class="position-history-cards" v-if="level.positionHistory && level.positionHistory.length">
+                    <div
+                        v-for="entry in level.positionHistory.slice().reverse()"
+                        :class="['history-card', {
+                            'added': entry.change === null,
+                            'up': entry.change > 0,
+                            'down': entry.change < 0
+                        }]"
+                    >
+                        <div class="history-date">{{ entry.date }}</div>
+                        <div class="history-change">
                             <span v-if="entry.change === null">–</span>
-                            <span v-else-if="entry.change > 0" class="up-arrow">🔼{{ entry.change }}</span>
-                            <span v-else class="down-arrow">🔽{{ Math.abs(entry.change) }}</span>
-                        </td>
-
-                        <!-- New Position column (just number) -->
-                        <td>
-                            <span v-if="entry.position !== null">#{{ entry.position }}</span>
-                            <span v-else>–</span>
-                        </td>
-
-                        <td>{{ entry.reason }}</td>
-                    </tr>
-                </table>
+                            <span v-else-if="entry.change > 0">🔼{{ entry.change }}</span>
+                            <span v-else>🔽{{ Math.abs(entry.change) }}</span>
+                        </div>
+                        <div class="history-position">#{{ entry.position }}</div>
+                        <div class="history-reason">{{ entry.reason }}</div>
+                    </div>
+                </div>
 
 
                 <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
