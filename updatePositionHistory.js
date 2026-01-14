@@ -4,6 +4,8 @@ import path from "path";
 const DATA_DIR = "./data";
 const LIST_FILE = "_list.json";
 const OLD_LIST_FILE = "_list.previous.json";
+const reasonFromCLI = process.argv.slice(2).join(" ") || "Moved";
+
 
 const today = new Date().toISOString().slice(0, 10);
 
@@ -52,7 +54,7 @@ newList.forEach((name, index) => {
         date: today,
         change: diff,
         position: newPosition,
-        reason: "Moved"
+        reason: reasonFromCLI
       });
     }
   }
