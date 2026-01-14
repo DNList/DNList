@@ -85,8 +85,22 @@ export default {
                         <tr v-for="record in level.records" class="record">
                             <td class="percent"><p>{{ record.percent }}%</p></td>
                             <td class="user">
-                                <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
+                                <a
+                                    :href="record.link"
+                                    target="_blank"
+                                    class="type-label-lg"
+                                >
+                                    {{ record.user }}
+                                </a>
+
+                                <span
+                                    v-if="record.phrase"
+                                    class="record-phrase"
+                                >
+                                    – “{{ record.phrase }}”
+                                </span>
                             </td>
+
                             <td class="mobile">
                                 <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
                             </td>
