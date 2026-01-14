@@ -97,13 +97,13 @@
 }
 .page-list .level-container .level .records .percent,
 .page-list .level-container .level .records .user,
+.page-list .level-container .level .records .record-phrase,
 .page-list .level-container .level .records .hz {
     padding-block: 1rem;
 }
 .page-list .level-container .level .records .user {
     width: 100%;
 }
-.page-list .level-container .level .records .percent,
 .page-list .level-container .level .records .record-phrase {
     margin-left: 0.25rem;
     font-style: italic;
@@ -111,10 +111,11 @@
     opacity: 0.75;
     white-space: nowrap;
 }
-
+.page-list .level-container .level .records .percent,
 .page-list .level-container .level .records .hz {
     text-align: end;
 }
+
 .page-list .meta-container .og a:hover,
 .page-list .level-container .level .records a:hover {
     text-decoration: underline;
