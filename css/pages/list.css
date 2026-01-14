@@ -232,14 +232,15 @@ main.dark .page-list .level-container .tag {
     font-weight: bold;
 }
 .history-change {
+    font-weight: bold;
     text-align: center;
 }
 .history-position {
+    font-weight: bold;
     text-align: center;
 }
 .history-reason {
-    font-weight: normal;
-    opacity: 0.85;
+    font-weight: bold;
 }
 
 .section-separator {
