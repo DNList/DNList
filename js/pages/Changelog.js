@@ -4,7 +4,18 @@ export default {
     return {
       changelog: [
         {
-          date: "10-1-2026",
+          date: "14-01-2026",
+          message: `
+            • Release of the DNList v1.4.0.<br>
+            • Added a link to the discord icon.<br>
+            • Added the position history to all levels.<br>
+            • Set all start of position histories to 14-01-2026 with reason "Added the position history"<br>
+            • Set the "Added Falling Up (#1)" to 14-01-2026 to show as an example, even if it was added on 3-01-2026.<br>
+          `,
+          featured: true,
+        },
+        {
+          date: "10-01-2026",
           message: `
             • Release of the DNList v1.3.2.<br>
             • Fixed the inconsistencies between the tags page and the changelog.<br>
@@ -13,7 +24,7 @@ export default {
           featured: true,
         },
         {
-          date: "3-1-2026",
+          date: "3-01-2026",
           message: `
             • Falling Up has been placed at #1, above Doradura with a list requirement of 50%.<br>
           `,
