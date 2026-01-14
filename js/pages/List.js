@@ -68,6 +68,8 @@ export default {
                         </li>
                     </ul>
                     
+                    <hr class="section-separator" />
+
                     <h2>Records</h2>
                     <p v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
                     <p v-else-if="selected +1 <= 150"><strong>100%</strong> or better to qualify</p>
@@ -85,6 +87,8 @@ export default {
                         </tr>
                     </table>
                 </div>
+
+                <hr class="section-separator" />
 
                 <h2 v-if="level.positionHistory && level.positionHistory.length">
                     Position History

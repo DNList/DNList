@@ -75,6 +75,7 @@
 
 .page-list .level-container .level .records {
     table-layout: fixed;
+    margin-bottom: 2rem; /* space after the records table */
 }
 .page-list .level-container .level .records tr td:not(:last-child) {
     padding-right: 1rem;
@@ -195,6 +196,7 @@ main.dark .page-list .level-container .tag {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    margin-top: 1rem; /* space between title and first card */
 }
 
 .history-card {
@@ -239,4 +241,10 @@ main.dark .page-list .level-container .tag {
 .history-reason {
     font-weight: normal;
     opacity: 0.85;
+}
+
+.section-separator {
+    border: none;
+    border-top: 2px solid var(--color-background-hover); /* subtle gray line */
+    margin: 2rem 0 1rem 0; /* spacing above and below the line */
 }
