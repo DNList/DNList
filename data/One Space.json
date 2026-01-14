@@ -14,6 +14,12 @@
             "change": null,
             "position": 26,
             "reason": "Added to list"
+        },
+        {
+            "date": "2026-01-14",
+            "change": -1,
+            "position": 20,
+            "reason": "Moved"
         }
     ],
     "records": [
