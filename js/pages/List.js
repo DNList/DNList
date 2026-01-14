@@ -45,7 +45,7 @@ export default {
                         v-if="level.subtitle"
                         class="level-subtitle"
                     >
-                        {{ level.subtitle }}
+                        – “{{ level.subtitle }}”
                     </p>
                     <LevelAuthors :author="level.author" :verifier="level.verifier"></LevelAuthors>
 
