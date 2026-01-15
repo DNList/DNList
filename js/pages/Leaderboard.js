@@ -109,6 +109,17 @@ export default {
         this.err = err;
         this.allLevels = allLevels;
         this.applyTagBonuses();
+
+        const playerFromQuery = this.$route.query.player;
+        if (playerFromQuery) {
+            const index = this.leaderboard.findIndex(
+                entry => entry.user.toLowerCase() === playerFromQuery.toLowerCase()
+            );
+            if (index !== -1) {
+                this.selected = index;
+            }
+        }
+
         this.loading = false;
     },
     methods: {
