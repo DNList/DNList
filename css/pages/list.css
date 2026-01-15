@@ -289,3 +289,15 @@ main.dark .page-list .level-container .tag {
     border-top: 2px solid var(--color-background-hover); /* subtle gray line */
     margin: 2rem 0 2rem 0; /* spacing above and below the line */
 }
+
+/* ===== Verifier link ===== */
+.page-list .level-container .level .verifier-link {
+    color: inherit;                 /* same color as text */
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.page-list .level-container .level .verifier-link:hover {
+    opacity: 0.8;
+}

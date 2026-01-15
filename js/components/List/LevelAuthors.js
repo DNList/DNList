@@ -14,17 +14,29 @@ export default {
             <template v-if="author === verifier">
                 <div class="type-title-sm">Creator & Verifier</div>
                 <p class="type-body">
-                    <span>{{ author }}</span>
+                    <router-link
+                        :to="{ path: '/leaderboard', query: { player: verifier } }"
+                        class="verifier-link"
+                    >
+                        {{ author }}
+                    </router-link>
                 </p>
             </template>
+
             <template v-else>
                 <div class="type-title-sm">Creator</div>
                 <p class="type-body">
                     <span>{{ author }}</span>
                 </p>
+
                 <div class="type-title-sm">Verifier</div>
                 <p class="type-body">
-                    <span>{{ verifier }}</span>
+                    <router-link
+                        :to="{ path: '/leaderboard', query: { player: verifier } }"
+                        class="verifier-link"
+                    >
+                        {{ verifier }}
+                    </router-link>
                 </p>
             </template>
         </div>
