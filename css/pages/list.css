@@ -320,8 +320,8 @@ main.dark .page-list .level-container .tag {
 }
 
 .page-list .level-container .level .records .video-icon {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     opacity: 0.75;
     display: block;
     transition: opacity 0.15s ease, transform 0.15s ease;
