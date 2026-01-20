@@ -331,21 +331,3 @@ main.dark .page-list .level-container .tag {
     opacity: 1;
     transform: scale(1.1);
 }
-
-/* Enlace clicable del nombre del jugador */
-.page-list .level-container .level .records .verifier-link {
-    display: inline-block;  /* solo ocupa el texto */
-    vertical-align: middle; /* alinea con la línea base correctamente */
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-/* Frase debajo */
-.page-list .level-container .level .records .record-phrase {
-    display: block;        /* fuerza la frase debajo */
-    margin-left: 0;        /* alineada con el nombre */
-    font-style: italic;
-    font-size: 0.95rem;
-    opacity: 0.75;
-}
-
