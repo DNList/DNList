@@ -88,20 +88,15 @@ export default {
                                 <p>{{ record.percent }}%</p>
                                 <a
                                 :href="{ path: '/leaderboard', query: { player: record.user } }"
-                                class="type-label-lg verifier-link"
+                                class="profile-link"
                                 >
-                                <img src="/assets/profile.png" alt="Profile" class="type-label-lg verifier-link" />
+                                <img src="/assets/profile.png" alt="Profile" class="profile-icon" />
                                 </a>
                             </div>
                             </td>
                             
                             <td class="user">
-                                <div class="record-user">
-                                    <!-- Nombre sin enlace -->
-                                    <span class="type-label-lg verifier-link">
-                                        {{ record.user }}
-                                    </span>
-                                </div>
+                                <a target="_blank" class="type-label-lg">{{ record.user }}</a>
 
                                 <span
                                     v-if="record.phrase"
