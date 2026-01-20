@@ -85,24 +85,18 @@ export default {
                         <tr v-for="record in level.records" class="record">
                             <td class="percent"><p>{{ record.percent }}%</p></td>
                             <td class="user">
-                                <div class="record-user">
-                                    <!-- Nombre (YA enlaza al leaderboard) -->
-                                    <router-link
-                                        :to="{ path: '/leaderboard', query: { player: record.user } }"
-                                        class="type-label-lg verifier-link"
-                                    >
-                                        {{ record.user }}
-                                    </router-link>
-                                    </a>
-                                </div>
-
-                                <span
-                                    v-if="record.phrase"
-                                    class="record-phrase"
+                            <div class="name-link-wrapper">
+                                <router-link
+                                :to="{ path: '/leaderboard', query: { player: record.user } }"
+                                class="type-label-lg verifier-link"
                                 >
-                                    – “{{ record.phrase }}”
-                                </span>
+                                {{ record.user }}
+                                </router-link>
+                            </div>
+
+                            <span class="record-phrase">– “{{ record.phrase }}”</span>
                             </td>
+
 
                             <td class="mobile">
                                 <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">

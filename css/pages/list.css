@@ -332,3 +332,14 @@ main.dark .page-list .level-container .tag {
     transform: scale(1.1);
 }
 
+.page-list .level-container .level .records .name-link-wrapper {
+    display: block;       /* el div ocupa toda la línea */
+    width: 100%;          /* ocupa todo el ancho de la celda */
+}
+
+.page-list .level-container .level .records .name-link-wrapper .verifier-link {
+    display: inline-block; /* asegúrate de que respeta padding */
+    width: 100%;           /* ahora toda la línea es clicable */
+}
+
+
