@@ -301,31 +301,3 @@ main.dark .page-list .level-container .tag {
 .page-list .level-container .level .verifier-link:hover {
     opacity: 0.8;
 }
-
-/* ===== Record profile icon ===== */
-.page-list .level-container .level .records .record-user {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-/* Link que envuelve el icono */
-.page-list .level-container .level .records .profile-link {
-    display: inline-flex;
-    align-items: center;
-    line-height: 1;
-}
-
-/* Icono pequeño y discreto */
-.page-list .level-container .level .records .profile-icon {
-    width: 14px;
-    height: 14px;
-    opacity: 0.75;
-    transition: opacity 0.15s ease, transform 0.15s ease;
-}
-
-/* Hover elegante, sin exagerar */
-.page-list .level-container .level .records .profile-link:hover .profile-icon {
-    opacity: 1;
-    transform: scale(1.1);
-}
