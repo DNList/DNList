@@ -302,9 +302,21 @@ main.dark .page-list .level-container .tag {
     opacity: 0.8;
 }
 
+/* ===== Record video icon ===== */
+.page-list .level-container .level .records .record-user {
+    display: inline-flex;
+    align-items: center;
+}
+
+.page-list .level-container .level .records .video-link {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+}
+
 .page-list .level-container .level .records .video-icon {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     opacity: 0.75;
     transition: opacity 0.15s ease, transform 0.15s ease;
 }
