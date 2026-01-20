@@ -85,24 +85,18 @@ export default {
                         <tr v-for="record in level.records" class="record">
                             <td class="percent"><p>{{ record.percent }}%</p></td>
                             <td class="user">
-                                <!-- Wrapper solo para nombre + icono si lo hubiera -->
-                                <div class="name-wrapper">
-                                    <router-link
+                                <router-link
                                     :to="{ path: '/leaderboard', query: { player: record.user } }"
                                     class="verifier-link"
-                                    >
+                                >
                                     {{ record.user }}
-                                    </router-link>
-                                </div>
+                                </router-link>
 
-                                <!-- Frase debajo -->
                                 <span v-if="record.phrase" class="record-phrase">
                                     – “{{ record.phrase }}”
                                 </span>
                             </td>
-
-
-
+                            
                             <td class="mobile">
                                 <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
                             </td>
