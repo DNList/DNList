@@ -97,14 +97,10 @@ export default {
                             
                             <td class="user">
                                 <div class="record-user">
-                                    <!-- Nombre (YA enlaza al leaderboard) -->
-                                    <router-link
-                                        :to="{ path: '/leaderboard', query: { player: record.user } }"
-                                        class="type-label-lg verifier-link"
-                                    >
+                                    <!-- Nombre sin enlace -->
+                                    <span class="type-label-lg verifier-link">
                                         {{ record.user }}
-                                    </router-link>
-                                    </a>
+                                    </span>
                                 </div>
 
                                 <span
