@@ -304,7 +304,7 @@ main.dark .page-list .level-container .tag {
 
 /* ===== Record video icon ===== */
 .page-list .level-container .level .records .record-user {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 0.4rem;
 }
