@@ -334,9 +334,10 @@ main.dark .page-list .level-container .tag {
 
 /* Wrapper para % + icono */
 .page-list .level-container .level .records .percent-wrapper {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 0.3rem;  /* espacio pequeño entre % y icono */
+    justify-content: flex-end;
+    gap: 0.5rem;
 }
 
 /* Link clicable */
