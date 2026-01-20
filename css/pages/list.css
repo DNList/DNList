@@ -332,13 +332,6 @@ main.dark .page-list .level-container .tag {
     transform: scale(1.1);
 }
 
-/* Wrapper solo para alinear el texto si quieres icono a su lado en el futuro */
-.page-list .level-container .level .records .name-wrapper {
-    display: inline-flex;      /* flexible solo en línea del nombre */
-    align-items: center;       /* centra verticalmente */
-}
-
-/* Enlace que solo ocupa el texto, clic exacto */
 .page-list .level-container .level .records .verifier-link {
     display: inline-flex;      /* no bloque, no ocupa toda la celda */
     align-items: center;       /* verticalmente centrado */
