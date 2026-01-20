@@ -87,10 +87,12 @@ export default {
                             <div class="percent-wrapper">
                                 <p>{{ record.percent }}%</p>
                                 <a
-                                :href="{ path: '/leaderboard', query: { player: record.user } }"
-                                class="profile-link"
-                                >
-                                <img src="/assets/profile.png" alt="Profile" class="profile-icon" />
+                                <router-link
+                                    :to="{ path: '/leaderboard', query: { player: record.user } }"
+                                    class="profile-link"
+                                    >
+                                    <img src="/assets/profile.png" alt="Profile" class="profile-icon" />
+                                    </router-link>
                                 </a>
                             </div>
                             </td>
