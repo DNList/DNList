@@ -85,12 +85,29 @@ export default {
                         <tr v-for="record in level.records" class="record">
                             <td class="percent"><p>{{ record.percent }}%</p></td>
                             <td class="user">
-                                <router-link
-                                    :to="{ path: '/leaderboard', query: { player: record.user } }"
-                                    class="type-label-lg verifier-link"
-                                >
-                                    {{ record.user }}
-                                </router-link>
+                                <div class="record-user">
+                                    <!-- Nombre (YA enlaza al leaderboard) -->
+                                    <router-link
+                                        :to="{ path: '/leaderboard', query: { player: record.user } }"
+                                        class="type-label-lg verifier-link"
+                                    >
+                                        {{ record.user }}
+                                    </router-link>
+
+                                    <!-- Icono YouTube → record.link -->
+                                    <a
+                                        :href="record.link"
+                                        target="_blank"
+                                        class="video-link"
+                                        aria-label="Watch video"
+                                    >
+                                        <img
+                                            src="/assets/youtube.png"
+                                            alt="YouTube"
+                                            class="video-icon"
+                                        />
+                                    </a>
+                                </div>
 
                                 <span
                                     v-if="record.phrase"
