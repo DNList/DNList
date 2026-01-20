@@ -118,7 +118,7 @@ export default {
                             <td class="hz">
                                 <div class="hz-content">
                                     <a
-                                        v-if="record.link && record.link !== 'No Video'"
+                                        v-if="record.link && record.link !== 'No video'"
                                         :href="record.link"
                                         target="_blank"
                                         class="video-link"
