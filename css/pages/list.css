@@ -302,23 +302,28 @@ main.dark .page-list .level-container .tag {
     opacity: 0.8;
 }
 
-/* ===== Record video icon ===== */
-.page-list .level-container .level .records .record-user {
+/* ===== Hz + video icon ===== */
+.page-list .level-container .level .records .hz-content {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    justify-content: flex-end;
+    gap: 0.5rem;
 }
 
+/* Clickable YouTube icon */
 .page-list .level-container .level .records .video-link {
     display: inline-flex;
     align-items: center;
-    line-height: 1;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
 }
 
 .page-list .level-container .level .records .video-icon {
     width: 16px;
     height: 16px;
     opacity: 0.75;
+    display: block;
     transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
@@ -326,3 +331,4 @@ main.dark .page-list .level-container .tag {
     opacity: 1;
     transform: scale(1.1);
 }
+

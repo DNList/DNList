@@ -93,19 +93,6 @@ export default {
                                     >
                                         {{ record.user }}
                                     </router-link>
-
-                                    <!-- Icono YouTube → record.link -->
-                                    <a
-                                        :href="record.link"
-                                        target="_blank"
-                                        class="video-link"
-                                        aria-label="Watch video"
-                                    >
-                                        <img
-                                            src="/assets/youtube.png"
-                                            alt="YouTube"
-                                            class="video-icon"
-                                        />
                                     </a>
                                 </div>
 
@@ -120,7 +107,25 @@ export default {
                             <td class="mobile">
                                 <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
                             </td>
-                            <td class="hz"><p>{{ record.hz }}Hz</p></td>
+                            <td class="hz">
+                                <div class="hz-content">
+                                    <a
+                                        :href="record.link"
+                                        target="_blank"
+                                        class="video-link"
+                                        aria-label="Watch video"
+                                    >
+                                        <img
+                                            src="/assets/youtube.png"
+                                            alt="YouTube"
+                                            class="video-icon"
+                                        />
+                                    </a>
+
+                                    <p>{{ record.hz }}Hz</p>
+                                </div>
+                            </td>
+
                         </tr>
                     </table>
                 </div>
