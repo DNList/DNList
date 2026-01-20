@@ -320,14 +320,45 @@ main.dark .page-list .level-container .tag {
 }
 
 .page-list .level-container .level .records .video-icon {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     opacity: 0.75;
     display: block;
     transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
 .page-list .level-container .level .records .video-link:hover .video-icon {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Wrapper para % + icono */
+.page-list .level-container .level .records .percent-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;  /* espacio pequeño entre % y icono */
+}
+
+/* Link clicable */
+.page-list .level-container .level .records .profile-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;   /* hitbox cómodo */
+    cursor: pointer;
+}
+
+/* Imagen del icono */
+.page-list .level-container .level .records .profile-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+    opacity: 0.8;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.page-list .level-container .level .records .profile-link:hover .profile-icon {
     opacity: 1;
     transform: scale(1.1);
 }

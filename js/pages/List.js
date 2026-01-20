@@ -83,7 +83,18 @@ export default {
                     <p v-else>This level does not accept new records.</p>
                     <table class="records">
                         <tr v-for="record in level.records" class="record">
-                            <td class="percent"><p>{{ record.percent }}%</p></td>
+                            <td class="percent">
+                            <div class="percent-wrapper">
+                                <p>{{ record.percent }}%</p>
+                                <a
+                                :href="{ path: '/leaderboard', query: { player: record.user } }"
+                                class="profile-link"
+                                >
+                                <img src="/assets/profile.png" alt="Profile" class="profile-icon" />
+                                </a>
+                            </div>
+                            </td>
+                            
                             <td class="user">
                                 <div class="record-user">
                                     <!-- Nombre (YA enlaza al leaderboard) -->
