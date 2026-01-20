@@ -84,18 +84,22 @@ export default {
                     <table class="records">
                         <tr v-for="record in level.records" class="record">
                             <td class="percent">
-                            <div class="percent-wrapper">
-                                <p>{{ record.percent }}%</p>
-                                <a
-                                <router-link
-                                    :to="{ path: '/leaderboard', query: { player: record.user } }"
-                                    class="profile-link"
+                                <div class="percent-wrapper">
+                                    <p>{{ record.percent }}%</p>
+
+                                    <router-link
+                                        :to="{ path: '/leaderboard', query: { player: record.user } }"
+                                        class="profile-link"
                                     >
-                                    <img src="/assets/profile.png" alt="Profile" class="profile-icon" />
+                                        <img
+                                            src="/assets/profile.png"
+                                            alt="Profile"
+                                            class="profile-icon"
+                                        />
                                     </router-link>
-                                </a>
-                            </div>
+                                </div>
                             </td>
+
                             
                             <td class="user">
                                 <a target="_blank" class="type-label-lg">{{ record.user }}</a>
