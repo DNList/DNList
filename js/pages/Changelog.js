@@ -4,6 +4,16 @@ export default {
     return {
       changelog: [
         {
+          date: "20-01-2026",
+          message: `
+            • Release of the DNList v1.4.3.<br>
+            • Records have been reworked once again.<br>
+            • Clicking on the profile icon on a record will take you to their profile in the leaderboard.<br>
+            • Now, records with video proof will have a clickable youtube icon on the right, instead of by clicking the name.<br>
+          `,
+          featured: true,
+        },
+        {
           date: "15-01-2026",
           message: `
             • Release of the DNList v1.4.2.<br>
