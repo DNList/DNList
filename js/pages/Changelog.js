@@ -4,6 +4,14 @@ export default {
     return {
       changelog: [
         {
+          date: "15-01-2026",
+          message: `
+            • Release of the DNList v1.4.2.<br>
+            • Clicking on the verifier's name on a level will take you to their profile in the leaderboard.<br>
+          `,
+          featured: true,
+        },
+        {
           date: "14-01-2026",
           message: `
             • Release of the DNList v1.4.1.<br>

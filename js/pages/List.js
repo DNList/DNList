@@ -85,13 +85,28 @@ export default {
                         <tr v-for="record in level.records" class="record">
                             <td class="percent"><p>{{ record.percent }}%</p></td>
                             <td class="user">
-                                <a
-                                    :href="record.link"
-                                    target="_blank"
-                                    class="type-label-lg"
-                                >
-                                    {{ record.user }}
-                                </a>
+                                <div class="record-user">
+                                    <a
+                                        :href="record.link"
+                                        target="_blank"
+                                        class="profile-link"
+                                        aria-label="View leaderboard profile"
+                                    >
+                                        <img
+                                            src="/assets/profile.png"
+                                            alt="Profile"
+                                            class="profile-icon"
+                                        />
+                                    </a>
+
+                                    <a
+                                        :href="record.link"
+                                        target="_blank"
+                                        class="type-label-lg"
+                                    >
+                                        {{ record.user }}
+                                    </a>
+                                </div>
 
                                 <span
                                     v-if="record.phrase"
@@ -100,6 +115,7 @@ export default {
                                     – “{{ record.phrase }}”
                                 </span>
                             </td>
+
 
                             <td class="mobile">
                                 <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
