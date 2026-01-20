@@ -115,13 +115,12 @@ export default {
                             <td class="mobile">
                                 <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
                             </td>
-                           <td class="hz">
+                            <td class="hz">
                                 <div class="hz-content">
                                     <a
                                         v-if="record.link && record.link !== 'No Video'"
                                         :href="record.link"
                                         target="_blank"
-                                        rel="noopener noreferrer"
                                         class="video-link"
                                         aria-label="Watch video"
                                     >
@@ -131,8 +130,6 @@ export default {
                                             class="video-icon"
                                         />
                                     </a>
-                                </div>
-                            </td>
 
                                     <p>{{ record.hz }}Hz</p>
                                 </div>
