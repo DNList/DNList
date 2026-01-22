@@ -4,6 +4,14 @@ export default {
     return {
       changelog: [
         {
+          date: "22-01-2026",
+          message: `
+            • Celestia has been raised from #25 to #22, below Arre Robot (2P).<br>
+            • FortnitePixelDash17 has been raised from #24 to #23, switching with Sakupen Egg.<br>
+          `,
+          featured: true,
+        },
+        {
           date: "20-01-2026",
           message: `
             • Release of the DNList v1.4.3.<br>
