@@ -22,6 +22,12 @@
             "change": -1,
             "position": 23,
             "reason": "Added Falling Up (#1)"
+        },
+        {
+            "date": "22-01-2026",
+            "change": -1,
+            "position": 24,
+            "reason": "Raised Celestia from #25 to #22."
         }
     ],
     "records": []
