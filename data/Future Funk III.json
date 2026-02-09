@@ -11,7 +11,12 @@
     "verification": "https://youtu.be/JCv9S-2kVyc",
     "percentToQualify": "64",
     "positionHistory": [
+        {
+            "date": "09-02-2026",
+            "change": null,
+            "position": 9,
+            "reason": "Added to list"
+        }
     ],
-    "records": [
-    ]
+    "records": []
 }
