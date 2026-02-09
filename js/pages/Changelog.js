@@ -4,6 +4,15 @@ export default {
     return {
       changelog: [
         {
+          date: "9-02-2026",
+          message: `
+            • Leyak has been placed at #6, between Troll Level and Acu.<br>
+            • Super Mario Wave has been placed at #9(#10), between Future Funk II and Super Mario Wave.<br>
+            • Super Mario Wave has been placed at #9(#11), between Future Funk II and Game Time.<br>
+          `,
+          featured: true,
+        },
+        {
           date: "22-01-2026",
           message: `
             • Celestia has been raised from #25 to #22, below Arre Robot (2P).<br>
