@@ -41,30 +41,6 @@ export default {
             <div class="level-container">
                 <div class="level" v-if="level">
                     <h1 class="level-title">
-                        <img
-                            v-if="level.tags?.includes('medium_demon')"
-                            src="/assets/medium_demon.webp"
-                            class="difficulty-icon"
-                            alt="Medium Demon"
-                        />
-                        <img
-                            v-if="level.tags?.includes('hard_demon')"
-                            src="/assets/hard_demon.webp"
-                            class="difficulty-icon"
-                            alt="Hard Demon"
-                        />
-                        <img
-                            v-if="level.tags?.includes('insane_demon')"
-                            src="/assets/insane_demon.webp"
-                            class="difficulty-icon"
-                            alt="Insane Demon"
-                        />
-                        <img
-                            v-if="level.tags?.includes('extreme_demon')"
-                            src="/assets/extreme_demon.webp"
-                            class="difficulty-icon"
-                            alt="Extreme Demon"
-                        />
                         {{ level.name }}
                     </h1>
                     <p
