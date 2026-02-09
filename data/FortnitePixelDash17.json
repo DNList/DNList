@@ -34,6 +34,12 @@
             "change": 1,
             "position": 23,
             "reason": "Raised FPD17 from #24 to #23"
+        },
+        {
+            "date": "09-02-2026",
+            "change": -1,
+            "position": 24,
+            "reason": "Placed Super Mario Wave at #9"
         }
     ],
     "records": []
