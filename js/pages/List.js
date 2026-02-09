@@ -42,11 +42,12 @@ export default {
                 <div class="level" v-if="level">
                     <h1 class="level-title">
                         <img
-                            v-if="level.tags?.includes('hard_demon')"
+                            v-if="level && level.tags && level.tags.includes('hard_demon')"
                             src="/assets/hard_demon.webp"
                             class="difficulty-icon"
                             alt="Hard Demon"
                         />
+
                         {{ level.name }}
                     </h1>
                     <p
