@@ -30,6 +30,12 @@ export default {
                     />
                     <span v-if="tag.bonusEnabled">🏅{{ tag.name }}🏅</span>
                     <span v-else>{{ tag.name }}</span>
+                                        <img
+                        v-if="isDemonTag(tag)"
+                        :src="demonIcon(tag)"
+                        class="demon-icon"
+                        alt=""
+                    />
                 </h3>
                     <p>{{ tag.description }}</p>
                 </div>

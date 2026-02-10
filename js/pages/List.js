@@ -40,6 +40,7 @@ export default {
 
             <div class="level-container">
                 <div class="level" v-if="level">
+                    <h1 class="level-title"> 
                         {{ level.name }}
                     </h1>
                     <p

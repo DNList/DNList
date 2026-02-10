@@ -24,6 +24,12 @@ export default {
                         alt=""
                     />
                     <span>{{ tag?.name }}</span>
+                    <img
+                        v-if="isDemonTag(tag)"
+                        :src="demonIcon(tag)"
+                        class="demon-icon"
+                        alt=""
+                    />
                 </h1>
                 
                 <div class="tag-info-cards">

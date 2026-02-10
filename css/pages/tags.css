@@ -27,6 +27,7 @@
 .page-tags .tag-card h3 {
   margin: 0 0 0.4rem 0;
   font-size: 1.1rem;
+  line-height: 1;
 }
 .page-tags .tag-card p {
   margin: 0;
