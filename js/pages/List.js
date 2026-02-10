@@ -40,7 +40,8 @@ export default {
 
             <div class="level-container">
                 <div class="level" v-if="level">
-                    <h1 class="level-title"> 
+                    <h1 class="level-title">
+ 
                         {{ level.name }}
                     </h1>
                     <p
@@ -51,7 +52,6 @@ export default {
                     </p>
                     <LevelAuthors :author="level.author" :verifier="level.verifier"></LevelAuthors>
 
-
                     <div class="tags" v-if="level.tags && level.tags.length">
                         <button
                             v-for="tagName in level.tags"
@@ -60,19 +60,12 @@ export default {
                             :style="tagStyle(tagName)"
                             @click="goToTag(tagName)"
                         >
-                        <h3
-                        v-if="getTag(tagName)?.bonusEnabled"
-                        class="tag-bonus"
-                        >
-                        🏅{{ getTagDisplayName(tagName) }}🏅
-                        </h3>
-
-                        <h3
-                        v-else
-                        class="tag-bonus"
-                        >
-                        {{ getTagDisplayName(tagName) }}
-                        </h3>
+                            <span v-if="getTag(tagName)?.bonusEnabled">
+                                🏅 {{ getTagDisplayName(tagName) }} 🏅
+                            </span>
+                            <span v-else>
+                                {{ getTagDisplayName(tagName) }}
+                            </span>
                         </button>
                     </div>
 
