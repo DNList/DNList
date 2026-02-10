@@ -64,7 +64,7 @@ export default {
                             src="/assets/extreme_demon.png"
                             class="difficulty-icon"
                             alt="Extreme Demon"
-                        />
+                        /> - 
                         {{ level.name }}
                     </h1>
                     <p
