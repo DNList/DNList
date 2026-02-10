@@ -53,17 +53,7 @@
 }
 
 .page-list .level-container .level .level-title {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
     margin-bottom: 0.25rem;
-}
-
-.page-list .level-container .level .difficulty-icon {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
-    flex-shrink: 0;
 }
 
 .page-list .level-container .level .level-subtitle {
