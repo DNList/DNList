@@ -56,6 +56,14 @@
     margin-bottom: 0.25rem;
 }
 
+.page-list .level-container .level .profile-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+    opacity: 0.8;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
 .page-list .level-container .level .level-subtitle {
     font-family: inherit;      /* same font as title */
     font-weight: 600;          /* slightly lighter than h1 */
