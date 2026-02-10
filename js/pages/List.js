@@ -60,7 +60,8 @@ export default {
                             :style="tagStyle(tagName)"
                             @click="goToTag(tagName)"
                         >
-                            {{ getTagDisplayName(tagName) }}
+                        <h3 v-if="tag.bonusEnabled" class="tag-bonus">🏅{{ getTagDisplayName(tagName) }}🏅</h3>
+                        <h3 v-if="!tag.bonusEnabled" class="tag-bonus">{{ getTagDisplayName(tagName) }}</h3>
                         </button>
                     </div>
 
