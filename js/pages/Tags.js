@@ -21,22 +21,8 @@ export default {
                     :style="{ backgroundColor: tag.color }"
                     @click="selectTag(tag.id)"
                 >
-                <h3 class="tag-card-title">
-                    <img
-                        v-if="isDemonTag(tag)"
-                        :src="demonIcon(tag)"
-                        class="demon-icon-sm"
-                        alt=""
-                    />
-                    <span v-if="tag.bonusEnabled">🏅{{ tag.name }}🏅</span>
-                    <span v-else>{{ tag.name }}</span>
-                                        <img
-                        v-if="isDemonTag(tag)"
-                        :src="demonIcon(tag)"
-                        class="demon-icon"
-                        alt=""
-                    />
-                </h3>
+                    <h3 v-if="tag.bonusEnabled" class="tag-bonus">🏅{{ tag.name }}🏅</h3>
+                    <h3 v-if="!tag.bonusEnabled" class="tag-bonus">{{ tag.name }}</h3>
                     <p>{{ tag.description }}</p>
                 </div>
             </div>
@@ -52,12 +38,6 @@ export default {
         this.loading = false;
     },
     methods: {
-        isDemonTag(tag) {
-            return tag?.id?.endsWith("_demon");
-        },
-        demonIcon(tag) {
-            return `/assets/${tag.id}.png`;
-        },
         selectTag(tagId) {
             // Use Vue Router instead of window.location
             this.$router.push(`/tags/${tagId}`);

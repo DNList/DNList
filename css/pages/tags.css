@@ -27,7 +27,6 @@
 .page-tags .tag-card h3 {
   margin: 0 0 0.4rem 0;
   font-size: 1.1rem;
-  line-height: 1;
 }
 .page-tags .tag-card p {
   margin: 0;
@@ -258,30 +257,4 @@
   .page-tag-detail .list.tag-detail-list td.author {
     font-size: 0.9rem;
   }
-}
-
-.tag-title.demon-title {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-}
-
-.demon-icon {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-
-.tag-card-title {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.demon-icon-sm {
-    width: 22px;
-    height: 22px;
-    object-fit: contain;
 }

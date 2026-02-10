@@ -16,21 +16,7 @@ export default {
             <div class="page-tag-detail" :style="{ backgroundColor: tag?.color || 'var(--color-primary)' }">
                 <button @click="goBack" class="back-button">&larr; Back</button>
                 
-                <h1 class="tag-title demon-title">
-                    <img
-                        v-if="isDemonTag(tag)"
-                        :src="demonIcon(tag)"
-                        class="demon-icon"
-                        alt=""
-                    />
-                    <span>{{ tag?.name }}</span>
-                    <img
-                        v-if="isDemonTag(tag)"
-                        :src="demonIcon(tag)"
-                        class="demon-icon"
-                        alt=""
-                    />
-                </h1>
+                <h1 class="tag-title">{{ tag?.name }}</h1>
                 
                 <div class="tag-info-cards">
                     <p class="tag-desc">• Description: {{ tag?.description }}
@@ -101,12 +87,6 @@ export default {
         this.loading = false;
     },
     methods: {
-        isDemonTag(tag) {
-        return tag?.id?.endsWith("_demon");
-        },
-        demonIcon(tag) {
-            return `/assets/${tag.id}.png`;
-        },
         goBack() {
             this.$router.push("/tags");
         },

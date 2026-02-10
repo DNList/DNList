@@ -4,14 +4,6 @@ export default {
     return {
       changelog: [
         {
-          date: "20-01-2026",
-          message: `
-            • Release of the DNList v1.4.4.<br>
-            • Added difficulty icons next to the level's name inside each level.<br>
-          `,
-          featured: true,
-        },
-        {
           date: "9-02-2026",
           message: `
             • Leyak has been placed at #6, between Troll Level and Acu.<br>
