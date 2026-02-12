@@ -1,4 +1,4 @@
-import { fetchLeaderboard } from '../content.js';
+import { fetchLeaderboard, fetchPlayerHistory } from '../content.js';
 import { localize } from '../util.js';
 import Spinner from '../components/Spinner.js';
 import tags from "../components/List/Tags.js";
@@ -13,7 +13,7 @@ export default {
         loading: true,
         selected: 0,
         err: [],
-        allLevels: [], // added
+        allLevels: [],
     }),
     template: `
         <main v-if="loading">
@@ -96,50 +96,65 @@ export default {
         </main>
     `,
     computed: {
-    entry() {
-        return this.leaderboard[this.selected];
-    },
+        entry() {
+            return this.leaderboard[this.selected];
+        },
 
-    pointsOverTime() {
-        if (!this.entry) return [];
+        pointsOverTime() {
+            if (!this.entry) return [];
 
-        const events = [
-        ...this.entry.verified,
-        ...this.entry.completed,
-        ]
-        .filter(e => e.date)
-        .sort((a, b) => new Date(a.date) - new Date(b.date));
+            // Si existe historial guardado de snapshots, úsalo (muestra cambios reales)
+            if (this.entry.history && this.entry.history.length > 0) {
+                return this.entry.history;
+            }
 
-        let total = 0;
+            // Fallback: calcular con logros individuales (para antes del primer snapshot)
+            const events = [
+                ...this.entry.verified,
+                ...this.entry.completed,
+            ]
+            .filter(e => e.date)
+            .sort((a, b) => new Date(a.date) - new Date(b.date));
 
-        return events.map(e => {
-        total += e.score;
-        return {
-            date: e.date,
-            total
-        };
-        });
-    },
+            const groupedByDate = {};
+            let cumulativeTotal = 0;
 
-    noProgress() {
-        if (!this.entry || !this.allLevels) return [];
-        const attempted = new Set([
-        ...this.entry.verified.map(l => l.level),
-        ...this.entry.completed.map(l => l.level),
-        ...this.entry.progressed.map(l => l.level),
-        ]);
-        return this.allLevels.filter(l => !attempted.has(l.level));
-    }
+            events.forEach(e => {
+                cumulativeTotal += e.score;
+                groupedByDate[e.date] = cumulativeTotal;
+            });
+
+            return Object.entries(groupedByDate).map(([date, total]) => ({
+                date,
+                total
+            }));
+        },
+
+        noProgress() {
+            if (!this.entry || !this.allLevels) return [];
+            const attempted = new Set([
+                ...this.entry.verified.map(l => l.level),
+                ...this.entry.completed.map(l => l.level),
+                ...this.entry.progressed.map(l => l.level),
+            ]);
+            return this.allLevels.filter(l => !attempted.has(l.level));
+        }
     },
 
     watch: {
         selected() {
             this.$nextTick(this.renderChart);
         }
-        },
+    },
 
     async mounted() {
         const [leaderboard, err, allLevels] = await fetchLeaderboard();
+        
+        // Cargar historial de snapshots para cada jugador
+        for (const entry of leaderboard) {
+            entry.history = await fetchPlayerHistory(entry.user);
+        }
+        
         this.leaderboard = leaderboard;
         this.err = err;
         this.allLevels = allLevels;
@@ -158,6 +173,7 @@ export default {
         this.loading = false;
         this.$nextTick(this.renderChart);
     },
+
     methods: {
         localize,
 
@@ -168,35 +184,35 @@ export default {
             if (chart) chart.destroy();
 
             chart = new Chart(canvas, {
-            type: 'line',
-            data: {
-                labels: this.pointsOverTime.map(p => p.date),
-                datasets: [
-                {
-                    data: this.pointsOverTime.map(p => p.total),
-                    borderWidth: 2,
-                    pointRadius: 3,
-                    tension: 0.25
-                }
-                ]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                legend: { display: false }
+                type: 'line',
+                data: {
+                    labels: this.pointsOverTime.map(p => p.date),
+                    datasets: [
+                        {
+                            data: this.pointsOverTime.map(p => p.total),
+                            borderWidth: 2,
+                            pointRadius: 3,
+                            tension: 0.25
+                        }
+                    ]
                 },
-                scales: {
-                x: {
-                    display: false
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                    precision: 0
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            display: false
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0
+                            }
+                        }
                     }
                 }
-                }
-            }
             });
         },
 

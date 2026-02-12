@@ -72,6 +72,22 @@ export async function fetchEditors() {
     }
 }
 
+export async function fetchPlayerHistory(playerName) {
+    try {
+        const snapshotsResult = await fetch(`${dir}/_point_snapshots.json`);
+        const snapshots = await snapshotsResult.json();
+        
+        return snapshots.snapshots
+            .filter(s => s.players[playerName])
+            .map(s => ({
+                date: s.date,
+                total: s.players[playerName].total
+            }));
+    } catch {
+        return [];
+    }
+}
+
 export async function fetchLeaderboard() {
     const list = await fetchList();
 
@@ -95,9 +111,9 @@ export async function fetchLeaderboard() {
         verified.push({
             rank: rank + 1,
             level: level.name,
-            score: score(rank + 1, 100, level.percentToQualify),
+            score: level.verificationPointsEarned || score(rank + 1, 100, level.percentToQualify),
             link: level.verification,
-            date: level.verificationDate,  // ← AGREGAR ESTA LÍNEA
+            date: level.verificationDate,
         });
 
         level.records.forEach((record) => {
@@ -114,9 +130,9 @@ export async function fetchLeaderboard() {
                 completed.push({
                     rank: rank + 1,
                     level: level.name,
-                    score: score(rank + 1, 100, level.percentToQualify),
+                    score: record.pointsEarned || score(rank + 1, 100, level.percentToQualify),
                     link: record.link,
-                    date: record.date,  // ← AGREGAR ESTA LÍNEA
+                    date: record.date,
                 });
                 return;
             }
@@ -125,9 +141,9 @@ export async function fetchLeaderboard() {
                 rank: rank + 1,
                 level: level.name,
                 percent: record.percent,
-                score: score(rank + 1, record.percent, level.percentToQualify),
+                score: record.pointsEarned || score(rank + 1, record.percent, level.percentToQualify),
                 link: record.link,
-                date: record.date,  // ← AGREGAR ESTA LÍNEA (opcional para progressed)
+                date: record.date,
             });
         });
     });

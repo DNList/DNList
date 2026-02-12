@@ -47,12 +47,14 @@
     "records": [
         {
             "user": "Lolencio04",
+            "date":"2025-10-27",
             "link": "No video",
             "percent": 100,
             "hz": 360
         },
         {
             "user": "CorteVIII",
+            "date":"2025-10-27",
             "phrase": "La paja mas larga de mi vida y solo he llegado a la mitad",
             "link": "No video",
             "percent": 50,

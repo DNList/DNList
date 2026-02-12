@@ -50,9 +50,7 @@ async function generateInitialSnapshot() {
     const listPath = path.join(__dirname, 'data', '_list.json');
     const list = JSON.parse(fs.readFileSync(listPath, 'utf-8'));
 
-    let updatedLevels = 0;
-    let updatedRecords = 0;
-    let updatedVerifications = 0;
+    let updatedCount = 0;
 
     for (let rank = 0; rank < list.length; rank++) {
         const levelPath = path.join(__dirname, 'data', `${list[rank]}.json`);
@@ -70,18 +68,16 @@ async function generateInitialSnapshot() {
             const points = score(rank + 1, 100, level.percentToQualify || 50);
             level.verificationPointsEarned = points;
             modified = true;
-            updatedVerifications++;
-            console.log(`  ✓ Verification: ${level.verifier} → ${points} points`);
+            console.log(`  ✓ Verification points for ${level.verifier}: ${points}`);
         }
 
-        // ✅ AGREGAR PUNTOS A RECORDS (completions y progressed)
+        // Procesar records (completions y progressed)
         if (level.records && Array.isArray(level.records)) {
             level.records.forEach(record => {
                 if (record.pointsEarned === undefined) {
                     const points = score(rank + 1, record.percent, level.percentToQualify || 50);
                     record.pointsEarned = points;
                     modified = true;
-                    updatedRecords++;
                 }
             });
         }
@@ -89,17 +85,13 @@ async function generateInitialSnapshot() {
         // Guardar si hubo cambios
         if (modified) {
             fs.writeFileSync(levelPath, JSON.stringify(level, null, 4), 'utf-8');
-            console.log(`✅ Updated: ${level.name} (Rank #${rank + 1})`);
-            updatedLevels++;
+            console.log(`✅ Updated: ${level.name} (Rank #${rank + 1}) - Verifier + ${level.records?.length || 0} records`);
+            updatedCount++;
         }
     }
 
-    console.log(`\n🎉 Done!`);
-    console.log(`📊 Updated ${updatedLevels} levels`);
-    console.log(`✓ ${updatedVerifications} verifications`);
-    console.log(`✓ ${updatedRecords} records`);
-    console.log('\n⚠️  IMPORTANT: Do NOT delete "date" or "verificationDate" fields!');
-    console.log('   These are needed for the graph timeline.\n');
+    console.log(`\n🎉 Done! Updated ${updatedCount} levels with pointsEarned.`);
+    console.log('⚠️  IMPORTANT: Do NOT delete the "date" or "verificationDate" fields!');
 }
 
 generateInitialSnapshot().catch(console.error);
