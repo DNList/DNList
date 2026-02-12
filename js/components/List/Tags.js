@@ -44,7 +44,7 @@ export default [
   {
     "id": "99%",
     "name": "99%",
-    "color": "#0b1464ff",
+    "color": "rgb(121, 64, 255)",
     "description": "Ouch. 99% chokepoint can't be good, right?",
     "bonusEnabled": false
   },
