@@ -3,7 +3,7 @@
     "name": "Double Dash",
     "author": "Zoroa",
     "verifier": "Lolencio04",
-    "verificationDate":"2025-10-27",
+    "verificationDate": "2025-10-27",
     "tags": [
         "hard_demon",
         "99%"
@@ -45,19 +45,22 @@
     "records": [
         {
             "user": "Ninjedu",
-            "date":"2025-11-05",
+            "date": "2025-11-05",
             "phrase": "En movil es harder than acu",
             "link": "No video",
             "percent": 100,
-            "hz": 165
+            "hz": 165,
+            "pointsEarned": 128.163
         },
         {
             "user": "Juliponcio",
-            "date":"2025-11-05",
+            "date": "2025-11-05",
             "phrase": "KFC>KKK",
             "link": "No video",
             "percent": 67,
-            "hz": 60
+            "hz": 60,
+            "pointsEarned": 4.882
         }
-    ]
+    ],
+    "verificationPointsEarned": 128.163
 }

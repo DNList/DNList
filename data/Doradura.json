@@ -3,7 +3,7 @@
     "name": "Doradura",
     "author": "IvashkaUA",
     "verifier": "Lolencio04",
-    "verificationDate":"2025-10-26",
+    "verificationDate": "2025-10-26",
     "tags": [
         "extreme_demon",
         "wasureta_easy"
@@ -27,11 +27,13 @@
     "records": [
         {
             "user": "Ninjedu",
-            "date":"2025-10-26",
+            "date": "2025-10-26",
             "phrase": "Solo quiero el list clear bro",
             "link": "No video",
             "percent": 50,
-            "hz": 144
+            "hz": 144,
+            "pointsEarned": 0
         }
-    ]
+    ],
+    "verificationPointsEarned": 175.003
 }

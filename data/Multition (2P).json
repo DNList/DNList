@@ -3,7 +3,7 @@
     "name": "Multition (2P)",
     "author": "Mulpan",
     "verifier": "Lolencio04",
-    "verificationDate":"2025-10-27",
+    "verificationDate": "2025-10-27",
     "tags": [
         "insane_demon",
         "2_player"
@@ -45,11 +45,13 @@
     "records": [
         {
             "user": "Ninjedu",
-            "date":"2025-10-27",
+            "date": "2025-10-27",
             "phrase": "Le he regalado la verificación",
             "link": "No video",
             "percent": 100,
-            "hz": 360
+            "hz": 360,
+            "pointsEarned": 124.222
         }
-    ]
+    ],
+    "verificationPointsEarned": 124.222
 }

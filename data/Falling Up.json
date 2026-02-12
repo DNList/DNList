@@ -3,7 +3,7 @@
     "name": "Falling Up",
     "author": "Krmal",
     "verifier": "Lolencio04",
-    "verificationDate":"2026-01-03",
+    "verificationDate": "2026-01-03",
     "tags": [
         "extreme_demon",
         "worst_level_ever"
@@ -18,5 +18,6 @@
             "reason": "Added to list"
         }
     ],
-    "records": []
+    "records": [],
+    "verificationPointsEarned": 200
 }

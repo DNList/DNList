@@ -3,7 +3,7 @@
     "name": "Future Funk II",
     "author": "JonathanGD",
     "verifier": "Lolencio04",
-    "verificationDate":"2025-10-27",
+    "verificationDate": "2025-10-27",
     "tags": [
         "insane_demon",
         "99%"
@@ -37,7 +37,9 @@
             "phrase": "Un puto intento",
             "link": "https://youtu.be/RrEmh_OYIl8?si=TI3P8vDCNYCX_YfD",
             "percent": 100,
-            "hz": 240
+            "hz": 240,
+            "pointsEarned": 142.571
         }
-    ]
+    ],
+    "verificationPointsEarned": 142.571
 }

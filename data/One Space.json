@@ -3,7 +3,7 @@
     "name": "One Space",
     "author": "Zoroa",
     "verifier": "Lolencio04",
-    "verificationDate":"2025-10-28",
+    "verificationDate": "2025-10-28",
     "tags": [
         "medium_demon"
     ],
@@ -44,11 +44,13 @@
     "records": [
         {
             "user": "Ninjedu",
-            "date":"2025-10-28",
+            "date": "2025-10-28",
             "phrase": "She's in love with the concept",
             "link": "No video",
             "percent": 100,
-            "hz": 144
+            "hz": 144,
+            "pointsEarned": 113.927
         }
-    ]
+    ],
+    "verificationPointsEarned": 113.927
 }

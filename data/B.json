@@ -4,7 +4,7 @@
     "subtitle": "Recuerdo pasarme este nivel como si fuera ayer (Tenia 11 años y me comía los mocos)",
     "author": "Motleyorc",
     "verifier": "Ninjedu",
-    "verificationDate":"2025-10-27",
+    "verificationDate": "2025-10-27",
     "tags": [
         "medium_demon",
         "newgen_trilogy"
@@ -46,26 +46,30 @@
     "records": [
         {
             "user": "Lolencio04",
-            "date":"2025-10-27",
+            "date": "2025-10-27",
             "link": "No video",
             "percent": 100,
-            "hz": 360
+            "hz": 360,
+            "pointsEarned": 102.558
         },
         {
             "user": "Juliponcio",
-            "date":"2025-10-27",
+            "date": "2025-10-27",
             "phrase": "harder than jungle temple",
             "link": "No video",
             "percent": 100,
-            "hz": 144
+            "hz": 144,
+            "pointsEarned": 102.558
         },
         {
             "user": "PapafritaVixtor",
-            "date":"2025-10-27",
+            "date": "2025-10-27",
             "phrase": "esta va por tí nordeltus",
             "link": "No video",
             "percent": 100,
-            "hz": 360
+            "hz": 360,
+            "pointsEarned": 102.558
         }
-    ]
+    ],
+    "verificationPointsEarned": 102.558
 }

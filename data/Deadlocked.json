@@ -4,7 +4,7 @@
     "subtitle": "I like this level :)",
     "author": "Robtop",
     "verifier": "Ninjedu",
-    "verificationDate":"2025-10-27",
+    "verificationDate": "2025-10-27",
     "tags": [
         "robtop"
     ],
@@ -45,10 +45,12 @@
     "records": [
         {
             "user": "Lolencio04",
-            "date":"2025-10-27",
+            "date": "2025-10-27",
             "link": "No video",
             "percent": 100,
-            "hz": 360
+            "hz": 360,
+            "pointsEarned": 100.01
         }
-    ]
+    ],
+    "verificationPointsEarned": 100.01
 }

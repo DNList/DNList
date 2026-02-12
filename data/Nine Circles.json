@@ -4,7 +4,7 @@
     "subtitle": "Eriol pasate Nine Circles",
     "author": "Zobros",
     "verifier": "Ninjedu",
-    "verificationDate":"2025-10-27",
+    "verificationDate": "2025-10-27",
     "tags": [
         "hard_demon",
         "nine_circles"
@@ -46,18 +46,21 @@
     "records": [
         {
             "user": "Lolencio04",
-            "date":"2025-10-27",
+            "date": "2025-10-27",
             "link": "No video",
             "percent": 83,
-            "hz": 240
+            "hz": 240,
+            "pointsEarned": 39.551
         },
         {
             "user": "Scalextrikx",
-            "date":"2025-10-27",
+            "date": "2025-10-27",
             "phrase": "tuff circles",
             "link": "No video",
             "percent": 52,
-            "hz": 360
+            "hz": 360,
+            "pointsEarned": 0
         }
-    ]
+    ],
+    "verificationPointsEarned": 122.362
 }

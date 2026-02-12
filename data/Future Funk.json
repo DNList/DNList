@@ -4,7 +4,7 @@
     "subtitle": "Future phonk",
     "author": "JonathanGD",
     "verifier": "Ninjedu",
-    "verificationDate":"2025-10-27",
+    "verificationDate": "2025-10-27",
     "tags": [
         "hard_demon",
         "99%",
@@ -47,18 +47,21 @@
     "records": [
         {
             "user": "Lolencio04",
-            "date":"2025-10-27",
+            "date": "2025-10-27",
             "link": "No video",
             "percent": 100,
-            "hz": 360
+            "hz": 360,
+            "pointsEarned": 126.153
         },
         {
             "user": "CorteVIII",
-            "date":"2025-10-27",
+            "date": "2025-10-27",
             "phrase": "La paja mas larga de mi vida y solo he llegado a la mitad",
             "link": "No video",
             "percent": 50,
-            "hz": 60
+            "hz": 60,
+            "pointsEarned": 0
         }
-    ]
+    ],
+    "verificationPointsEarned": 126.153
 }

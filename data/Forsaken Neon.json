@@ -4,7 +4,7 @@
     "subtitle": "Gané la carrera Lolencio",
     "author": "Zobros",
     "verifier": "Ninjedu",
-    "verificationDate":"2025-10-27",
+    "verificationDate": "2025-10-27",
     "tags": [
         "hard_demon",
         "worst_level_ever"
@@ -46,10 +46,12 @@
     "records": [
         {
             "user": "Lolencio04",
-            "date":"2025-10-27",
+            "date": "2025-10-27",
             "link": "No video",
             "percent": 100,
-            "hz": 360
+            "hz": 360,
+            "pointsEarned": 120.566
         }
-    ]
+    ],
+    "verificationPointsEarned": 120.566
 }
