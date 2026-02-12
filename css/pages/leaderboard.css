@@ -91,3 +91,12 @@
 .page-leaderboard .player .table a:hover {
     text-decoration: underline;
 }
+
+.graph-container {
+  margin: 16px 0;
+}
+
+.graph-container canvas {
+  width: 100%;
+  max-height: 200px;
+}

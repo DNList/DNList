@@ -3,7 +3,9 @@ import { localize } from '../util.js';
 import Spinner from '../components/Spinner.js';
 import tags from "../components/List/Tags.js";
 import { score } from '../score.js';
+import Chart from 'chart.js/auto';
 
+let chart = null;
 
 export default {
     components: { Spinner },
@@ -40,6 +42,11 @@ export default {
                     <div class="player">
                         <h1>#{{ selected + 1 }} {{ entry.user }}</h1>
                         <h3>{{ entry.total }}</h3>
+
+                        <div class="graph-container">
+                            <canvas id="pointsChart"></canvas>
+                        </div>
+
 
                         <h2 v-if="entry.verified.length > 0">Verified ({{ entry.verified.length }})</h2>
                         <table class="table">
@@ -90,19 +97,48 @@ export default {
         </main>
     `,
     computed: {
-        entry() {
-            return this.leaderboard[this.selected];
-        },
-        noProgress() {
-            if (!this.entry || !this.allLevels) return [];
-            const attempted = new Set([
-                ...this.entry.verified.map(l => l.level),
-                ...this.entry.completed.map(l => l.level),
-                ...this.entry.progressed.map(l => l.level),
-            ]);
-            return this.allLevels.filter(l => !attempted.has(l.level));
-        },
+    entry() {
+        return this.leaderboard[this.selected];
     },
+
+    pointsOverTime() {
+        if (!this.entry) return [];
+
+        const events = [
+        ...this.entry.verified,
+        ...this.entry.completed,
+        ]
+        .filter(e => e.date)
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        let total = 0;
+
+        return events.map(e => {
+        total += e.score;
+        return {
+            date: e.date,
+            total
+        };
+        });
+    },
+
+    noProgress() {
+        if (!this.entry || !this.allLevels) return [];
+        const attempted = new Set([
+        ...this.entry.verified.map(l => l.level),
+        ...this.entry.completed.map(l => l.level),
+        ...this.entry.progressed.map(l => l.level),
+        ]);
+        return this.allLevels.filter(l => !attempted.has(l.level));
+    }
+    },
+
+    watch: {
+        selected() {
+            this.$nextTick(this.renderChart);
+        }
+        },
+
     async mounted() {
         const [leaderboard, err, allLevels] = await fetchLeaderboard();
         this.leaderboard = leaderboard;
@@ -121,9 +157,49 @@ export default {
         }
 
         this.loading = false;
+        this.$nextTick(this.renderChart);
     },
     methods: {
         localize,
+
+        renderChart() {
+            const canvas = document.getElementById('pointsChart');
+            if (!canvas || this.pointsOverTime.length === 0) return;
+
+            if (chart) chart.destroy();
+
+            chart = new Chart(canvas, {
+            type: 'line',
+            data: {
+                labels: this.pointsOverTime.map(p => p.date),
+                datasets: [
+                {
+                    data: this.pointsOverTime.map(p => p.total),
+                    borderWidth: 2,
+                    pointRadius: 3,
+                    tension: 0.25
+                }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                legend: { display: false }
+                },
+                scales: {
+                x: {
+                    display: false
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                    precision: 0
+                    }
+                }
+                }
+            }
+            });
+        },
 
         applyTagBonuses() {
             console.log("Applying tag bonuses...");
