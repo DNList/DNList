@@ -44,6 +44,83 @@ function round(num) {
     }
 }
 
+function loadTags() {
+    // Load tags from the frontend component file
+    const tagsPath = path.join(__dirname, 'js', 'components', 'List', 'Tags.js');
+    
+    if (!fs.existsSync(tagsPath)) {
+        console.warn('⚠️  Tags.js not found, tag bonuses will not be calculated');
+        return [];
+    }
+    
+    try {
+        const tagsContent = fs.readFileSync(tagsPath, 'utf-8');
+        // Extract the default export array from the file
+        const match = tagsContent.match(/export\s+default\s+(\[[\s\S]*?\]);/);
+        if (match) {
+            // Use eval to parse the array (safe since we control the file)
+            const tags = eval(match[1]);
+            return tags.filter(tag => tag.bonusEnabled);
+        }
+    } catch (error) {
+        console.warn('⚠️  Could not parse Tags.js:', error.message);
+    }
+    
+    return [];
+}
+
+function calculateTagBonuses(playerPoints, allLevels, tags) {
+    const playerBonuses = {};
+    
+    Object.keys(playerPoints).forEach(player => {
+        const completedLevels = new Set(
+            Object.keys(playerPoints[player]).filter(
+                levelName => playerPoints[player][levelName].type === 'verified' ||
+                             playerPoints[player][levelName].type === 'completed'
+            )
+        );
+        
+        let totalBonus = 0;
+        const bonusDetails = [];
+        
+        tags.forEach(tag => {
+            const levelsWithTag = allLevels.filter(level =>
+                Array.isArray(level.tags) &&
+                level.tags.some(t =>
+                    String(t).toLowerCase() === tag.id.toLowerCase() ||
+                    String(t).toLowerCase() === tag.name.toLowerCase()
+                )
+            );
+            
+            if (levelsWithTag.length === 0) return;
+            
+            const totalLevelScore = levelsWithTag.reduce((sum, level) => {
+                const lvlScore = score(level.rank, 100, level.percentToQualify || 50);
+                return sum + lvlScore;
+            }, 0);
+            
+            const averageLevelScore = totalLevelScore / (levelsWithTag.length * 2);
+            const bonus = round(averageLevelScore);
+            
+            const completedAll = levelsWithTag.every(l => completedLevels.has(l.name));
+            
+            if (completedAll && bonus > 0) {
+                bonusDetails.push({ name: tag.name, bonus });
+                totalBonus += bonus;
+            }
+        });
+        
+        if (totalBonus > 0) {
+            playerBonuses[player] = {
+                total: round(totalBonus),
+                bonuses: bonusDetails
+            };
+        }
+    });
+    
+    return playerBonuses;
+}
+
 function getCurrentDate() {
     const now = new Date();
     return now.toISOString().split('T')[0]; // YYYY-MM-DD
@@ -66,6 +143,7 @@ async function updatePlayerGraphs() {
 
     const currentDate = getCurrentDate();
     const playerPoints = {}; // { "PlayerName": { "LevelName": points } }
+    const allLevels = []; // Store all levels with their metadata
 
     console.log('📊 Calculating current points for all players...\n');
 
@@ -77,6 +155,14 @@ async function updatePlayerGraphs() {
 
         const level = JSON.parse(fs.readFileSync(levelPath, 'utf-8'));
         const levelName = level.name;
+
+        // Store level metadata for tag bonus calculation
+        allLevels.push({
+            name: levelName,
+            rank: rank + 1,
+            tags: level.tags || [],
+            percentToQualify: level.percentToQualify || 50
+        });
 
         // Verificador
         if (level.verifier) {
@@ -102,26 +188,40 @@ async function updatePlayerGraphs() {
         }
     }
 
+    // Load tags and calculate bonuses
+    console.log('🏷️  Calculating tag bonuses...\n');
+    const tags = loadTags();
+    const tagBonuses = calculateTagBonuses(playerPoints, allLevels, tags);
+
     // Crear snapshot del día
     const newSnapshot = {
         date: currentDate,
         players: {}
     };
 
-    // Calcular total por jugador
+    // Calcular total por jugador (incluyendo bonuses)
     for (const [player, levels] of Object.entries(playerPoints)) {
-        const total = Object.values(levels).reduce((sum, data) => sum + data.points, 0);
+        const baseTotal = Object.values(levels).reduce((sum, data) => sum + data.points, 0);
+        const bonusTotal = tagBonuses[player]?.total || 0;
+        const total = baseTotal + bonusTotal;
+
         newSnapshot.players[player] = {
             total: round(total),
             levelCount: Object.keys(levels).length,
             levels: levels
         };
+
+        // Add tag bonus info if exists
+        if (tagBonuses[player]) {
+            newSnapshot.players[player].tagBonuses = tagBonuses[player].bonuses;
+            console.log(`  ✅ ${player}: +${bonusTotal} from ${tagBonuses[player].bonuses.length} bonus pack(s)`);
+        }
     }
 
     // Verificar si ya existe snapshot para hoy
     const existingIndex = snapshots.snapshots.findIndex(s => s.date === currentDate);
     if (existingIndex !== -1) {
-        console.log('⚠️  Snapshot for today already exists. Replacing...\n');
+        console.log('\n⚠️  Snapshot for today already exists. Replacing...\n');
         snapshots.snapshots[existingIndex] = newSnapshot;
     } else {
         snapshots.snapshots.push(newSnapshot);
@@ -133,7 +233,7 @@ async function updatePlayerGraphs() {
     // Guardar
     fs.writeFileSync(snapshotPath, JSON.stringify(snapshots, null, 2), 'utf-8');
 
-    console.log(`✅ Snapshot saved with ${Object.keys(newSnapshot.players).length} players`);
+    console.log(`\n✅ Snapshot saved with ${Object.keys(newSnapshot.players).length} players`);
     console.log(`📊 Total snapshots: ${snapshots.snapshots.length}`);
     
     if (snapshots.snapshots.length > 1) {

@@ -81,7 +81,8 @@ export async function fetchPlayerHistory(playerName) {
             .filter(s => s.players[playerName])
             .map(s => ({
                 date: s.date,
-                total: s.players[playerName].total
+                total: s.players[playerName].total,
+                tagBonuses: s.players[playerName].tagBonuses || []
             }));
     } catch {
         return [];
