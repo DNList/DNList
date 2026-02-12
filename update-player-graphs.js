@@ -1,9 +1,5 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const fs = require('fs');
+const path = require('path');
 
 const scale = 3;
 
@@ -167,7 +163,7 @@ async function updatePlayerGraphs() {
         // Verificador
         if (level.verifier) {
             const verifier = level.verifier;
-            playerPoints[verifier] ??= {};
+            playerPoints[verifier] = playerPoints[verifier] || {};
             playerPoints[verifier][levelName] = {
                 points: score(rank + 1, 100, level.percentToQualify || 50),
                 type: 'verified'
@@ -178,7 +174,7 @@ async function updatePlayerGraphs() {
         if (level.records && Array.isArray(level.records)) {
             level.records.forEach(record => {
                 const user = record.user;
-                playerPoints[user] ??= {};
+                playerPoints[user] = playerPoints[user] || {};
                 playerPoints[user][levelName] = {
                     points: score(rank + 1, record.percent, level.percentToQualify || 50),
                     type: record.percent === 100 ? 'completed' : 'progressed',

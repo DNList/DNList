@@ -1,9 +1,5 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const fs = require('fs');
+const path = require('path');
 
 const scale = 3;
 
@@ -157,14 +153,14 @@ async function generateInitialSnapshot() {
             console.log(`  ✓ Verification points for ${level.verifier}: ${points}`);
 
             // Track for tag bonus calculation
-            playerPoints[level.verifier] ??= {};
+            playerPoints[level.verifier] = playerPoints[level.verifier] || {};
             playerPoints[level.verifier][level.name] = {
                 points: points,
                 type: 'verified'
             };
         } else if (level.verifier) {
             // Track existing verification
-            playerPoints[level.verifier] ??= {};
+            playerPoints[level.verifier] = playerPoints[level.verifier] || {};
             playerPoints[level.verifier][level.name] = {
                 points: level.verificationPointsEarned,
                 type: 'verified'
@@ -181,7 +177,7 @@ async function generateInitialSnapshot() {
                 }
 
                 // Track for tag bonus calculation
-                playerPoints[record.user] ??= {};
+                playerPoints[record.user] = playerPoints[record.user] || {};
                 playerPoints[record.user][level.name] = {
                     points: record.pointsEarned,
                     type: record.percent === 100 ? 'completed' : 'progressed',
