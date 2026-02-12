@@ -3,7 +3,8 @@ import { localize } from '../util.js';
 import Spinner from '../components/Spinner.js';
 import tags from "../components/List/Tags.js";
 import { score } from '../score.js';
-import Chart from 'chart.js/auto';
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 let chart = null;
 
