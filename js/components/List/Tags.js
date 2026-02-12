@@ -56,6 +56,13 @@ export default [
     "bonusEnabled": false
   },
   {
+    "id": "sonic_wave",
+    "name": "Sonic Wave Remakes",
+    "color": "rgb(0, 26, 255)",
+    "description": "Remakes of the old NC styled top 1, Sonic Wave (We ain't beating the original ever bro).",
+    "bonusEnabled": false
+  },
+  {
     "id": "worst_level_ever",
     "name": "Worst Level Ever",
     "color": "#000000ff",
