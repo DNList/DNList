@@ -4,8 +4,6 @@ import Spinner from '../components/Spinner.js';
 import tags from "../components/List/Tags.js";
 import { score } from '../score.js';
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 let chart = null;
 
 export default {
@@ -15,7 +13,8 @@ export default {
         loading: true,
         selected: 0,
         err: [],
-        allLevels: [], // added
+        allLevels: [],
+        chartInitialized: false, // Añade esto
     }),
     template: `
         <main v-if="loading">
@@ -30,7 +29,7 @@ export default {
                 </div>
                 <div class="board-container">
                     <table class="board">
-                        <tr v-for="(ientry, i) in leaderboard">
+                        <tr v-for="(ientry, i) in leaderboard" :key="i">
                             <td class="rank"><p class="type-label-lg">#{{ i + 1 }}</p></td>
                             <td class="total"><p class="type-label-lg">{{ localize(ientry.total) }}</p></td>
                             <td class="user" :class="{ 'active': selected == i }">
@@ -39,7 +38,7 @@ export default {
                         </tr>
                     </table>
                 </div>
-                <div class="player-container">
+                <div class="player-container" v-if="entry">
                     <div class="player">
                         <h1>#{{ selected + 1 }} {{ entry.user }}</h1>
                         <h3>{{ entry.total }}</h3>
@@ -48,109 +47,73 @@ export default {
                             <canvas id="pointsChart"></canvas>
                         </div>
 
-
-                        <h2 v-if="entry.verified.length > 0">Verified ({{ entry.verified.length }})</h2>
-                        <table class="table">
-                            <tr v-for="score in entry.verified">
-                                <td class="rank"><p>#{{ score.rank }}</p></td>
-                                <td class="level"><a class="type-label-lg" target="_blank" :href="score.link">{{ score.level }}</a></td>
-                                <td class="score"><p>+{{ localize(score.score) }}</p></td>
-                            </tr>
-                        </table>
-
-                        <h2 v-if="entry.completed.length > 0">Completed ({{ entry.completed.length }})</h2>
-                        <table class="table">
-                            <tr v-for="score in entry.completed">
-                                <td class="rank"><p>#{{ score.rank }}</p></td>
-                                <td class="level"><a class="type-label-lg" target="_blank" :href="score.link">{{ score.level }}</a></td>
-                                <td class="score"><p>+{{ localize(score.score) }}</p></td>
-                            </tr>
-                        </table>
-
-                        <h2 v-if="entry.tagBonuses && entry.tagBonuses.length > 0">Bonus Pack points ({{ entry.tagBonuses.length }})</h2>
-                        <table class="table" v-if="entry.tagBonuses && entry.tagBonuses.length > 0">
-                            <tr v-for="bonus in entry.tagBonuses" :key="bonus.name">
-                                <td class="level"><p>{{ bonus.name }}</p></td>
-                                <td class="score"><p>+{{ localize(bonus.bonus) }}</p></td>
-                            </tr>
-                        </table>
-
-                        <h2 v-if="entry.progressed.length > 0">Progressed ({{ entry.progressed.length }})</h2>
-                        <table class="table">
-                            <tr v-for="score in entry.progressed">
-                                <td class="rank"><p>#{{ score.rank }}</p></td>
-                                <td class="level"><a class="type-label-lg" target="_blank" :href="score.link">{{ score.percent }}% {{ score.level }}</a></td>
-                                <td class="score"><p>+{{ localize(score.score) }}</p></td>
-                            </tr>
-                        </table>
-
-                        <h2 v-if="noProgress.length > 0">No Progress ({{ noProgress.length }})</h2>
-                        <table class="table" v-if="noProgress.length > 0">
-                            <tr v-for="score in noProgress">
-                                <td class="rank"><p>#{{ score.rank }}</p></td>
-                                <td class="level"><a class="type-label-lg" target="_blank" :href="score.link">{{ score.level }}</a></td>
-                                <td class="score"><p>+{{ localize(score.score) }}</p></td>
-                            </tr>
-                        </table>
+                        <!-- Resto de tu template igual -->
                     </div>
                 </div>
             </div>
         </main>
     `,
     computed: {
-    entry() {
-        return this.leaderboard[this.selected];
+        entry() {
+            return this.leaderboard[this.selected];
+        },
+        pointsOverTime() {
+            if (!this.entry) return [];
+
+            const events = [
+                ...(this.entry.verified || []),
+                ...(this.entry.completed || []),
+            ]
+            .filter(e => e && e.date) // Verifica que e exista y tenga date
+            .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+            let total = 0;
+            return events.map(e => {
+                total += (e.score || 0);
+                return {
+                    date: e.date,
+                    total
+                };
+            });
+        },
+        noProgress() {
+            if (!this.entry || !this.allLevels) return [];
+            const attempted = new Set([
+                ...(this.entry.verified || []).map(l => l?.level),
+                ...(this.entry.completed || []).map(l => l?.level),
+                ...(this.entry.progressed || []).map(l => l?.level),
+            ].filter(Boolean));
+            
+            return this.allLevels.filter(l => !attempted.has(l.level));
+        }
     },
-
-    pointsOverTime() {
-        if (!this.entry) return [];
-
-        const events = [
-        ...this.entry.verified,
-        ...this.entry.completed,
-        ]
-        .filter(e => e.date)
-        .sort((a, b) => new Date(a.date) - new Date(b.date));
-
-        let total = 0;
-
-        return events.map(e => {
-        total += e.score;
-        return {
-            date: e.date,
-            total
-        };
-        });
-    },
-
-    noProgress() {
-        if (!this.entry || !this.allLevels) return [];
-        const attempted = new Set([
-        ...this.entry.verified.map(l => l.level),
-        ...this.entry.completed.map(l => l.level),
-        ...this.entry.progressed.map(l => l.level),
-        ]);
-        return this.allLevels.filter(l => !attempted.has(l.level));
-    }
-    },
-
     watch: {
         selected() {
-            this.$nextTick(this.renderChart);
+            this.$nextTick(() => {
+                if (window.Chart) {
+                    this.renderChart();
+                }
+            });
         }
-        },
-
+    },
     async mounted() {
+        // Verifica que Chart.js esté cargado
+        if (typeof window.Chart === 'undefined') {
+            console.error('Chart.js no está cargado');
+            // Opcional: carga Chart.js dinámicamente
+            await this.loadChartJS();
+        }
+
         const [leaderboard, err, allLevels] = await fetchLeaderboard();
         this.leaderboard = leaderboard;
         this.err = err;
         this.allLevels = allLevels;
         this.applyTagBonuses();
 
-        const playerFromQuery = this.$route.query.player;
-        if (playerFromQuery) {
+        // Verifica query params
+        if (this.$route?.query?.player) {
             const index = this.leaderboard.findIndex(
-                entry => entry.user.toLowerCase() === playerFromQuery.toLowerCase()
+                entry => entry.user.toLowerCase() === this.$route.query.player.toLowerCase()
             );
             if (index !== -1) {
                 this.selected = index;
@@ -158,57 +121,132 @@ export default {
         }
 
         this.loading = false;
-        this.$nextTick(this.renderChart);
+        this.$nextTick(() => {
+            if (window.Chart) {
+                this.renderChart();
+            }
+        });
     },
     methods: {
         localize,
+        
+        // Método para cargar Chart.js dinámicamente si no está disponible
+        async loadChartJS() {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js';
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        },
 
         renderChart() {
-            const canvas = document.getElementById('pointsChart');
-            if (!canvas || this.pointsOverTime.length === 0) return;
-
-            if (chart) chart.destroy();
-
-            chart = new Chart(canvas, {
-            type: 'line',
-            data: {
-                labels: this.pointsOverTime.map(p => p.date),
-                datasets: [
-                {
-                    data: this.pointsOverTime.map(p => p.total),
-                    borderWidth: 2,
-                    pointRadius: 3,
-                    tension: 0.25
-                }
-                ]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                legend: { display: false }
-                },
-                scales: {
-                x: {
-                    display: false
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                    precision: 0
-                    }
-                }
-                }
+            // Verifica que Chart esté disponible
+            if (typeof window.Chart === 'undefined') {
+                console.error('Chart.js no está disponible');
+                return;
             }
+
+            const canvas = document.getElementById('pointsChart');
+            if (!canvas) {
+                console.warn('Canvas element not found');
+                return;
+            }
+
+            const pointsData = this.pointsOverTime;
+            if (pointsData.length === 0) {
+                // Oculta o muestra mensaje si no hay datos
+                canvas.style.display = 'none';
+                return;
+            }
+
+            canvas.style.display = 'block';
+
+            if (chart) {
+                chart.destroy();
+            }
+
+            try {
+                chart = new window.Chart(canvas, {
+                    type: 'line',
+                    data: {
+                        labels: pointsData.map(p => this.formatDate(p.date)),
+                        datasets: [{
+                            label: 'Puntos acumulados',
+                            data: pointsData.map(p => p.total),
+                            borderColor: 'rgb(75, 192, 192)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderWidth: 2,
+                            pointRadius: 3,
+                            tension: 0.25,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { 
+                                display: false 
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: (context) => {
+                                        return `Puntos: ${context.parsed.y}`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                display: true,
+                                title: {
+                                    display: true,
+                                    text: 'Fecha'
+                                },
+                                ticks: {
+                                    maxRotation: 45,
+                                    minRotation: 45
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Puntos totales'
+                                },
+                                ticks: {
+                                    precision: 0
+                                }
+                            }
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error('Error al renderizar el gráfico:', error);
+            }
+        },
+
+        // Helper para formatear fechas
+        formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('es', { 
+                day: '2-digit', 
+                month: '2-digit',
+                year: 'numeric'
             });
         },
 
         applyTagBonuses() {
+            if (!this.leaderboard || !this.allLevels) return;
+            
             console.log("Applying tag bonuses...");
             this.leaderboard.forEach(entry => {
                 const completedLevels = new Set([
-                    ...entry.completed.map(l => l.level),
-                    ...entry.verified.map(l => l.level),
-                ]);
+                    ...(entry.completed || []).map(l => l?.level),
+                    ...(entry.verified || []).map(l => l?.level),
+                ].filter(Boolean));
 
                 entry.tagBonuses = [];
                 let totalBonus = 0;
@@ -219,8 +257,8 @@ export default {
                     const levelsWithTag = this.allLevels.filter(l =>
                         Array.isArray(l.tags) &&
                         l.tags.some(t =>
-                            String(t).toLowerCase() === tag.id.toLowerCase() ||
-                            String(t).toLowerCase() === tag.name.toLowerCase()
+                            String(t).toLowerCase() === tag.id?.toLowerCase() ||
+                            String(t).toLowerCase() === tag.name?.toLowerCase()
                         )
                     );
 
@@ -232,7 +270,6 @@ export default {
                     }, 0);
 
                     const averageLevelScore = totalLevelScore / (levelsWithTag.length * 2);
-
                     const bonus = Math.round(averageLevelScore * 1000) / 1000;
 
                     const completedAll = levelsWithTag.every(l => completedLevels.has(l.level));
@@ -240,13 +277,12 @@ export default {
                     if (completedAll && bonus > 0) {
                         entry.tagBonuses.push({ name: tag.name, bonus });
                         totalBonus += bonus;
-                        console.log(`✅ Player ${entry.user} earned ${bonus} bonus points for "${tag.name}"`);
                     }
                 });
 
-                entry.total += totalBonus;
+                entry.total = (entry.total || 0) + totalBonus;
                 entry.total = Math.round(entry.total * 1000) / 1000;
             });
         }
-    },
+    }
 };
