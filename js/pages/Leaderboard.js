@@ -42,7 +42,7 @@ export default {
                         <h1>#{{ selected + 1 }} {{ entry.user }}</h1>
                         <h3>{{ entry.total }}</h3>
 
-                        <div class="graph-container">
+                        <div class="graph-container" v-if="entry.total > 0 && pointsOverTime.length > 0">
                             <canvas id="pointsChart"></canvas>
                         </div>
 
@@ -124,6 +124,15 @@ export default {
                 groupedByDate[e.date] = cumulativeTotal;
             });
 
+            // Add tag bonuses to the final point in fallback calculation
+            // (This is a simplification - assumes all bonuses were earned at the last date)
+            const dates = Object.keys(groupedByDate).sort((a, b) => new Date(a) - new Date(b));
+            if (dates.length > 0 && this.entry.tagBonuses && this.entry.tagBonuses.length > 0) {
+                const lastDate = dates[dates.length - 1];
+                const bonusTotal = this.entry.tagBonuses.reduce((sum, b) => sum + b.bonus, 0);
+                groupedByDate[lastDate] += bonusTotal;
+            }
+
             return Object.entries(groupedByDate).map(([date, total]) => ({
                 date,
                 total
@@ -179,7 +188,16 @@ export default {
 
         renderChart() {
             const canvas = document.getElementById('pointsChart');
-            if (!canvas || this.pointsOverTime.length === 0) return;
+            if (!canvas) return;
+            
+            // Don't show graph if player has 0 points or no data
+            if (!this.entry || this.entry.total === 0 || this.pointsOverTime.length === 0) {
+                if (chart) {
+                    chart.destroy();
+                    chart = null;
+                }
+                return;
+            }
 
             if (chart) chart.destroy();
 
