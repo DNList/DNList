@@ -97,6 +97,7 @@ export async function fetchLeaderboard() {
             level: level.name,
             score: score(rank + 1, 100, level.percentToQualify),
             link: level.verification,
+            date: level.verificationDate,  // ← AGREGAR ESTA LÍNEA
         });
 
         level.records.forEach((record) => {
@@ -115,6 +116,7 @@ export async function fetchLeaderboard() {
                     level: level.name,
                     score: score(rank + 1, 100, level.percentToQualify),
                     link: record.link,
+                    date: record.date,  // ← AGREGAR ESTA LÍNEA
                 });
                 return;
             }
@@ -125,6 +127,7 @@ export async function fetchLeaderboard() {
                 percent: record.percent,
                 score: score(rank + 1, record.percent, level.percentToQualify),
                 link: record.link,
+                date: record.date,  // ← AGREGAR ESTA LÍNEA (opcional para progressed)
             });
         });
     });
