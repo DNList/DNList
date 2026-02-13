@@ -109,10 +109,11 @@ export async function fetchLeaderboard() {
             progressed: [],
         };
         const { verified } = scoreMap[verifier];
+        // ALWAYS calculate from current rank, ignore stored verificationPointsEarned
         verified.push({
             rank: rank + 1,
             level: level.name,
-            score: level.verificationPointsEarned || score(rank + 1, 100, level.percentToQualify),
+            score: score(rank + 1, 100, level.percentToQualify),
             link: level.verification,
             date: level.verificationDate,
         });
@@ -128,21 +129,23 @@ export async function fetchLeaderboard() {
             };
             const { completed, progressed } = scoreMap[user];
             if (record.percent === 100) {
+                // ALWAYS calculate from current rank, ignore stored pointsEarned
                 completed.push({
                     rank: rank + 1,
                     level: level.name,
-                    score: record.pointsEarned || score(rank + 1, 100, level.percentToQualify),
+                    score: score(rank + 1, 100, level.percentToQualify),
                     link: record.link,
                     date: record.date,
                 });
                 return;
             }
 
+            // ALWAYS calculate from current rank, ignore stored pointsEarned
             progressed.push({
                 rank: rank + 1,
                 level: level.name,
                 percent: record.percent,
-                score: record.pointsEarned || score(rank + 1, record.percent, level.percentToQualify),
+                score: score(rank + 1, record.percent, level.percentToQualify),
                 link: record.link,
                 date: record.date,
             });
