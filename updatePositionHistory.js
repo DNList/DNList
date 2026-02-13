@@ -1,105 +1,77 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+//  PROCEDIMIENTO
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+//  cd C:\Users\User\Documents\GitHub\DNList
+//  cp data/_list.json data/_list.previous.json
+//  node updatePositionHistory.js "reason"
+//  git add .
+//  git commit -m "Update list positions"
+//  git push
 
-const scale = 3;
+import fs from "fs";
+import path from "path";
 
-function score(rank, percent, minPercent) {
-    if (rank > 150) {
-        return 0;
+const DATA_DIR = "./data";
+const LIST_FILE = "_list.json";
+const OLD_LIST_FILE = "_list.previous.json";
+const reasonFromCLI = process.argv.slice(2).join(" ") || "Moved";
+
+// Get today's date in DD-MM-YYYY format
+const now = new Date();
+const today = String(now.getDate()).padStart(2, "0") + "-" +
+              String(now.getMonth() + 1).padStart(2, "0") + "-" +
+              now.getFullYear();
+
+// Load lists
+const newList = JSON.parse(
+  fs.readFileSync(path.join(DATA_DIR, LIST_FILE))
+);
+
+const oldList = JSON.parse(
+  fs.readFileSync(path.join(DATA_DIR, OLD_LIST_FILE))
+);
+
+// Map old positions
+const oldPositions = {};
+oldList.forEach((name, i) => {
+  oldPositions[name] = i + 1;
+});
+
+// Process new list
+newList.forEach((name, index) => {
+  const newPosition = index + 1;
+  const levelPath = path.join(DATA_DIR, `${name}.json`);
+
+  if (!fs.existsSync(levelPath)) {
+    console.warn(`Missing level file: ${name}.json`);
+    return;
+  }
+
+  const level = JSON.parse(fs.readFileSync(levelPath));
+  level.positionHistory ??= [];
+
+  // New level
+  if (!(name in oldPositions)) {
+    level.positionHistory.push({
+      date: today,
+      change: null,
+      position: newPosition,
+      reason: "Added to list"
+    });
+  } 
+  // Moved level
+  else {
+    const diff = oldPositions[name] - newPosition;
+    if (diff !== 0) {
+      level.positionHistory.push({
+        date: today,
+        change: diff,
+        position: newPosition,
+        reason: reasonFromCLI
+      });
     }
-    if (rank > 75 && percent < 100) {
-        return 0;
-    }
+  }
 
-    let score = (-24.9975 * Math.pow(rank - 1, 0.4) + 200) *
-        ((percent - (minPercent - 1)) / (100 - (minPercent - 1)));
+  fs.writeFileSync(levelPath, JSON.stringify(level, null, 4));
+});
 
-    score = Math.max(0, score);
-
-    if (percent != 100) {
-        return round(score - score / 3);
-    }
-
-    return Math.max(round(score), 0);
-}
-
-function round(num) {
-    if (!('' + num).includes('e')) {
-        return +(Math.round(num + 'e+' + scale) + 'e-' + scale);
-    } else {
-        var arr = ('' + num).split('e');
-        var sig = '';
-        if (+arr[1] + scale > 0) {
-            sig = '+';
-        }
-        return +(
-            Math.round(+arr[0] + 'e' + sig + (+arr[1] + scale)) +
-            'e-' +
-            scale
-        );
-    }
-}
-
-async function generateInitialSnapshot() {
-    console.log('📸 Generating initial snapshot with pointsEarned...\n');
-
-    const listPath = path.join(__dirname, 'data', '_list.json');
-    const list = JSON.parse(fs.readFileSync(listPath, 'utf-8'));
-
-    let updatedLevels = 0;
-    let updatedRecords = 0;
-    let updatedVerifications = 0;
-
-    for (let rank = 0; rank < list.length; rank++) {
-        const levelPath = path.join(__dirname, 'data', `${list[rank]}.json`);
-        
-        if (!fs.existsSync(levelPath)) {
-            console.log(`⚠️  File not found: ${list[rank]}.json`);
-            continue;
-        }
-
-        const level = JSON.parse(fs.readFileSync(levelPath, 'utf-8'));
-        let modified = false;
-
-        // ✅ AGREGAR PUNTOS DE VERIFICACIÓN
-        if (level.verifier && level.verificationPointsEarned === undefined) {
-            const points = score(rank + 1, 100, level.percentToQualify || 50);
-            level.verificationPointsEarned = points;
-            modified = true;
-            updatedVerifications++;
-            console.log(`  ✓ Verification: ${level.verifier} → ${points} points`);
-        }
-
-        // ✅ AGREGAR PUNTOS A RECORDS (completions y progressed)
-        if (level.records && Array.isArray(level.records)) {
-            level.records.forEach(record => {
-                if (record.pointsEarned === undefined) {
-                    const points = score(rank + 1, record.percent, level.percentToQualify || 50);
-                    record.pointsEarned = points;
-                    modified = true;
-                    updatedRecords++;
-                }
-            });
-        }
-
-        // Guardar si hubo cambios
-        if (modified) {
-            fs.writeFileSync(levelPath, JSON.stringify(level, null, 4), 'utf-8');
-            console.log(`✅ Updated: ${level.name} (Rank #${rank + 1})`);
-            updatedLevels++;
-        }
-    }
-
-    console.log(`\n🎉 Done!`);
-    console.log(`📊 Updated ${updatedLevels} levels`);
-    console.log(`✓ ${updatedVerifications} verifications`);
-    console.log(`✓ ${updatedRecords} records`);
-    console.log('\n⚠️  IMPORTANT: Do NOT delete "date" or "verificationDate" fields!');
-    console.log('   These are needed for the graph timeline.\n');
-}
-
-generateInitialSnapshot().catch(console.error);
+console.log("Position history updated.");
