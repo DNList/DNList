@@ -555,6 +555,315 @@
       }
     },
     {
+      "date": "2025-11-05",
+      "players": {
+        "Lolencio04": {
+          "total": 2092.029,
+          "levelCount": 15,
+          "levels": {
+            "Doradura": {
+              "points": 200,
+              "type": "verified"
+            },
+            "Acu": {
+              "points": 180.738,
+              "type": "completed",
+              "percent": 100
+            },
+            "Future Funk II": {
+              "points": 176.219,
+              "type": "verified"
+            },
+            "Double Dash": {
+              "points": 159.247,
+              "type": "verified"
+            },
+            "Multition (2P)": {
+              "points": 155.266,
+              "type": "verified"
+            },
+            "Nine Circles": {
+              "points": 35.481,
+              "type": "progressed",
+              "percent": 83
+            },
+            "Forsaken Neon": {
+              "points": 147.6,
+              "type": "completed",
+              "percent": 100
+            },
+            "Future Funk": {
+              "points": 140.312,
+              "type": "completed",
+              "percent": 100
+            },
+            "One Space": {
+              "points": 130.049,
+              "type": "verified"
+            },
+            "Celestia": {
+              "points": 117.524,
+              "type": "completed",
+              "percent": 100
+            },
+            "A Pretty Easy Demon": {
+              "points": 114.586,
+              "type": "completed",
+              "percent": 100
+            },
+            "B": {
+              "points": 111.721,
+              "type": "completed",
+              "percent": 100
+            },
+            "Deadlocked": {
+              "points": 106.205,
+              "type": "completed",
+              "percent": 100
+            },
+            "Theory Of Everything 2": {
+              "points": 103.55,
+              "type": "completed",
+              "percent": 100
+            },
+            "Clubstep": {
+              "points": 91.237,
+              "type": "completed",
+              "percent": 100
+            }
+          },
+          "tagBonuses": [
+            {
+              "name": "Newgen Trilogy Pack",
+              "bonus": 72.129
+            },
+            {
+              "name": "Robtop Pack",
+              "bonus": 50.165
+            }
+          ]
+        },
+        "Ninjedu": {
+          "total": 4210.062,
+          "levelCount": 30,
+          "levels": {
+            "Doradura": {
+              "points": 0,
+              "type": "progressed",
+              "percent": 50
+            },
+            "Mizureta": {
+              "points": 195,
+              "type": "verified"
+            },
+            "Niwa": {
+              "points": 190.125,
+              "type": "verified"
+            },
+            "Troll Level": {
+              "points": 185.372,
+              "type": "verified"
+            },
+            "Acu": {
+              "points": 180.738,
+              "type": "verified"
+            },
+            "Game Time": {
+              "points": 171.814,
+              "type": "verified"
+            },
+            "Magma Bound": {
+              "points": 167.518,
+              "type": "verified"
+            },
+            "Stalemate": {
+              "points": 163.33,
+              "type": "verified"
+            },
+            "Double Dash": {
+              "points": 159.247,
+              "type": "completed",
+              "percent": 100
+            },
+            "Multition (2P)": {
+              "points": 155.266,
+              "type": "completed",
+              "percent": 100
+            },
+            "Nine Circles": {
+              "points": 151.384,
+              "type": "verified"
+            },
+            "Forsaken Neon": {
+              "points": 147.6,
+              "type": "verified"
+            },
+            "White Women": {
+              "points": 143.91,
+              "type": "verified"
+            },
+            "Future Funk": {
+              "points": 140.312,
+              "type": "verified"
+            },
+            "Megalovania": {
+              "points": 136.804,
+              "type": "verified"
+            },
+            "Ultra Violence": {
+              "points": 133.384,
+              "type": "verified"
+            },
+            "One Space": {
+              "points": 130.049,
+              "type": "completed",
+              "percent": 100
+            },
+            "Sakupen Egg": {
+              "points": 126.798,
+              "type": "verified"
+            },
+            "VeritY": {
+              "points": 120.538,
+              "type": "verified"
+            },
+            "Celestia": {
+              "points": 117.524,
+              "type": "verified"
+            },
+            "A Pretty Easy Demon": {
+              "points": 114.586,
+              "type": "verified"
+            },
+            "B": {
+              "points": 111.721,
+              "type": "verified"
+            },
+            "Shapes And Beats": {
+              "points": 108.928,
+              "type": "verified"
+            },
+            "Deadlocked": {
+              "points": 106.205,
+              "type": "verified"
+            },
+            "Theory Of Everything 2": {
+              "points": 103.55,
+              "type": "verified"
+            },
+            "Swift Horizon": {
+              "points": 100.961,
+              "type": "verified"
+            },
+            "Printer Noises": {
+              "points": 98.437,
+              "type": "verified"
+            },
+            "Hell And Heaven": {
+              "points": 95.976,
+              "type": "verified"
+            },
+            "Hello Fitzgerald": {
+              "points": 93.577,
+              "type": "verified"
+            },
+            "Clubstep": {
+              "points": 91.237,
+              "type": "verified"
+            }
+          },
+          "tagBonuses": [
+            {
+              "name": "Videogame Pack",
+              "bonus": 70.185
+            },
+            {
+              "name": "Newgen Trilogy Pack",
+              "bonus": 72.129
+            },
+            {
+              "name": "Robtop Pack",
+              "bonus": 50.165
+            },
+            {
+              "name": "Nine Circles Pack",
+              "bonus": 75.692
+            }
+          ]
+        },
+        "Juliponcio": {
+          "total": 226.307,
+          "levelCount": 3,
+          "levels": {
+            "Double Dash": {
+              "points": 0,
+              "type": "progressed",
+              "percent": 67
+            },
+            "A Pretty Easy Demon": {
+              "points": 114.586,
+              "type": "completed",
+              "percent": 100
+            },
+            "B": {
+              "points": 111.721,
+              "type": "completed",
+              "percent": 100
+            }
+          },
+          "tagBonuses": []
+        },
+        "PapafritaVixtor": {
+          "total": 111.721,
+          "levelCount": 1,
+          "levels": {
+            "B": {
+              "points": 111.721,
+              "type": "completed",
+              "percent": 100
+            }
+          },
+          "tagBonuses": []
+        },
+        "alex77onlineeeYT": {
+          "total": 91.237,
+          "levelCount": 1,
+          "levels": {
+            "Clubstep": {
+              "points": 91.237,
+              "type": "completed",
+              "percent": 100
+            }
+          },
+          "tagBonuses": []
+        },
+        "Scalextrikx": {
+          "total": 0,
+          "levelCount": 1,
+          "levels": {
+            "Nine Circles": {
+              "points": 0,
+              "type": "progressed",
+              "percent": 52
+            }
+          },
+          "tagBonuses": []
+        },
+        "CorteVIII": {
+          "total": 0,
+          "levelCount": 1,
+          "levels": {
+            "Future Funk": {
+              "points": 0,
+              "type": "progressed",
+              "percent": 50
+            }
+          },
+          "tagBonuses": []
+        }
+      }
+    },
+    {
       "date": "2026-02-13",
       "players": {
         "Lolencio04": {
