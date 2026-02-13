@@ -1,6 +1,53 @@
 {
   "snapshots": [
     {
+      "date": "2025-10-26",
+      "players": {
+        "Lolencio04": {
+          "total": 356.477,
+          "levelCount": 2,
+          "levels": {
+            "Doradura": {
+              "points": 200,
+              "type": "verified"
+            },
+            "Acu": {
+              "points": 156.477,
+              "type": "completed",
+              "percent": 100
+            }
+          }
+        },
+        "Ninjedu": {
+          "total": 659.704,
+          "levelCount": 5,
+          "levels": {
+            "Doradura": {
+              "points": 2.614,
+              "type": "progressed",
+              "percent": 50
+            },
+            "Mizureta": {
+              "points": 175.003,
+              "type": "verified"
+            },
+            "Niwa": {
+              "points": 167.016,
+              "type": "verified"
+            },
+            "Troll Level": {
+              "points": 161.208,
+              "type": "verified"
+            },
+            "Acu": {
+              "points": 156.477,
+              "type": "verified"
+            }
+          }
+        }
+      }
+    },
+    {
       "date": "2025-10-27",
       "players": {
         "Lolencio04": {
@@ -160,51 +207,15 @@
               "percent": 100
             }
           }
-        }
-      }
-    },
-    {
-      "date": "2025-10-26",
-      "players": {
-        "Lolencio04": {
-          "total": 356.477,
-          "levelCount": 2,
+        },
+        "PapafritaVixtor": {
+          "total": 122.362,
+          "levelCount": 1,
           "levels": {
-            "Doradura": {
-              "points": 200,
-              "type": "verified"
-            },
-            "Acu": {
-              "points": 156.477,
+            "B": {
+              "points": 122.362,
               "type": "completed",
               "percent": 100
-            }
-          }
-        },
-        "Ninjedu": {
-          "total": 659.704,
-          "levelCount": 5,
-          "levels": {
-            "Doradura": {
-              "points": 2.614,
-              "type": "progressed",
-              "percent": 50
-            },
-            "Mizureta": {
-              "points": 175.003,
-              "type": "verified"
-            },
-            "Niwa": {
-              "points": 167.016,
-              "type": "verified"
-            },
-            "Troll Level": {
-              "points": 161.208,
-              "type": "verified"
-            },
-            "Acu": {
-              "points": 156.477,
-              "type": "verified"
             }
           }
         }
