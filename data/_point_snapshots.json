@@ -1,6 +1,216 @@
 {
   "snapshots": [
     {
+      "date": "2025-10-27",
+      "players": {
+        "Lolencio04": {
+          "total": 1457.233,
+          "levelCount": 11,
+          "levels": {
+            "Doradura": {
+              "points": 200,
+              "type": "verified"
+            },
+            "Acu": {
+              "points": 156.477,
+              "type": "completed",
+              "percent": 100
+            },
+            "Future Funk II": {
+              "points": 152.413,
+              "type": "verified"
+            },
+            "Double Dash": {
+              "points": 139.8,
+              "type": "verified"
+            },
+            "Multition (2P)": {
+              "points": 137.209,
+              "type": "verified"
+            },
+            "Nine Circles": {
+              "points": 43.562,
+              "type": "progressed",
+              "percent": 83
+            },
+            "Forsaken Neon": {
+              "points": 132.459,
+              "type": "completed",
+              "percent": 100
+            },
+            "Future Funk": {
+              "points": 128.163,
+              "type": "completed",
+              "percent": 100
+            },
+            "A Pretty Easy Demon": {
+              "points": 124.222,
+              "type": "completed",
+              "percent": 100
+            },
+            "B": {
+              "points": 122.362,
+              "type": "completed",
+              "percent": 100
+            },
+            "Deadlocked": {
+              "points": 120.566,
+              "type": "completed",
+              "percent": 100
+            }
+          }
+        },
+        "Ninjedu": {
+          "total": 2514.054,
+          "levelCount": 19,
+          "levels": {
+            "Doradura": {
+              "points": 2.614,
+              "type": "progressed",
+              "percent": 50
+            },
+            "Mizureta": {
+              "points": 175.003,
+              "type": "verified"
+            },
+            "Niwa": {
+              "points": 167.016,
+              "type": "verified"
+            },
+            "Troll Level": {
+              "points": 161.208,
+              "type": "verified"
+            },
+            "Acu": {
+              "points": 156.477,
+              "type": "verified"
+            },
+            "Game Time": {
+              "points": 148.813,
+              "type": "verified"
+            },
+            "Magma Bound": {
+              "points": 145.558,
+              "type": "verified"
+            },
+            "Stalemate": {
+              "points": 142.571,
+              "type": "verified"
+            },
+            "Double Dash": {
+              "points": 139.8,
+              "type": "completed",
+              "percent": 100
+            },
+            "Multition (2P)": {
+              "points": 137.209,
+              "type": "completed",
+              "percent": 100
+            },
+            "Nine Circles": {
+              "points": 134.769,
+              "type": "verified"
+            },
+            "Forsaken Neon": {
+              "points": 132.459,
+              "type": "verified"
+            },
+            "White Women": {
+              "points": 130.261,
+              "type": "verified"
+            },
+            "Future Funk": {
+              "points": 128.163,
+              "type": "verified"
+            },
+            "Megalovania": {
+              "points": 126.153,
+              "type": "verified"
+            },
+            "A Pretty Easy Demon": {
+              "points": 124.222,
+              "type": "verified"
+            },
+            "B": {
+              "points": 122.362,
+              "type": "verified"
+            },
+            "Deadlocked": {
+              "points": 120.566,
+              "type": "verified"
+            },
+            "Shapes And Beats": {
+              "points": 118.83,
+              "type": "verified"
+            }
+          }
+        },
+        "Juliponcio": {
+          "total": 246.584,
+          "levelCount": 2,
+          "levels": {
+            "A Pretty Easy Demon": {
+              "points": 124.222,
+              "type": "completed",
+              "percent": 100
+            },
+            "B": {
+              "points": 122.362,
+              "type": "completed",
+              "percent": 100
+            }
+          }
+        }
+      }
+    },
+    {
+      "date": "2025-10-26",
+      "players": {
+        "Lolencio04": {
+          "total": 356.477,
+          "levelCount": 2,
+          "levels": {
+            "Doradura": {
+              "points": 200,
+              "type": "verified"
+            },
+            "Acu": {
+              "points": 156.477,
+              "type": "completed",
+              "percent": 100
+            }
+          }
+        },
+        "Ninjedu": {
+          "total": 659.704,
+          "levelCount": 5,
+          "levels": {
+            "Doradura": {
+              "points": 2.614,
+              "type": "progressed",
+              "percent": 50
+            },
+            "Mizureta": {
+              "points": 175.003,
+              "type": "verified"
+            },
+            "Niwa": {
+              "points": 167.016,
+              "type": "verified"
+            },
+            "Troll Level": {
+              "points": 161.208,
+              "type": "verified"
+            },
+            "Acu": {
+              "points": 156.477,
+              "type": "verified"
+            }
+          }
+        }
+      }
+    },
+    {
       "date": "2026-02-13",
       "players": {
         "Lolencio04": {
