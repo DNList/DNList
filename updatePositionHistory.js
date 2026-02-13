@@ -7,8 +7,8 @@
 //  git commit -m "Update list positions"
 //  git push
 
-import fs from "fs";
-import path from "path";
+const fs = require("fs");
+const path = require("path");
 
 const DATA_DIR = "./data";
 const LIST_FILE = "_list.json";
@@ -47,7 +47,7 @@ newList.forEach((name, index) => {
   }
 
   const level = JSON.parse(fs.readFileSync(levelPath));
-  level.positionHistory ??= [];
+  level.positionHistory = level.positionHistory || [];
 
   // New level
   if (!(name in oldPositions)) {
