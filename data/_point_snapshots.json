@@ -1189,8 +1189,8 @@
       "date": "2025-12-13",
       "players": {
         "Ninjedu": {
-          "total": 4386.839,
-          "levelCount": 30,
+          "total": 4379.309,
+          "levelCount": 32,
           "levels": {
             "Doradura": {
               "points": 0,
@@ -1212,10 +1212,6 @@
             "Acu": {
               "points": 180.738,
               "type": "verified"
-            },
-            "Future Funk II": {
-              "points": 176.219,
-              "type": "completed"
             },
             "Game Time": {
               "points": 171.814,
@@ -1268,71 +1264,79 @@
               "type": "completed",
               "percent": 100
             },
-            "Sakupen Egg": {
+            "Arre Robot (2P)": {
               "points": 126.798,
               "type": "verified"
             },
-            "VeritY": {
-              "points": 120.538,
+            "Sakupen Egg": {
+              "points": 123.628,
               "type": "verified"
             },
-            "Celestia": {
+            "VeritY": {
               "points": 117.524,
               "type": "verified"
             },
-            "A Pretty Easy Demon": {
+            "Celestia": {
               "points": 114.586,
               "type": "verified"
             },
-            "B": {
+            "A Pretty Easy Demon": {
               "points": 111.721,
               "type": "verified"
             },
-            "Shapes And Beats": {
+            "Depressure": {
               "points": 108.928,
               "type": "verified"
             },
-            "Deadlocked": {
+            "B": {
               "points": 106.205,
               "type": "verified"
             },
-            "Theory Of Everything 2": {
+            "Shapes And Beats": {
               "points": 103.55,
               "type": "verified"
             },
-            "Swift Horizon": {
+            "Deadlocked": {
               "points": 100.961,
               "type": "verified"
             },
-            "Printer Noises": {
+            "Theory Of Everything 2": {
               "points": 98.437,
               "type": "verified"
             },
-            "Hell And Heaven": {
+            "Swift Horizon": {
               "points": 95.976,
               "type": "verified"
             },
-            "Hello Fitzgerald": {
+            "Printer Noises": {
               "points": 93.577,
               "type": "verified"
             },
-            "Clubstep": {
+            "Hell And Heaven": {
               "points": 91.237,
+              "type": "verified"
+            },
+            "Hello Fitzgerald": {
+              "points": 88.957,
+              "type": "verified"
+            },
+            "Clubstep": {
+              "points": 86.733,
               "type": "verified"
             }
           },
           "tagBonuses": [
             {
               "name": "Videogame Pack",
-              "bonus": 70.185
+              "bonus": 64.049
             },
             {
               "name": "Newgen Trilogy Pack",
-              "bonus": 72.129
+              "bonus": 71.209
             },
             {
               "name": "Robtop Pack",
-              "bonus": 50.165
+              "bonus": 47.688
             },
             {
               "name": "Nine Circles Pack",
