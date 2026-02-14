@@ -147,65 +147,45 @@ async function updatePlayerGraphs() {
     for (let rank = 0; rank < list.length; rank++) {
         const levelPath = path.join(__dirname, 'data', `${list[rank]}.json`);
         
-        console.log(`Reading [#${rank + 1}]: ${list[rank]}.json`); // ← DIAGNOSTIC LINE
-        
-        if (!fs.existsSync(levelPath)) {
-            console.warn(`  ⚠️  File not found: ${levelPath}`);
-            continue;
+        if (!fs.existsSync(levelPath)) continue;
+
+        const level = JSON.parse(fs.readFileSync(levelPath, 'utf-8'));
+        const levelName = level.name;
+
+        // Store level metadata for tag bonus calculation
+        allLevels.push({
+            name: levelName,
+            rank: rank + 1,
+            tags: level.tags || [],
+            percentToQualify: level.percentToQualify || 50
+        });
+
+        // Verificador
+        if (level.verifier) {
+            const verifier = level.verifier;
+            playerPoints[verifier] = playerPoints[verifier] || {};
+            playerPoints[verifier][levelName] = {
+                points: score(rank + 1, 100, level.percentToQualify || 50),
+                type: 'verified'
+            };
         }
 
-        try {
-            const fileContent = fs.readFileSync(levelPath, 'utf-8');
-            
-            // Check if file is empty
-            if (!fileContent || fileContent.trim() === '') {
-                console.error(`  ❌ File is empty: ${levelPath}`);
-                continue;
-            }
-            
-            const level = JSON.parse(fileContent);
-            const levelName = level.name;
-
-            // Store level metadata for tag bonus calculation
-            allLevels.push({
-                name: levelName,
-                rank: rank + 1,
-                tags: level.tags || [],
-                percentToQualify: level.percentToQualify || 50
-            });
-
-            // Verificador
-            if (level.verifier) {
-                const verifier = level.verifier;
-                playerPoints[verifier] = playerPoints[verifier] || {};
-                playerPoints[verifier][levelName] = {
-                    points: score(rank + 1, 100, level.percentToQualify || 50),
-                    type: 'verified'
+        // Records
+        if (level.records && Array.isArray(level.records)) {
+            level.records.forEach(record => {
+                const user = record.user;
+                playerPoints[user] = playerPoints[user] || {};
+                playerPoints[user][levelName] = {
+                    points: score(rank + 1, record.percent, level.percentToQualify || 50),
+                    type: record.percent === 100 ? 'completed' : 'progressed',
+                    percent: record.percent
                 };
-            }
-
-            // Records
-            if (level.records && Array.isArray(level.records)) {
-                level.records.forEach(record => {
-                    const user = record.user;
-                    playerPoints[user] = playerPoints[user] || {};
-                    playerPoints[user][levelName] = {
-                        points: score(rank + 1, record.percent, level.percentToQualify || 50),
-                        type: record.percent === 100 ? 'completed' : 'progressed',
-                        percent: record.percent
-                    };
-                });
-            }
-        } catch (error) {
-            console.error(`  ❌ Error parsing file: ${levelPath}`);
-            console.error(`     Error: ${error.message}`);
-            console.error(`     Skipping this level...\n`);
-            continue;
+            });
         }
     }
 
     // Load tags and calculate bonuses
-    console.log('\n🏷️  Calculating tag bonuses...\n');
+    console.log('🏷️  Calculating tag bonuses...\n');
     const tags = loadTags();
     const tagBonuses = calculateTagBonuses(playerPoints, allLevels, tags);
 
