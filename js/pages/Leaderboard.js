@@ -221,15 +221,27 @@ export default {
                 options: {
                     responsive: true,
                     plugins: {
-                        legend: { display: false }
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                title: function(context) {
+                                    const date = new Date(context[0].parsed.x);
+                                    return date.toLocaleDateString('en-US', { 
+                                        year: 'numeric', 
+                                        month: 'short', 
+                                        day: 'numeric' 
+                                    });
+                                }
+                            }
+                        }
                     },
                     scales: {
                         x: {
-                            type: 'time',  // ← Key change: use time scale
+                            type: 'time',
                             time: {
-                                unit: 'day',
+                                unit: 'month',  // ← Show months instead of days
                                 displayFormats: {
-                                    day: 'MMM d'
+                                    month: 'MMM yyyy'  // ← Format as "Jan 2026"
                                 }
                             },
                             title: {
@@ -241,6 +253,10 @@ export default {
                             beginAtZero: true,
                             ticks: {
                                 precision: 0
+                            },
+                            title: {
+                                display: true,
+                                text: 'Points'
                             }
                         }
                     }
