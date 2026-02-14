@@ -190,7 +190,6 @@ export default {
             const canvas = document.getElementById('pointsChart');
             if (!canvas) return;
             
-            // Don't show graph if player has 0 points or no data
             if (!this.entry || this.entry.total === 0 || this.pointsOverTime.length === 0) {
                 if (chart) {
                     chart.destroy();
@@ -201,13 +200,18 @@ export default {
 
             if (chart) chart.destroy();
 
+            // Convert dates to actual Date objects
+            const chartData = this.pointsOverTime.map(p => ({
+                x: new Date(p.date),
+                y: p.total
+            }));
+
             chart = new Chart(canvas, {
                 type: 'line',
                 data: {
-                    labels: this.pointsOverTime.map(p => p.date),
                     datasets: [
                         {
-                            data: this.pointsOverTime.map(p => p.total),
+                            data: chartData,
                             borderWidth: 2,
                             pointRadius: 3,
                             tension: 0.25
@@ -221,7 +225,17 @@ export default {
                     },
                     scales: {
                         x: {
-                            display: false
+                            type: 'time',  // ← Key change: use time scale
+                            time: {
+                                unit: 'day',
+                                displayFormats: {
+                                    day: 'MMM d'
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Date'
+                            }
                         },
                         y: {
                             beginAtZero: true,
