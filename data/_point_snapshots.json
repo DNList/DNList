@@ -346,7 +346,7 @@
               "name": "Robtop Pack",
               "bonus": 53.808
             }
-          ]          
+          ]
         },
         "Ninjedu": {
           "total": 3907.136,
@@ -490,7 +490,7 @@
               "name": "Nine Circles Pack",
               "bonus": 67.385
             }
-          ]  
+          ]
         },
         "Juliponcio": {
           "total": 229.441,
@@ -1189,7 +1189,7 @@
         }
       }
     },
-       {
+    {
       "date": "2025-12-13",
       "players": {
         "Ninjedu": {
@@ -2469,6 +2469,356 @@
           "levels": {
             "Clubstep": {
               "points": 92.895,
+              "type": "completed",
+              "percent": 100
+            }
+          }
+        }
+      }
+    },
+    {
+      "date": "2026-02-15",
+      "players": {
+        "Lolencio04": {
+          "total": 2139.95,
+          "levelCount": 17,
+          "levels": {
+            "Falling Up": {
+              "points": 200,
+              "type": "verified"
+            },
+            "Doradura": {
+              "points": 175.003,
+              "type": "verified"
+            },
+            "Acu": {
+              "points": 148.813,
+              "type": "completed",
+              "percent": 100
+            },
+            "Future Funk II": {
+              "points": 142.571,
+              "type": "verified"
+            },
+            "Double Dash": {
+              "points": 128.163,
+              "type": "verified"
+            },
+            "Future Funk": {
+              "points": 126.153,
+              "type": "completed",
+              "percent": 100
+            },
+            "Multition (2P)": {
+              "points": 124.222,
+              "type": "verified"
+            },
+            "Nine Circles": {
+              "points": 39.551,
+              "type": "progressed",
+              "percent": 83
+            },
+            "Forsaken Neon": {
+              "points": 118.83,
+              "type": "completed",
+              "percent": 100
+            },
+            "One Space": {
+              "points": 112.383,
+              "type": "verified"
+            },
+            "Arre Robot (2P)": {
+              "points": 110.879,
+              "type": "completed",
+              "percent": 100
+            },
+            "Celestia": {
+              "points": 109.412,
+              "type": "completed",
+              "percent": 100
+            },
+            "A Pretty Easy Demon": {
+              "points": 103.871,
+              "type": "completed",
+              "percent": 100
+            },
+            "B": {
+              "points": 101.272,
+              "type": "completed",
+              "percent": 100
+            },
+            "Deadlocked": {
+              "points": 98.772,
+              "type": "completed",
+              "percent": 100
+            },
+            "Theory Of Everything 2": {
+              "points": 97.556,
+              "type": "completed",
+              "percent": 100
+            },
+            "Clubstep": {
+              "points": 91.776,
+              "type": "completed",
+              "percent": 100
+            }
+          },
+          "tagBonuses": [
+            {
+              "name": "Newgen Trilogy Pack",
+              "bonus": 62.706
+            },
+            {
+              "name": "Robtop Pack",
+              "bonus": 48.017
+            }
+          ]
+        },
+        "Ninjedu": {
+          "total": 4790.297,
+          "levelCount": 39,
+          "levels": {
+            "Doradura": {
+              "points": 0,
+              "type": "progressed",
+              "percent": 50
+            },
+            "Mizureta": {
+              "points": 167.016,
+              "type": "verified"
+            },
+            "Niwa": {
+              "points": 161.208,
+              "type": "verified"
+            },
+            "Troll Level": {
+              "points": 156.477,
+              "type": "verified"
+            },
+            "Leyak": {
+              "points": 152.413,
+              "type": "verified"
+            },
+            "Acu": {
+              "points": 148.813,
+              "type": "verified"
+            },
+            "Acropolis": {
+              "points": 145.558,
+              "type": "verified"
+            },
+            "Future Funk II": {
+              "points": 142.571,
+              "type": "completed",
+              "percent": 100
+            },
+            "Future Funk III": {
+              "points": 139.8,
+              "type": "verified"
+            },
+            "Super Mario Wave": {
+              "points": 137.209,
+              "type": "verified"
+            },
+            "Game Time": {
+              "points": 134.769,
+              "type": "verified"
+            },
+            "Magma Bound": {
+              "points": 132.459,
+              "type": "verified"
+            },
+            "Stalemate": {
+              "points": 130.261,
+              "type": "verified"
+            },
+            "Double Dash": {
+              "points": 128.163,
+              "type": "completed",
+              "percent": 100
+            },
+            "Future Funk": {
+              "points": 126.153,
+              "type": "verified"
+            },
+            "Multition (2P)": {
+              "points": 124.222,
+              "type": "completed",
+              "percent": 100
+            },
+            "Nine Circles": {
+              "points": 122.362,
+              "type": "verified"
+            },
+            "BB Circles": {
+              "points": 120.566,
+              "type": "verified"
+            },
+            "Forsaken Neon": {
+              "points": 118.83,
+              "type": "verified"
+            },
+            "White Women": {
+              "points": 117.147,
+              "type": "verified"
+            },
+            "Megalovania": {
+              "points": 115.514,
+              "type": "verified"
+            },
+            "Ultra Violence": {
+              "points": 113.927,
+              "type": "verified"
+            },
+            "One Space": {
+              "points": 112.383,
+              "type": "completed",
+              "percent": 100
+            },
+            "Arre Robot (2P)": {
+              "points": 110.879,
+              "type": "verified"
+            },
+            "Celestia": {
+              "points": 109.412,
+              "type": "verified"
+            },
+            "FortnitePixelDash17": {
+              "points": 107.979,
+              "type": "verified"
+            },
+            "Sakupen Egg": {
+              "points": 106.58,
+              "type": "verified"
+            },
+            "VeritY": {
+              "points": 105.211,
+              "type": "verified"
+            },
+            "A Pretty Easy Demon": {
+              "points": 103.871,
+              "type": "verified"
+            },
+            "Depressure": {
+              "points": 102.558,
+              "type": "verified"
+            },
+            "B": {
+              "points": 101.272,
+              "type": "verified"
+            },
+            "Shapes And Beats": {
+              "points": 100.01,
+              "type": "verified"
+            },
+            "Deadlocked": {
+              "points": 98.772,
+              "type": "verified"
+            },
+            "Theory Of Everything 2": {
+              "points": 97.556,
+              "type": "verified"
+            },
+            "Swift Horizon": {
+              "points": 96.361,
+              "type": "verified"
+            },
+            "Printer Noises": {
+              "points": 95.186,
+              "type": "verified"
+            },
+            "Hell And Heaven": {
+              "points": 94.031,
+              "type": "verified"
+            },
+            "Hello Fitzgerald": {
+              "points": 92.895,
+              "type": "verified"
+            },
+            "Clubstep": {
+              "points": 91.776,
+              "type": "verified"
+            }
+          },
+          "tagBonuses": [
+            {
+              "name": "Videogame Pack",
+              "bonus": 56.223
+            },
+            {
+              "name": "Newgen Trilogy Pack",
+              "bonus": 62.706
+            },
+            {
+              "name": "Robtop Pack",
+              "bonus": 48.017
+            },
+            {
+              "name": "Nine Circles Pack",
+              "bonus": 61.181
+            }
+          ]
+        },
+        "Juliponcio": {
+          "total": 210.025,
+          "levelCount": 3,
+          "levels": {
+            "Double Dash": {
+              "points": 4.882,
+              "type": "progressed",
+              "percent": 67
+            },
+            "A Pretty Easy Demon": {
+              "points": 103.871,
+              "type": "completed",
+              "percent": 100
+            },
+            "B": {
+              "points": 101.272,
+              "type": "completed",
+              "percent": 100
+            }
+          }
+        },
+        "CorteVIII": {
+          "total": 0,
+          "levelCount": 1,
+          "levels": {
+            "Future Funk": {
+              "points": 0,
+              "type": "progressed",
+              "percent": 50
+            }
+          }
+        },
+        "Scalextrikx": {
+          "total": 0,
+          "levelCount": 1,
+          "levels": {
+            "Nine Circles": {
+              "points": 0,
+              "type": "progressed",
+              "percent": 52
+            }
+          }
+        },
+        "PapafritaVixtor": {
+          "total": 101.272,
+          "levelCount": 1,
+          "levels": {
+            "B": {
+              "points": 101.272,
+              "type": "completed",
+              "percent": 100
+            }
+          }
+        },
+        "alex77onlineeeYT": {
+          "total": 91.776,
+          "levelCount": 1,
+          "levels": {
+            "Clubstep": {
+              "points": 91.776,
               "type": "completed",
               "percent": 100
             }
