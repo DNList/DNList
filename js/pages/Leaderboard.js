@@ -20,7 +20,7 @@ export default {
             'Lolencio04': '#30ff30',
             'Ninjedu': '#4921db',
             'Juliponcio': '#FFCE56',
-            'PapafritaVixtor': '#4BC0C0',
+            'PapafritaVixtor': '#ffff00',
             'alex77onlineeeYT': '#9966FF',
             'Scalextrikx': '#ff0000',
             'CorteVIII': '#8B5CF6'
@@ -44,7 +44,7 @@ export default {
                         <tr v-if="hasHistoryData">
                             <td class="global-rank"><p class="type-label-lg">📊</p></td>
                             <td class="global-total"><p class="type-label-lg">GRAPH</p></td>
-                            <td class="global-user" :class="{ 'active': showingGlobalGraph }">
+                            <td class="user" :class="{ 'active': showingGlobalGraph }">
                                 <button @click="showGlobalGraph">
                                     <span class="type-label-lg">🌐 All Players Comparison</span>
                                 </button>
