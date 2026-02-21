@@ -18,11 +18,11 @@ export default {
         allLevels: [],
         playerColors: {
             'Lolencio04': '#FF6384',
-            'Ninjedu': '#36A2EB',
+            'Ninjedu': '#4921db',
             'Juliponcio': '#FFCE56',
             'PapafritaVixtor': '#4BC0C0',
             'alex77onlineeeYT': '#9966FF',
-            'Scalextrikx': '#FF9F40',
+            'Scalextrikx': '#ff0000',
             'CorteVIII': '#8B5CF6'
         }
     }),
@@ -42,7 +42,7 @@ export default {
                     <table class="board">
                         <!-- Global Graph Button (styled like a player row) -->
                         <tr v-if="hasHistoryData">
-                            <td class="rank"><p class="type-label-lg">📊</p></td>
+                            <td class="rank"><p class="type-label-lg">📊 Global Graph</p></td>
                             <td class="total"><p class="type-label-lg"></p></td>
                             <td class="user" :class="{ 'active': showingGlobalGraph }">
                                 <button @click="showGlobalGraph">
