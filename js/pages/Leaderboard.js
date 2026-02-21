@@ -44,7 +44,7 @@ export default {
                         <tr v-if="hasHistoryData">
                             <td class="global-rank"><p class="type-label-lg">📊</p></td>
                             <td class="global-total"><p class="type-label-lg">GRAPH</p></td>
-                            <td class="user" :class="{ 'active': showingGlobalGraph }">
+                            <td class="global-user" :class="{ 'active': showingGlobalGraph }">
                                 <button @click="showGlobalGraph">
                                     <span class="type-label-lg">🌐 All Players Comparison</span>
                                 </button>
