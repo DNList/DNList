@@ -17,7 +17,7 @@ export default {
         err: [],
         allLevels: [],
         playerColors: {
-            'Lolencio04': '#FF6384',
+            'Lolencio04': '#30ff30',
             'Ninjedu': '#4921db',
             'Juliponcio': '#FFCE56',
             'PapafritaVixtor': '#4BC0C0',
@@ -42,8 +42,8 @@ export default {
                     <table class="board">
                         <!-- Global Graph Button (styled like a player row) -->
                         <tr v-if="hasHistoryData">
-                            <td class="rank"><p class="type-label-lg">📊</p></td>
-                            <td class="total"><p class="type-label-lg">Global Graph</p></td>
+                            <td class="global-rank"><p class="type-label-lg">📊</p></td>
+                            <td class="global-total"><p class="type-label-lg">GRAPH</p></td>
                             <td class="user" :class="{ 'active': showingGlobalGraph }">
                                 <button @click="showGlobalGraph">
                                     <span class="type-label-lg">🌐 All Players Comparison</span>
