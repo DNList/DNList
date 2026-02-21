@@ -5,7 +5,7 @@ import tags from "../components/List/Tags.js";
 import { score } from '../score.js';
 
 let chart = null;
-let globalChart = null; // Add this for the multi-player chart
+let globalChart = null;
 
 export default {
     components: { Spinner },
@@ -15,7 +15,7 @@ export default {
         selected: 0,
         err: [],
         allLevels: [],
-        // Define player colors here
+        showGlobalGraph: false, // Add this to toggle global graph
         playerColors: {
             'Lolencio04': '#FF6384',
             'Ninjedu': '#36A2EB',
@@ -38,8 +38,15 @@ export default {
                     </p>
                 </div>
 
-                <!-- NEW: Global Comparison Graph -->
-                <div class="global-graph-container" v-if="hasHistoryData">
+                <!-- Global Graph Toggle Button -->
+                <div class="global-graph-toggle" v-if="hasHistoryData">
+                    <button @click="toggleGlobalGraph" class="toggle-button">
+                        {{ showGlobalGraph ? 'Hide' : 'Show' }} All Players Comparison
+                    </button>
+                </div>
+
+                <!-- Global Comparison Graph (collapsible) -->
+                <div class="global-graph-container" v-if="showGlobalGraph && hasHistoryData">
                     <h2>Player Points Over Time</h2>
                     <canvas id="globalPointsChart"></canvas>
                 </div>
@@ -178,6 +185,12 @@ export default {
     watch: {
         selected() {
             this.$nextTick(this.renderChart);
+        },
+        
+        showGlobalGraph(newVal) {
+            if (newVal) {
+                this.$nextTick(this.renderGlobalChart);
+            }
         }
     },
 
@@ -204,17 +217,18 @@ export default {
         }
 
         this.loading = false;
-        this.$nextTick(() => {
-            this.renderChart();
-            this.renderGlobalChart();
-        });
+        this.$nextTick(this.renderChart);
     },
 
     methods: {
         localize,
 
         getPlayerColor(playerName) {
-            return this.playerColors[playerName] || '#999999'; // Default gray if not found
+            return this.playerColors[playerName] || '#999999';
+        },
+
+        toggleGlobalGraph() {
+            this.showGlobalGraph = !this.showGlobalGraph;
         },
 
         renderChart() {
@@ -390,7 +404,6 @@ export default {
         },
 
         applyTagBonuses() {
-            console.log("Applying tag bonuses...");
             this.leaderboard.forEach(entry => {
                 const completedLevels = new Set([
                     ...entry.completed.map(l => l.level),
@@ -419,15 +432,12 @@ export default {
                     }, 0);
 
                     const averageLevelScore = totalLevelScore / (levelsWithTag.length * 2);
-
                     const bonus = Math.round(averageLevelScore * 1000) / 1000;
-
                     const completedAll = levelsWithTag.every(l => completedLevels.has(l.level));
 
                     if (completedAll && bonus > 0) {
                         entry.tagBonuses.push({ name: tag.name, bonus });
                         totalBonus += bonus;
-                        console.log(`✅ Player ${entry.user} earned ${bonus} bonus points for "${tag.name}"`);
                     }
                 });
 
