@@ -6,6 +6,8 @@ export default {
         {
           date: "13-02-2026",
           message: `
+            • Release of the DNList v1.4.4.<br>
+            • A historically accurate graph now shows on every player's profile, showing their points through time.<br>
             • BB Circles has been placed at #19, between Nine Circles and Forsaken Neon.<br>
           `,
           featured: true,
