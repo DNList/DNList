@@ -13,9 +13,9 @@ export default {
         leaderboard: [],
         loading: true,
         selected: 0,
+        showingGlobalGraph: false, // Track if we're showing global graph instead of a player
         err: [],
         allLevels: [],
-        showGlobalGraph: false, // Add this to toggle global graph
         playerColors: {
             'Lolencio04': '#FF6384',
             'Ninjedu': '#36A2EB',
@@ -38,45 +38,52 @@ export default {
                     </p>
                 </div>
 
-                <!-- Global Graph Toggle Button -->
-                <div class="global-graph-toggle" v-if="hasHistoryData">
-                    <button @click="toggleGlobalGraph" class="toggle-button">
-                        {{ showGlobalGraph ? 'Hide' : 'Show' }} All Players Comparison
-                    </button>
-                </div>
-
-                <!-- Global Comparison Graph (collapsible) -->
-                <div class="global-graph-container" v-if="showGlobalGraph && hasHistoryData">
-                    <h2>Player Points Over Time</h2>
-                    <canvas id="globalPointsChart"></canvas>
-                </div>
-
                 <div class="board-container">
                     <table class="board">
-                        <tr v-for="(ientry, i) in leaderboard">
+                        <!-- Global Graph Button (styled like a player row) -->
+                        <tr v-if="hasHistoryData">
+                            <td class="rank"><p class="type-label-lg">📊</p></td>
+                            <td class="total"><p class="type-label-lg"></p></td>
+                            <td class="user" :class="{ 'active': showingGlobalGraph }">
+                                <button @click="showGlobalGraph">
+                                    <span class="type-label-lg">🌐 All Players Comparison</span>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Player Rows -->
+                        <tr v-for="(ientry, i) in leaderboard" :key="ientry.user">
                             <td class="rank"><p class="type-label-lg">#{{ i + 1 }}</p></td>
                             <td class="total"><p class="type-label-lg">{{ localize(ientry.total) }}</p></td>
-                            <td class="user" :class="{ 'active': selected == i }">
-                                <button @click="selected = i">
-                                    <span class="player-color-dot" :style="{ backgroundColor: getPlayerColor(ientry.user) }"></span>
+                            <td class="user" :class="{ 'active': selected == i && !showingGlobalGraph }">
+                                <button @click="selectPlayer(i)">
                                     <span class="type-label-lg">{{ ientry.user }}</span>
                                 </button>
                             </td>
                         </tr>
                     </table>
                 </div>
+
+                <!-- Right side: Either player stats OR global graph -->
                 <div class="player-container">
-                    <div class="player">
-                        <h1>
-                            <span class="player-color-dot" :style="{ backgroundColor: getPlayerColor(entry.user) }"></span>
-                            #{{ selected + 1 }} {{ entry.user }}
-                        </h1>
+                    <!-- Global Graph View -->
+                    <div class="player" v-if="showingGlobalGraph">
+                        <h1>🌐 All Players Comparison</h1>
+                        <div class="global-graph-container">
+                            <canvas id="globalPointsChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Individual Player View -->
+                    <div class="player" v-else>
+                        <h1>#{{ selected + 1 }} {{ entry.user }}</h1>
                         <h3>{{ entry.total }}</h3>
 
                         <div class="graph-container" v-if="entry.total > 0 && pointsOverTime.length > 0">
                             <canvas id="pointsChart"></canvas>
                         </div>
 
+                        <!-- Rest of player stats tables... -->
                         <h2 v-if="entry.verified.length > 0">Verified ({{ entry.verified.length }})</h2>
                         <table class="table">
                             <tr v-for="score in entry.verified">
@@ -183,13 +190,17 @@ export default {
     },
 
     watch: {
-        selected() {
-            this.$nextTick(this.renderChart);
-        },
-        
-        showGlobalGraph(newVal) {
+        showingGlobalGraph(newVal) {
             if (newVal) {
                 this.$nextTick(this.renderGlobalChart);
+            } else {
+                this.$nextTick(this.renderChart);
+            }
+        },
+
+        selected() {
+            if (!this.showingGlobalGraph) {
+                this.$nextTick(this.renderChart);
             }
         }
     },
@@ -227,8 +238,13 @@ export default {
             return this.playerColors[playerName] || '#999999';
         },
 
-        toggleGlobalGraph() {
-            this.showGlobalGraph = !this.showGlobalGraph;
+        selectPlayer(index) {
+            this.selected = index;
+            this.showingGlobalGraph = false;
+        },
+
+        showGlobalGraph() {
+            this.showingGlobalGraph = true;
         },
 
         renderChart() {
