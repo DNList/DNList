@@ -5,6 +5,7 @@ import tags from "../components/List/Tags.js";
 import { score } from '../score.js';
 
 let chart = null;
+let globalChart = null; // Add this for the multi-player chart
 
 export default {
     components: { Spinner },
@@ -14,6 +15,16 @@ export default {
         selected: 0,
         err: [],
         allLevels: [],
+        // Define player colors here
+        playerColors: {
+            'Lolencio04': '#FF6384',
+            'Ninjedu': '#36A2EB',
+            'Juliponcio': '#FFCE56',
+            'PapafritaVixtor': '#4BC0C0',
+            'alex77onlineeeYT': '#9966FF',
+            'Scalextrikx': '#FF9F40',
+            'CorteVIII': '#8B5CF6'
+        }
     }),
     template: `
         <main v-if="loading">
@@ -26,26 +37,38 @@ export default {
                         Leaderboard may be incorrect, as the following levels could not be loaded: {{ err.join(', ') }}
                     </p>
                 </div>
+
+                <!-- NEW: Global Comparison Graph -->
+                <div class="global-graph-container" v-if="hasHistoryData">
+                    <h2>Player Points Over Time</h2>
+                    <canvas id="globalPointsChart"></canvas>
+                </div>
+
                 <div class="board-container">
                     <table class="board">
                         <tr v-for="(ientry, i) in leaderboard">
                             <td class="rank"><p class="type-label-lg">#{{ i + 1 }}</p></td>
                             <td class="total"><p class="type-label-lg">{{ localize(ientry.total) }}</p></td>
                             <td class="user" :class="{ 'active': selected == i }">
-                                <button @click="selected = i"><span class="type-label-lg">{{ ientry.user }}</span></button>
+                                <button @click="selected = i">
+                                    <span class="player-color-dot" :style="{ backgroundColor: getPlayerColor(ientry.user) }"></span>
+                                    <span class="type-label-lg">{{ ientry.user }}</span>
+                                </button>
                             </td>
                         </tr>
                     </table>
                 </div>
                 <div class="player-container">
                     <div class="player">
-                        <h1>#{{ selected + 1 }} {{ entry.user }}</h1>
+                        <h1>
+                            <span class="player-color-dot" :style="{ backgroundColor: getPlayerColor(entry.user) }"></span>
+                            #{{ selected + 1 }} {{ entry.user }}
+                        </h1>
                         <h3>{{ entry.total }}</h3>
 
                         <div class="graph-container" v-if="entry.total > 0 && pointsOverTime.length > 0">
                             <canvas id="pointsChart"></canvas>
                         </div>
-
 
                         <h2 v-if="entry.verified.length > 0">Verified ({{ entry.verified.length }})</h2>
                         <table class="table">
@@ -103,12 +126,10 @@ export default {
         pointsOverTime() {
             if (!this.entry) return [];
 
-            // Si existe historial guardado de snapshots, úsalo (muestra cambios reales)
             if (this.entry.history && this.entry.history.length > 0) {
                 return this.entry.history;
             }
 
-            // Fallback: calcular con logros individuales (para antes del primer snapshot)
             const events = [
                 ...this.entry.verified,
                 ...this.entry.completed,
@@ -124,8 +145,6 @@ export default {
                 groupedByDate[e.date] = cumulativeTotal;
             });
 
-            // Add tag bonuses to the final point in fallback calculation
-            // (This is a simplification - assumes all bonuses were earned at the last date)
             const dates = Object.keys(groupedByDate).sort((a, b) => new Date(a) - new Date(b));
             if (dates.length > 0 && this.entry.tagBonuses && this.entry.tagBonuses.length > 0) {
                 const lastDate = dates[dates.length - 1];
@@ -137,6 +156,12 @@ export default {
                 date,
                 total
             }));
+        },
+
+        hasHistoryData() {
+            return this.leaderboard.some(player => 
+                player.history && player.history.length > 0
+            );
         },
 
         noProgress() {
@@ -159,7 +184,6 @@ export default {
     async mounted() {
         const [leaderboard, err, allLevels] = await fetchLeaderboard();
         
-        // Cargar historial de snapshots para cada jugador
         for (const entry of leaderboard) {
             entry.history = await fetchPlayerHistory(entry.user);
         }
@@ -180,11 +204,18 @@ export default {
         }
 
         this.loading = false;
-        this.$nextTick(this.renderChart);
+        this.$nextTick(() => {
+            this.renderChart();
+            this.renderGlobalChart();
+        });
     },
 
     methods: {
         localize,
+
+        getPlayerColor(playerName) {
+            return this.playerColors[playerName] || '#999999'; // Default gray if not found
+        },
 
         renderChart() {
             const canvas = document.getElementById('pointsChart');
@@ -200,11 +231,12 @@ export default {
 
             if (chart) chart.destroy();
 
-            // Convert dates to actual Date objects
             const chartData = this.pointsOverTime.map(p => ({
                 x: new Date(p.date),
                 y: p.total
             }));
+
+            const playerColor = this.getPlayerColor(this.entry.user);
 
             chart = new Chart(canvas, {
                 type: 'line',
@@ -212,6 +244,8 @@ export default {
                     datasets: [
                         {
                             data: chartData,
+                            borderColor: playerColor,
+                            backgroundColor: playerColor + '20',
                             borderWidth: 2,
                             pointRadius: 3,
                             tension: 0.25
@@ -239,9 +273,100 @@ export default {
                         x: {
                             type: 'time',
                             time: {
-                                unit: 'month',  // ← Show months instead of days
+                                unit: 'month',
                                 displayFormats: {
-                                    month: 'MMM yyyy'  // ← Format as "Jan 2026"
+                                    month: 'MMM yyyy'
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Date'
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0
+                            },
+                            title: {
+                                display: true,
+                                text: 'Points'
+                            }
+                        }
+                    }
+                }
+            });
+        },
+
+        renderGlobalChart() {
+            const canvas = document.getElementById('globalPointsChart');
+            if (!canvas || !this.hasHistoryData) return;
+
+            if (globalChart) {
+                globalChart.destroy();
+            }
+
+            const datasets = this.leaderboard
+                .filter(player => player.history && player.history.length > 0)
+                .map(player => {
+                    const playerColor = this.getPlayerColor(player.user);
+                    return {
+                        label: player.user,
+                        data: player.history.map(h => ({
+                            x: new Date(h.date),
+                            y: h.total
+                        })),
+                        borderColor: playerColor,
+                        backgroundColor: playerColor + '20',
+                        borderWidth: 2,
+                        pointRadius: 3,
+                        tension: 0.25,
+                        fill: false
+                    };
+                });
+
+            globalChart = new Chart(canvas, {
+                type: 'line',
+                data: { datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 15
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(context) {
+                                    const date = new Date(context[0].parsed.x);
+                                    return date.toLocaleDateString('en-US', { 
+                                        year: 'numeric', 
+                                        month: 'short', 
+                                        day: 'numeric' 
+                                    });
+                                },
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.parsed.y.toFixed(3)} pts`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: 'month',
+                                displayFormats: {
+                                    month: 'MMM yyyy'
                                 }
                             },
                             title: {
