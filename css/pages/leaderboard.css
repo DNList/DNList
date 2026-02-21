@@ -51,8 +51,6 @@
     background-color: var(--color-background-hover);
     color: var(--color-on-background-hover);
     padding-block: 1rem;
-    border: none;
-    border-radius: 0.5rem;
     text-align: end;
 }
 .page-leaderboard .board .global-total {
@@ -60,16 +58,12 @@
     background-color: var(--color-background-hover);
     color: var(--color-on-background-hover);
     padding: 1rem;
-    border: none;
-    border-radius: 0.5rem;
     text-align: end;
 }
 .page-leaderboard .board .global-user {
     font-weight: bold;
     background-color: var(--color-background-hover);
     color: var(--color-on-background-hover);
-    border: none;
-    border-radius: 0.5rem;
     width: 100%;
 }
 .page-leaderboard .board .user button {
