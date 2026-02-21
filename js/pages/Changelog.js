@@ -4,6 +4,14 @@ export default {
     return {
       changelog: [
         {
+          date: "21-02-2026",
+          message: `
+            • Release of the DNList v1.4.5.<br>
+            • There is now an interectable global graph in which you can compare specific player's point evolution through time by clicking on their name above the graph.<br>
+          `,
+          featured: true,
+        },
+        {
           date: "13-02-2026",
           message: `
             • Release of the DNList v1.4.4.<br>
