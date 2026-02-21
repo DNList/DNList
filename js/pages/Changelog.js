@@ -4,11 +4,27 @@ export default {
     return {
       changelog: [
         {
+          date: "13-02-2026",
+          message: `
+            • BB Circles has been placed at #19, between Nine Circles and Forsaken Neon.<br>
+          `,
+          featured: true,
+        },
+        {
           date: "9-02-2026",
           message: `
             • Leyak has been placed at #6, between Troll Level and Acu.<br>
-            • Super Mario Wave has been placed at #9(#10), between Future Funk II and Super Mario Wave.<br>
-            • Super Mario Wave has been placed at #9(#11), between Future Funk II and Game Time.<br>
+            • Future Funk III has been placed at #10, between Future Funk II and Super Mario Wave.<br>
+            • Super Mario Wave has been placed at #11, between Future Funk III and Game Time.<br>
+          `,
+          featured: true,
+        },
+        {
+          date: "9-02-2026",
+          message: `
+            • Leyak has been placed at #6, between Troll Level and Acu.<br>
+            • Future Funk III has been placed at #10, between Future Funk II and Super Mario Wave.<br>
+            • Super Mario Wave has been placed at #11, between Future Funk III and Game Time.<br>
           `,
           featured: true,
         },
