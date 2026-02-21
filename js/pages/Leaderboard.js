@@ -13,7 +13,7 @@ export default {
         leaderboard: [],
         loading: true,
         selected: 0,
-        showingGlobalGraph: false, // Track if we're showing global graph instead of a player
+        showingGlobalGraph: true,
         err: [],
         allLevels: [],
         playerColors: {
@@ -228,7 +228,14 @@ export default {
         }
 
         this.loading = false;
-        this.$nextTick(this.renderChart);
+
+        this.$nextTick(() => {
+            if (this.showingGlobalGraph) {
+                this.renderGlobalChart();
+            } else {
+                this.renderChart();
+            }
+        });
     },
 
     methods: {
