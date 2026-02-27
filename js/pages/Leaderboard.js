@@ -20,10 +20,10 @@ export default {
             'Lolencio04': '#30ff30',
             'Ninjedu': '#4921db',
             'Juliponcio': '#FFCE56',
-            'PapafritaVixtor': '#ffff00',
-            'alex77onlineeeYT': '#9966FF',
+            'PapafritaVixtor': '#00ccff',
+            'alex77onlineeeYT': '#000000',
             'Scalextrikx': '#ff0000',
-            'CorteVIII': '#8B5CF6'
+            'CorteVIII': '#ff00f2'
         }
     }),
     template: `
