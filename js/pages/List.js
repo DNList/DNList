@@ -69,6 +69,17 @@ export default {
                         </button>
                     </div>
 
+                    <div class="skills" v-if="level.skills && level.skills.length">
+                        <div
+                            v-for="skill in level.skills"
+                            :key="skill.name"
+                            class="skill"
+                        >
+                            <span class="skill-name">{{ skill.name }}</span>
+                            <span class="skill-value">{{ skill.value }}</span>
+                        </div>
+                    </div>
+
                     <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
 
                     <ul class="stats">

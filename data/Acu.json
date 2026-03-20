@@ -10,6 +10,11 @@
         "99%",
         "newgen_trilogy"
     ],
+    "skills": [
+    { "name": "wave", "value": 80 },
+    { "name": "ship", "value": 70 },
+    { "name": "consistency", "value": 76 }
+    ],
     "verification": "https://youtu.be/qTE6hE1a_vU?si=MkXTKLEqkJmcKid1",
     "percentToQualify": "60",
     "positionHistory": [
