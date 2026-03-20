@@ -69,6 +69,8 @@ export default {
                         </button>
                     </div>
 
+                    <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
+
                     <div class="skills" v-if="level.skills && level.skills.length">
                         <div
                             v-for="skill in level.skills"
@@ -79,8 +81,6 @@ export default {
                             <span class="skill-value">{{ skill.value }}</span>
                         </div>
                     </div>
-
-                    <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
 
                     <ul class="stats">
                         <li>

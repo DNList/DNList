@@ -183,13 +183,6 @@ main.dark .page-list .level-container .tag {
     filter: brightness(1.2);
 }
 
-/* ===== SKILLS ===== */
-.page-list .level-container .skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
 .page-list .level-container .skill {
     display: flex;
     align-items: center;
@@ -198,8 +191,8 @@ main.dark .page-list .level-container .tag {
     padding: 0.4rem 0.75rem;
     border-radius: 0.5rem;
 
-    background-color: rgba(128, 128, 128, 0.15); /* soft gray */
-    backdrop-filter: blur(2px); /* optional subtle glass feel */
+    background-color: rgba(0, 0, 0, 0.6); /* darker */
+    color: white; /* text color */
 
     font-size: 0.95rem;
     font-weight: 500;
@@ -209,16 +202,17 @@ main.dark .page-list .level-container .tag {
 
 .page-list .level-container .skill:hover {
     transform: translateY(-1px);
-    background-color: rgba(128, 128, 128, 0.25);
+    background-color: rgba(0, 0, 0, 0.8); /* even darker on hover */
 }
 
 .page-list .level-container .skill-name {
-    opacity: 0.8;
+    opacity: 0.85;
     text-transform: capitalize;
 }
 
 .page-list .level-container .skill-value {
     font-weight: 700;
+    color: white; /* ensure it's bright */
 }
 
 .page-list .level-container .position-history {
