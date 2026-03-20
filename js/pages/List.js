@@ -69,6 +69,8 @@ export default {
                         </button>
                     </div>
 
+                    <hr class="section-separator" />
+
                     <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
 
                     <div class="skills" v-if="level.skills && level.skills.length">
