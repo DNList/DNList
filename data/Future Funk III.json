@@ -10,6 +10,11 @@
         "worst_level_ever",
         "99%"
     ],
+    "skills": [
+    { "name": "BULLSHIT", "value": 100 },
+    { "name": "fast-paced", "value": 100 },
+    { "name": "wave", "value": 70 }
+    ],
     "verification": "https://youtu.be/JCv9S-2kVyc",
     "percentToQualify": "64",
     "positionHistory": [
