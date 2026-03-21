@@ -83,6 +83,22 @@ export default {
                             <canvas id="pointsChart"></canvas>
                         </div>
 
+                        <h2 v-if="getPlayerSkillsArray(entry).length > 0">Best Skills</h2>
+
+                        <div
+                            class="skills"
+                            v-if="getPlayerSkillsArray(entry).length > 0"
+                        >
+                            <div
+                                v-for="skill in getPlayerSkillsArray(entry)"
+                                :key="skill.name"
+                                class="skill"
+                            >
+                                <span class="skill-name">{{ skill.name }}</span>
+                                <span class="skill-value">{{ skill.value }}</span>
+                            </div>
+                        </div>
+
                         <!-- Rest of player stats tables... -->
                         <h2 v-if="entry.verified.length > 0">Verified ({{ entry.verified.length }})</h2>
                         <table class="table">
@@ -467,6 +483,41 @@ export default {
                 entry.total += totalBonus;
                 entry.total = Math.round(entry.total * 1000) / 1000;
             });
-        }
+        },
+        getPlayerSkills(entry) {
+            const skillMap = {};
+
+            const completedLevelNames = new Set([
+                ...entry.completed.map(l => l.level.toLowerCase()),
+                ...entry.verified.map(l => l.level.toLowerCase()),
+            ]);
+
+            const levels = this.allLevels.filter(l =>
+                completedLevelNames.has(l.level.toLowerCase())
+            );
+
+            levels.forEach(level => {
+                if (!level.skills) return;
+
+                level.skills.forEach(skill => {
+                    const { name, value } = skill;
+
+                    if (!skillMap[name] || value > skillMap[name]) {
+                        skillMap[name] = value;
+                    }
+                });
+            });
+
+            return skillMap;
+        },
+
+        getPlayerSkillsArray(entry) {
+            const skillMap = this.getPlayerSkills(entry);
+
+            return Object.entries(skillMap).map(([name, value]) => ({
+                name,
+                value
+            }));
+        },
     },
 };
