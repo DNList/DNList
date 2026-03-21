@@ -522,5 +522,3 @@ export default {
         },
     },
 };
-
-console.log(levels);
