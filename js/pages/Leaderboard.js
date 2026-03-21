@@ -489,19 +489,26 @@ export default {
             const skillMap = {};
 
             const completedLevelNames = new Set([
-                ...entry.completed.map(l => l.level.toLowerCase()),
-                ...entry.verified.map(l => l.level.toLowerCase()),
+                ...entry.completed
+                    .map(l => l.level?.toLowerCase())
+                    .filter(Boolean),
+
+                ...entry.verified
+                    .map(l => l.level?.toLowerCase())
+                    .filter(Boolean),
             ]);
 
             const levels = this.allLevels.filter(l =>
-                completedLevelNames.has(l.name.toLowerCase())
+                l.name && completedLevelNames.has(l.name.toLowerCase())
             );
 
             levels.forEach(level => {
-                if (!level.skills) return;
+                if (!Array.isArray(level.skills)) return;
 
                 level.skills.forEach(skill => {
                     const { name, value } = skill;
+
+                    if (!name || value == null) return;
 
                     if (!skillMap[name] || value > skillMap[name]) {
                         skillMap[name] = value;
@@ -515,10 +522,9 @@ export default {
         getPlayerSkillsArray(entry) {
             const skillMap = this.getPlayerSkills(entry);
 
-            return Object.entries(skillMap).map(([name, value]) => ({
-                name,
-                value
-            }));
+            return Object.entries(skillMap)
+                .map(([name, value]) => ({ name, value }))
+                .sort((a, b) => b.value - a.value); // optional: highest first
         },
     },
 };
