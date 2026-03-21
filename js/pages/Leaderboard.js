@@ -484,6 +484,7 @@ export default {
                 entry.total = Math.round(entry.total * 1000) / 1000;
             });
         },
+
         getPlayerSkills(entry) {
             const skillMap = {};
 
@@ -493,7 +494,7 @@ export default {
             ]);
 
             const levels = this.allLevels.filter(l =>
-                completedLevelNames.has(l.level.toLowerCase())
+                completedLevelNames.has(l.name.toLowerCase())
             );
 
             levels.forEach(level => {
@@ -521,3 +522,5 @@ export default {
         },
     },
 };
+
+console.log(levels);
