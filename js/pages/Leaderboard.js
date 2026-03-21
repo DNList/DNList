@@ -247,6 +247,8 @@ export default {
         console.log('allLevels sample:', this.allLevels[0]);
         console.log('entry sample:', this.leaderboard[0]);
         console.log('skills result:', this.getPlayerSkillsArray(this.leaderboard[0]));
+        console.log('allLevels sample:', JSON.parse(JSON.stringify(this.allLevels[0])));
+        console.log('entry sample:', JSON.parse(JSON.stringify(this.leaderboard[0])));
 
         this.$nextTick(() => {
             if (this.showingGlobalGraph) {
