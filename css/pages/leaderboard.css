@@ -113,14 +113,14 @@
     max-height: 500px !important;
 }
 
-/* ===== SKILLS ===== */
-.page-list .level-container .skills {
+/* ===== SKILLS (LEADERBOARD) ===== */
+.page-leaderboard .skills {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
 }
 
-.page-list .level-container .skill {
+.page-leaderboard .skill {
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -128,8 +128,8 @@
     padding: 0.6rem 1rem;
     border-radius: 0.5rem;
 
-    background-color: rgba(128, 128, 128, 0.15); /* soft gray */
-    backdrop-filter: blur(2px); /* optional subtle glass feel */
+    background-color: rgba(128, 128, 128, 0.15);
+    backdrop-filter: blur(2px);
 
     font-size: 1.2rem;
     font-weight: 500;
@@ -137,16 +137,16 @@
     transition: transform 0.1s ease, background-color 0.15s ease;
 }
 
-.page-list .level-container .skill:hover {
+.page-leaderboard .skill:hover {
     transform: translateY(-1px);
     background-color: rgba(100, 100, 100, 0.5);
 }
 
-.page-list .level-container .skill-name {
+.page-leaderboard .skill-name {
     opacity: 0.8;
     text-transform: capitalize;
 }
 
-.page-list .level-container .skill-value {
+.page-leaderboard .skill-value {
     font-weight: 700;
 }
