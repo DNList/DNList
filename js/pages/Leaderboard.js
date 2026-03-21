@@ -83,7 +83,7 @@ export default {
                             <canvas id="pointsChart"></canvas>
                         </div>
 
-                        <h2 v-if="getPlayerSkillsArray(entry).length > 0">Best Skills</h2>
+                        <h2 v-if="getPlayerSkillsArray(entry).length > 0">Skills</h2>
 
                         <div
                             class="skills"
