@@ -173,6 +173,7 @@ export async function fetchLeaderboard() {
             link: level.verification || '#',
             tags: level.tags || [],
             score: 0,
+            skills: level.skills || [],
         }));
 
     return [res.sort((a, b) => b.total - a.total), errs, allLevels];
