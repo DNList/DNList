@@ -244,6 +244,9 @@ export default {
         }
 
         this.loading = false;
+        console.log('allLevels sample:', this.allLevels[0]);
+        console.log('entry sample:', this.leaderboard[0]);
+        console.log('skills result:', this.getPlayerSkillsArray(this.leaderboard[0]));
 
         this.$nextTick(() => {
             if (this.showingGlobalGraph) {
@@ -499,7 +502,7 @@ export default {
             ]);
 
             const levels = this.allLevels.filter(l =>
-                l.name && completedLevelNames.has(l.name.toLowerCase())
+                l.level && completedLevelNames.has(l.level.toLowerCase())
             );
 
             levels.forEach(level => {
