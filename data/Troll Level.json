@@ -10,9 +10,18 @@
         "memory"
     ],
     "skills": [
-    { "name": "memory", "value": 80 },
-    { "name": "timings", "value": 65 },
-    { "name": "fast-paced", "value": 65 }
+        {
+            "name": "memory",
+            "value": 80
+        },
+        {
+            "name": "timings",
+            "value": 65
+        },
+        {
+            "name": "fast-paced",
+            "value": 65
+        }
     ],
     "verification": "https://youtu.be/0sSD7z73mCU?si=GPmZOugYmr6H-kSp",
     "percentToQualify": "59",
